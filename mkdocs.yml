@@ -1,0 +1,101 @@
+site_name: JavaScript Mastery Path
+site_description: A structured, module-wise JavaScript training program from entry level to master level.
+site_url: https://sigilipelli.github.io/javascript-mastery-path/
+repo_url: https://github.com/SIGILIPELLI/javascript-mastery-path
+repo_name: javascript-mastery-path
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Privacy Policy: privacy.md
+  - "Level 1 · Entry":
+      - Overview: level-1/index.md
+      - "01 · Setup & First Program": level-1/01-setup.md
+      - "02 · Variables, Data Types & Operators": level-1/02-variables-data-types.md
+      - "03 · Control Flow": level-1/03-control-flow.md
+      - "04 · Functions & Scope": level-1/04-functions-scope.md
+      - "05 · Arrays & Objects": level-1/05-arrays-objects.md
+      - "06 · Strings & Template Literals": level-1/06-strings-template-literals.md
+      - "07 · DOM Basics & Events": level-1/07-dom-events.md
+      - "08 · Error Handling Basics": level-1/08-error-handling.md
+      - "09 · Modules & npm Basics": level-1/09-modules-npm.md
+      - "10 · Project — Browser To-Do List App": level-1/10-project-todo-app.md
+  - "Level 2 · Intermediate":
+      - Overview: level-2/index.md
+      - "01 · Closures & Scope Deep Dive": level-2/01-closures-scope.md
+      - "02 · Prototypes & Classes": level-2/02-prototypes-classes.md
+      - "03 · Asynchronous JavaScript I": level-2/03-async-javascript-i.md
+      - "04 · Promises & Async/Await": level-2/04-promises-async-await.md
+      - "05 · Working with JSON & Fetch API": level-2/05-json-fetch.md
+      - "06 · Regular Expressions in JS": level-2/06-regular-expressions.md
+      - "07 · Error Handling Advanced": level-2/07-error-handling-advanced.md
+      - "08 · Testing Basics with Jest": level-2/08-testing-jest.md
+      - "09 · Build Tooling Intro": level-2/09-build-tooling.md
+      - "10 · Project — Weather Dashboard": level-2/10-project-weather-dashboard.md
+  - "Level 3 · Advanced":
+      - Overview: level-3/index.md
+      - "01 · Advanced Async Patterns": level-3/01-advanced-async-patterns.md
+      - "02 · Node.js Fundamentals": level-3/02-nodejs-fundamentals.md
+      - "03 · Building a REST API with Express": level-3/03-rest-api-express.md
+      - "04 · Working with Databases": level-3/04-databases.md
+      - "05 · Design Patterns in JavaScript": level-3/05-design-patterns.md
+      - "06 · Introduction to TypeScript": level-3/06-intro-typescript.md
+      - "07 · Testing Frameworks Deep Dive": level-3/07-testing-deep-dive.md
+      - "08 · Performance & Memory": level-3/08-performance-memory.md
+      - "09 · Security Basics": level-3/09-security-basics.md
+      - "10 · Build & Bundling Deep Dive": level-3/10-build-bundling.md
+      - "11 · Project — REST API + Database": level-3/11-project-rest-api-db.md
+  - "Level 4 · Master":
+      - Overview: level-4/index.md
+      - "01 · Full-Stack Architecture Patterns": level-4/01-fullstack-architecture.md
+      - "02 · Advanced TypeScript": level-4/02-advanced-typescript.md
+      - "03 · Microservices & Serverless Patterns": level-4/03-microservices-serverless.md
+      - "04 · Advanced Security Practices": level-4/04-advanced-security.md
+      - "05 · Testing at Scale": level-4/05-testing-at-scale.md
+      - "06 · Scaling Node.js Applications": level-4/06-scaling-nodejs.md
+      - "07 · Real-Time Applications": level-4/07-realtime-applications.md
+      - "08 · CI/CD for JavaScript Projects": level-4/08-cicd.md
+      - "09 · Observability": level-4/09-observability.md
+      - "10 · Capstone Project": level-4/10-capstone-project.md
