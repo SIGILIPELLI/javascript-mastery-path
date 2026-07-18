@@ -1880,6 +1880,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Real-Time Applications
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1896,6 +1914,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-just-poll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why not just poll?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websockets-with-the-ws-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WebSockets with the ws package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socketio-websockets-with-fallbacks-and-rooms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Socket.IO — WebSockets with fallbacks and rooms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ws-vs-socketio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ws vs. Socket.IO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-websockets-across-multiple-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling WebSockets across multiple instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2116,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-just-poll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why not just poll?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websockets-with-the-ws-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WebSockets with the ws package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socketio-websockets-with-fallbacks-and-rooms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Socket.IO — WebSockets with fallbacks and rooms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ws-vs-socketio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ws vs. Socket.IO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-websockets-across-multiple-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling WebSockets across multiple instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,13 +2209,192 @@
 
 
 <h1 id="07-real-time-applications">07 · Real-Time Applications<a class="headerlink" href="#07-real-time-applications" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-WebSockets basics and building a simple real-time feature.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>HTTP request/response is a poor fit for features that need the server to push
+data to clients instantly — chat, live notifications, collaborative editing,
+live dashboards. WebSockets keep a persistent, two-way connection open so
+either side can send a message at any time.</p>
+<h2 id="why-not-just-poll">Why not just poll?<a class="headerlink" href="#why-not-just-poll" title="Permanent link">&para;</a></h2>
+<p>Polling (repeatedly asking "anything new?") works but wastes requests and
+adds latency equal to the poll interval. WebSockets open one long-lived
+connection and push data the instant it's available.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Polling — simple, but wasteful and laggy</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">setInterval</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;/api/messages/latest&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nx">renderMessages</span><span class="p">(</span><span class="nx">messages</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">},</span><span class="w"> </span><span class="mf">3000</span><span class="p">);</span><span class="w"> </span><span class="c1">// up to 3 seconds of lag, and a request every 3s even with no new data</span>
+</code></pre></div>
+<h2 id="websockets-with-the-ws-package">WebSockets with the <code>ws</code> package<a class="headerlink" href="#websockets-with-the-ws-package" title="Permanent link">&para;</a></h2>
+<p><code>ws</code> is a minimal, fast WebSocket library for Node — no framework
+abstractions, just raw send/receive.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>install<span class="w"> </span>ws
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// server.js — a WebSocket server broadcasting a live counter to every client</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">WebSocketServer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ws&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">wss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebSocketServer</span><span class="p">({</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="mf">8080</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">let</span><span class="w"> </span><span class="nx">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">clients</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">();</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nx">wss</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;connection&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">socket</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nx">clients</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">socket</span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;counter&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">counter</span><span class="w"> </span><span class="p">}));</span><span class="w"> </span><span class="c1">// send initial state</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">raw</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">raw</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;increment&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="nx">counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">      </span><span class="nx">broadcast</span><span class="p">({</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;counter&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">counter</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="c1">// push to everyone, not just the sender</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">clients</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">socket</span><span class="p">));</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">});</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="kd">function</span><span class="w"> </span><span class="nx">broadcast</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">);</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">clients</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">readyState</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">OPEN</span><span class="p">)</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// client.js — browser-side WebSocket client</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebSocket</span><span class="p">(</span><span class="s2">&quot;ws://localhost:8080&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nx">socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;connected&quot;</span><span class="p">));</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nx">socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;counter&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;counter&quot;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">});</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;increment-btn&quot;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;increment&quot;</span><span class="w"> </span><span class="p">}));</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="socketio-websockets-with-fallbacks-and-rooms">Socket.IO — WebSockets with fallbacks and rooms<a class="headerlink" href="#socketio-websockets-with-fallbacks-and-rooms" title="Permanent link">&para;</a></h2>
+<p>Socket.IO builds on top of WebSockets (falling back to HTTP long-polling if
+needed) and adds conveniences like automatic reconnection, event-based
+messaging, and <strong>rooms</strong> for broadcasting to a subset of connected clients.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm<span class="w"> </span>install<span class="w"> </span>socket.io
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// server.js — a simple live chat with rooms (one room per chat channel)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createServer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;node:http&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Server</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;socket.io&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kd">const</span><span class="w"> </span><span class="nx">httpServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">io</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Server</span><span class="p">(</span><span class="nx">httpServer</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">cors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">origin</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:3000&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;connection&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">socket</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`client connected: </span><span class="si">${</span><span class="nx">socket</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;join-room&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">roomId</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nx">socket</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">roomId</span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;chat-message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">roomId</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">,</span><span class="w"> </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="nx">io</span><span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="nx">roomId</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&quot;chat-message&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">);</span><span class="w"> </span><span class="c1">// only clients in this room receive it</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;disconnect&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`client disconnected: </span><span class="si">${</span><span class="nx">socket</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="p">});</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="nx">httpServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// client — browser side, using the socket.io-client package</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">io</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;socket.io-client&quot;</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">io</span><span class="p">(</span><span class="s2">&quot;http://localhost:3000&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&quot;join-room&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;general&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;chat-message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="nx">appendMessageToUI</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">});</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="kd">function</span><span class="w"> </span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&quot;chat-message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">roomId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;general&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="ws-vs-socketio"><code>ws</code> vs. Socket.IO<a class="headerlink" href="#ws-vs-socketio" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th><code>ws</code></th>
+<th>Socket.IO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protocol</td>
+<td>Raw WebSocket only</td>
+<td>WebSocket + automatic HTTP long-polling fallback</td>
+</tr>
+<tr>
+<td>Reconnection</td>
+<td>Manual</td>
+<td>Automatic</td>
+</tr>
+<tr>
+<td>Rooms/namespaces</td>
+<td>Manual (your own <code>Set</code>/<code>Map</code> bookkeeping)</td>
+<td>Built-in</td>
+</tr>
+<tr>
+<td>Message framing</td>
+<td>You define the payload shape</td>
+<td>Named events (<code>socket.emit("event", data)</code>)</td>
+</tr>
+<tr>
+<td>Bundle/dependency size</td>
+<td>Minimal</td>
+<td>Larger (client + server libraries)</td>
+</tr>
+<tr>
+<td>Best fit</td>
+<td>Performance-critical, simple protocols, full control</td>
+<td>Feature-rich apps wanting reconnection/rooms out of the box</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scaling-websockets-across-multiple-instances">Scaling WebSockets across multiple instances<a class="headerlink" href="#scaling-websockets-across-multiple-instances" title="Permanent link">&para;</a></h2>
+<p>A single Node process holds WebSocket connections in memory — if you run
+multiple instances behind a load balancer (see <a href="../06-scaling-nodejs/">Module 6</a>),
+a message from a client on instance A won't reach a client connected to
+instance B unless instances share state via something like Redis pub/sub.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Using Redis pub/sub so a broadcast reaches clients connected to ANY instance</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;redis&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">({</span><span class="w"> </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REDIS_URL</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">subscriber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">publisher</span><span class="p">.</span><span class="nx">duplicate</span><span class="p">();</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">await</span><span class="w"> </span><span class="nx">publisher</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">await</span><span class="w"> </span><span class="nx">subscriber</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">await</span><span class="w"> </span><span class="nx">subscriber</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">&quot;chat-messages&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="nx">broadcastToLocalClients</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span><span class="w"> </span><span class="c1">// fan out to this instance&#39;s own sockets</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">});</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="kd">function</span><span class="w"> </span><span class="nx">publishMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="nx">publisher</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s2">&quot;chat-messages&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span><span class="w"> </span><span class="c1">// every instance&#39;s subscriber gets it</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>Socket.IO ships an official <code>@socket.io/redis-adapter</code> that implements this
+exact pattern for you, so rooms and broadcasts work correctly across a
+horizontally-scaled cluster of servers.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Extend the <code>ws</code>-based live counter example above into a live "who's online"
+feature: when a client connects, broadcast an updated count of currently
+connected clients to everyone (including the new client), and broadcast an
+updated (lower) count when a client disconnects. Sketch the message shape
+you'd send, e.g. <code>{ type: "presence", count: 4 }</code>.</p>
 
 
 

@@ -1534,6 +1534,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Security Basics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1550,6 +1568,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cross-site-scripting-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Site Scripting (XSS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-site-request-forgery-csrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Site Request Forgery (CSRF)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-sanitization-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input sanitization and validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npm-audit-catching-vulnerable-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npm audit — catching vulnerable dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2116,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cross-site-scripting-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Site Scripting (XSS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-site-request-forgery-csrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Site Request Forgery (CSRF)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-sanitization-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input sanitization and validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npm-audit-catching-vulnerable-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npm audit — catching vulnerable dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2209,197 @@
 
 
 <h1 id="09-security-basics">09 · Security Basics<a class="headerlink" href="#09-security-basics" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-XSS, CSRF, input sanitization, and using <code>npm audit</code> to catch vulnerable
-dependencies.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Backend code is exposed to untrusted input from the internet, which makes
+it a target. This module covers two of the most common web vulnerabilities
+— XSS and CSRF — plus input sanitization and using <code>npm audit</code> to catch
+known-vulnerable dependencies.</p>
+<h2 id="cross-site-scripting-xss">Cross-Site Scripting (XSS)<a class="headerlink" href="#cross-site-scripting-xss" title="Permanent link">&para;</a></h2>
+<p>XSS happens when untrusted input is rendered as HTML/JavaScript in a page,
+letting an attacker run their own script in another user's browser (steal
+cookies, act on their behalf, etc.).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// VULNERABLE: directly inserting user input as HTML</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">renderComment</span><span class="p">(</span><span class="nx">comment</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;comments&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`&lt;p&gt;</span><span class="si">${</span><span class="nx">comment</span><span class="si">}</span><span class="sb">&lt;/p&gt;`</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">renderComment</span><span class="p">(</span><span class="s1">&#39;&lt;img src=x onerror=&quot;alert(document.cookie)&quot;&gt;&#39;</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">// The browser executes the injected script — classic stored/reflected XSS</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// SAFE: use textContent (or a templating engine that escapes by default)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">renderCommentSafely</span><span class="p">(</span><span class="nx">comment</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">comment</span><span class="p">;</span><span class="w"> </span><span class="c1">// treated as plain text, never parsed as HTML</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;comments&quot;</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// If you must build HTML strings, escape special characters manually</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">escapeHtml</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">str</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;/g</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&amp;amp;&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;/g</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&amp;lt;&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&gt;/g</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&amp;gt;&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&amp;quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&#39;/g</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&amp;#039;&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">escapeHtml</span><span class="p">(</span><span class="s1">&#39;&lt;script&gt;alert(&quot;hi&quot;)&lt;/script&gt;&#39;</span><span class="p">));</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1">// &amp;lt;script&amp;gt;alert(&amp;quot;hi&amp;quot;)&amp;lt;/script&amp;gt;</span>
+</code></pre></div>
+<p>Server-rendered templating engines (EJS, Pug, Handlebars) escape
+interpolated values by default — the danger is almost always an explicit
+"raw"/"unescaped" output helper (e.g. EJS's <code>&lt;%- value %&gt;</code> instead of
+<code>&lt;%= value %&gt;</code>) used on untrusted input.</p>
+<h2 id="cross-site-request-forgery-csrf">Cross-Site Request Forgery (CSRF)<a class="headerlink" href="#cross-site-request-forgery-csrf" title="Permanent link">&para;</a></h2>
+<p>CSRF tricks a logged-in user's browser into submitting a request to your
+site that they didn't intend — e.g. an <code>&lt;img&gt;</code> tag or hidden auto-submitting
+form on an attacker's page pointed at your <code>POST /transfer-funds</code> endpoint,
+riding on the victim's existing session cookie.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">&lt;!-- On an attacker&#39;s unrelated website: --&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;https://bank.example.com/transfer&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;to&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;attacker-account&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;amount&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;1000&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">submit</span><span class="p">();&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="cm">&lt;!-- If the victim is logged into bank.example.com, their session cookie</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="cm">     rides along automatically and the transfer looks legitimate. --&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Mitigation: a CSRF token the attacker&#39;s page can&#39;t know or forge</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;node:crypto&quot;</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">function</span><span class="w"> </span><span class="nx">generateCsrfToken</span><span class="p">(</span><span class="nx">session</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mf">32</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s2">&quot;hex&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nx">session</span><span class="p">.</span><span class="nx">csrfToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">token</span><span class="p">;</span><span class="w"> </span><span class="c1">// stored server-side, tied to this user&#39;s session</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">token</span><span class="p">;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kd">function</span><span class="w"> </span><span class="nx">verifyCsrfToken</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span><span class="w"> </span><span class="nx">submittedToken</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">Boolean</span><span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">csrfToken</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">session</span><span class="p">.</span><span class="nx">csrfToken</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">submittedToken</span><span class="p">;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1">// Middleware applied to state-changing routes (POST/PUT/DELETE)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="kd">function</span><span class="w"> </span><span class="nx">csrfProtection</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">([</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;PUT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DELETE&quot;</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">submitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">_csrf</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s2">&quot;x-csrf-token&quot;</span><span class="p">];</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">verifyCsrfToken</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">,</span><span class="w"> </span><span class="nx">submitted</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">403</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;invalid or missing CSRF token&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="p">}</span>
+</code></pre></div>
+<p>Other CSRF mitigations that pair well with tokens: setting cookies with
+<code>SameSite=Lax</code> or <code>SameSite=Strict</code>, and checking the <code>Origin</code>/<code>Referer</code>
+header on state-changing requests.</p>
+<h2 id="input-sanitization-and-validation">Input sanitization and validation<a class="headerlink" href="#input-sanitization-and-validation" title="Permanent link">&para;</a></h2>
+<p>Never trust data from the client — validate its shape/type, and sanitize
+anything that will be rendered, logged, or used to build a query.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">validateSignup</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="sr">/^\S+@\S+\.\S+$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;a valid email is required&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;password must be at least 8 characters&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="sr">/^[a-zA-Z0-9_]{3,20}$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;username must be 3-20 alphanumeric characters or underscores&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">errors</span><span class="p">;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">validateSignup</span><span class="p">({</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;not-an-email&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;short&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">username</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ok_name&quot;</span><span class="w"> </span><span class="p">}));</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="c1">// [ &#39;a valid email is required&#39;, &#39;password must be at least 8 characters&#39; ]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Never build SQL from string concatenation — this is a SQL injection hole:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">// db.exec(`SELECT * FROM users WHERE email = &#39;${email}&#39;`); // NEVER do this</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">// Instead, always use parameterized queries (covered in Module 4):</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM users WHERE email = ?&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stmt</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">email</span><span class="p">);</span><span class="w"> </span><span class="c1">// the driver handles escaping safely</span>
+</code></pre></div>
+<p>A popular library for validating/sanitizing structured request bodies is
+<code>zod</code> or <code>express-validator</code> — they centralize validation rules instead of
+scattering manual <code>if</code> checks across every route.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>npm<span class="w"> </span>install<span class="w"> </span>zod
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;zod&quot;</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">SignupSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">object</span><span class="p">({</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">string</span><span class="p">().</span><span class="nx">email</span><span class="p">(),</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">string</span><span class="p">().</span><span class="nx">min</span><span class="p">(</span><span class="mf">8</span><span class="p">),</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nx">username</span><span class="o">:</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">string</span><span class="p">().</span><span class="nx">regex</span><span class="p">(</span><span class="sr">/^[a-zA-Z0-9_]{3,20}$/</span><span class="p">),</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">});</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SignupSchema</span><span class="p">.</span><span class="nx">safeParse</span><span class="p">({</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ada@example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;supersecret&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">username</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ada99&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">success</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="kd">const</span><span class="w"> </span><span class="nx">bad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SignupSchema</span><span class="p">.</span><span class="nx">safeParse</span><span class="p">({</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;nope&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;short&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">username</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bad</span><span class="p">.</span><span class="nx">success</span><span class="p">);</span><span class="w"> </span><span class="c1">// false</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bad</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">issues</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">i</span><span class="p">.</span><span class="nx">message</span><span class="p">));</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c1">// [ &#39;Invalid email&#39;, &#39;String must contain at least 8 character(s)&#39;, &#39;Invalid&#39; ]</span>
+</code></pre></div>
+<h2 id="npm-audit-catching-vulnerable-dependencies">npm audit — catching vulnerable dependencies<a class="headerlink" href="#npm-audit-catching-vulnerable-dependencies" title="Permanent link">&para;</a></h2>
+<p>Every dependency you install can itself contain known vulnerabilities.
+<code>npm audit</code> checks your installed packages against a public vulnerability
+database.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>npm<span class="w"> </span>audit
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a># found 3 vulnerabilities (1 low, 1 moderate, 1 high)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>#   high            Prototype Pollution in lodash
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>#   Package         lodash
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>#   Dependency of   my-app
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>#   Path            my-app &gt; some-lib &gt; lodash
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>#   More info       https://github.com/advisories/GHSA-xxxx-xxxx-xxxx
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>#
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a># run `npm audit fix` to fix 2 of 3 vulnerabilities
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>npm<span class="w"> </span>audit<span class="w"> </span>fix<span class="w">          </span><span class="c1"># automatically upgrades to non-breaking safe versions</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>npm<span class="w"> </span>audit<span class="w"> </span>fix<span class="w"> </span>--force<span class="w">  </span><span class="c1"># also allows breaking/major version bumps — review changes after!</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>npm<span class="w"> </span>audit<span class="w"> </span>--json<span class="w">       </span><span class="c1"># machine-readable output, useful in CI pipelines</span>
+</code></pre></div>
+<p>Run <code>npm audit</code> (or wire it into CI) regularly, not just once at project
+start — new vulnerabilities are disclosed against existing package versions
+all the time.</p>
+<h2 id="security-cheat-sheet">Security cheat sheet<a class="headerlink" href="#security-cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Defense</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XSS</td>
+<td>escape/sanitize output, use <code>textContent</code>, rely on templating auto-escaping</td>
+</tr>
+<tr>
+<td>CSRF</td>
+<td>CSRF tokens, <code>SameSite</code> cookies, verify <code>Origin</code>/<code>Referer</code></td>
+</tr>
+<tr>
+<td>SQL injection</td>
+<td>parameterized queries / prepared statements, never string-concatenate SQL</td>
+</tr>
+<tr>
+<td>Malformed/malicious input</td>
+<td>validate shape and type at the boundary (schema libraries like <code>zod</code>)</td>
+</tr>
+<tr>
+<td>Vulnerable dependencies</td>
+<td><code>npm audit</code>, keep packages updated, minimize dependency count</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Add input validation to the <code>POST /notes</code> route from
+<a href="../03-rest-api-express/">Module 3</a> using either hand-written checks or
+<code>zod</code>: <code>text</code> must be a non-empty string under 280 characters. Then write an
+<code>escapeHtml</code> sanitizer and use it before storing/echoing back the note text
+in a hypothetical HTML view, and run <code>npm audit</code> on a scratch project to see
+what real output looks like on your machine.</p>
 
 
 

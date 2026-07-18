@@ -1506,6 +1506,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Performance & Memory
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1522,6 +1540,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-before-optimizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring before optimizing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profiling-with-nodes-built-in-profiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profiling with Node's built-in profiler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-inspect-flag-and-chrome-devtools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The --inspect flag and Chrome DevTools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-memory-leak-patterns-in-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common memory leak patterns in Node
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-a-leak-watch-memory-over-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detecting a leak: watch memory over time
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debouncing-an-expensive-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debouncing an expensive operation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2138,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-before-optimizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring before optimizing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profiling-with-nodes-built-in-profiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profiling with Node's built-in profiler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-inspect-flag-and-chrome-devtools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The --inspect flag and Chrome DevTools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-memory-leak-patterns-in-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common memory leak patterns in Node
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-a-leak-watch-memory-over-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detecting a leak: watch memory over time
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debouncing-an-expensive-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debouncing an expensive operation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2253,206 @@
 
 
 <h1 id="08-performance-memory">08 · Performance &amp; Memory<a class="headerlink" href="#08-performance-memory" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Profiling JavaScript, identifying and avoiding memory leaks, and performance
-best practices.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Correct code isn't automatically fast or memory-safe code. This module
+covers profiling to find real bottlenecks (instead of guessing), common
+memory-leak patterns in long-running Node processes, and general
+performance best practices.</p>
+<h2 id="measuring-before-optimizing">Measuring before optimizing<a class="headerlink" href="#measuring-before-optimizing" title="Permanent link">&para;</a></h2>
+<p>The first rule of performance work: <strong>measure, don't guess</strong>. <code>console.time</code>
+gives quick, rough timings for comparing approaches.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">sumWithLoop</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">total</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kd">function</span><span class="w"> </span><span class="nx">sumWithReduce</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span><span class="w"> </span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">i</span><span class="p">).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;loop&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nx">sumWithLoop</span><span class="p">(</span><span class="mf">10</span><span class="nx">_000_000</span><span class="p">);</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s2">&quot;loop&quot;</span><span class="p">);</span><span class="w">   </span><span class="c1">// loop: ~5ms</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;reduce&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="nx">sumWithReduce</span><span class="p">(</span><span class="mf">10</span><span class="nx">_000_000</span><span class="p">);</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s2">&quot;reduce&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// reduce: ~250ms — building + reducing an array is much slower</span>
+</code></pre></div>
+<h2 id="profiling-with-nodes-built-in-profiler">Profiling with Node's built-in profiler<a class="headerlink" href="#profiling-with-nodes-built-in-profiler" title="Permanent link">&para;</a></h2>
+<p>For a real bottleneck (not a 10-line example), Node can produce a CPU
+profile you can inspect for hot functions.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>node<span class="w"> </span>--prof<span class="w"> </span>server.js
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># ... exercise the app, then stop it ...</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>node<span class="w"> </span>--prof-process<span class="w"> </span>isolate-0x*-v8.log<span class="w"> </span>&gt;<span class="w"> </span>profile.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a> [Summary]:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>   ticks  total  nonlib   name
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   4820   62.4%   68.1%  JavaScript
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   1830   23.7%   25.9%  C++
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    950   12.3%          GC
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a> [Bottom up (heavy) profile]:
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>   ticks parent  name
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>   2103   43.6%  parseAndValidate (server.js:42)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>   ...
+</code></pre></div>
+<p><code>GC</code> (garbage collection) time appearing high in the summary is itself a
+signal — it often means too many short-lived objects are being allocated,
+which points back to a memory-usage problem rather than a raw CPU one.</p>
+<h2 id="the-inspect-flag-and-chrome-devtools">The <code>--inspect</code> flag and Chrome DevTools<a class="headerlink" href="#the-inspect-flag-and-chrome-devtools" title="Permanent link">&para;</a></h2>
+<p>For interactive profiling (flame charts, heap snapshots), run Node with
+<code>--inspect</code> and attach Chrome DevTools.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>node<span class="w"> </span>--inspect<span class="w"> </span>server.js
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># Debugger listening on ws://127.0.0.1:9229/...</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Open chrome://inspect in Chrome, click &quot;inspect&quot; under Remote Target</span>
+</code></pre></div>
+<p>From DevTools you can record a <strong>CPU profile</strong> (flame chart of where time
+goes) or take a <strong>heap snapshot</strong> (a picture of every object currently
+allocated, useful for finding what's holding memory).</p>
+<h2 id="common-memory-leak-patterns-in-node">Common memory leak patterns in Node<a class="headerlink" href="#common-memory-leak-patterns-in-node" title="Permanent link">&para;</a></h2>
+<p>A memory leak happens when references to objects are kept alive
+unintentionally, so the garbage collector can never reclaim them — memory
+usage grows over the life of the process until it crashes.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// LEAK: an ever-growing array with no eviction</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">requestLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">function</span><span class="w"> </span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nx">requestLog</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span><span class="w"> </span><span class="c1">// never removed — grows forever as traffic comes in</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// FIX: bound the size, or use a rolling window</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">MAX_LOG_SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">requestLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">function</span><span class="w"> </span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nx">requestLog</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">requestLog</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">MAX_LOG_SIZE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nx">requestLog</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span><span class="w"> </span><span class="c1">// evict the oldest entry to keep memory bounded</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// LEAK: forgetting to remove event listeners that are no longer needed</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">EventEmitter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;node:events&quot;</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EventEmitter</span><span class="p">();</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kd">function</span><span class="w"> </span><span class="nx">attachPerRequestListener</span><span class="p">(</span><span class="nx">bus</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nx">bus</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chunk</span><span class="p">));</span><span class="w"> </span><span class="c1">// a new listener added on every call!</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// FIX: remove listeners when they&#39;re no longer needed, or use `.once`</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">attachOneTimeListener</span><span class="p">(</span><span class="nx">bus</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nx">bus</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chunk</span><span class="p">));</span><span class="w"> </span><span class="c1">// fires once, then auto-removes itself</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kd">function</span><span class="w"> </span><span class="nx">attachAndCleanUp</span><span class="p">(</span><span class="nx">bus</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">handler</span><span class="p">(</span><span class="nx">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="nx">bus</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">);</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">bus</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">);</span><span class="w"> </span><span class="c1">// caller invokes this to clean up</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// LEAK: closures accidentally capturing large objects</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">makeHandler</span><span class="p">(</span><span class="nx">hugeBuffer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">handler</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;ok&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// hugeBuffer is never used here...</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="c1">// ...but it&#39;s still captured in the closure and kept alive for as long</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="c1">// as `handler` exists, because closures keep their entire enclosing scope.</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// FIX: only capture what you need</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">makeHandler</span><span class="p">(</span><span class="nx">hugeBuffer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">hugeBuffer</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="c1">// extract just the needed value</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">handler</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="sb">`ok (</span><span class="si">${</span><span class="nx">summary</span><span class="si">}</span><span class="sb"> bytes)`</span><span class="p">);</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="c1">// hugeBuffer itself can now be garbage collected once makeHandler returns</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="detecting-a-leak-watch-memory-over-time">Detecting a leak: watch memory over time<a class="headerlink" href="#detecting-a-leak-watch-memory-over-time" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nx">setInterval</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">usage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">memoryUsage</span><span class="p">();</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`heapUsed: </span><span class="si">${</span><span class="p">(</span><span class="nx">usage</span><span class="p">.</span><span class="nx">heapUsed</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1024</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="si">}</span><span class="sb"> MB`</span><span class="p">);</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">},</span><span class="w"> </span><span class="mf">5000</span><span class="p">);</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1">// heapUsed: 42.3 MB</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">// heapUsed: 44.1 MB</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1">// heapUsed: 61.7 MB   &lt;- climbing steadily under steady traffic is a red flag</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1">// heapUsed: 89.4 MB</span>
+</code></pre></div>
+<p>A healthy process's heap usage should plateau (rise, then fall back after
+garbage collection) under steady load. Continual, unbounded growth is the
+classic signature of a leak.</p>
+<h2 id="performance-best-practices">Performance best practices<a class="headerlink" href="#performance-best-practices" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avoid unnecessary object/array allocation in hot loops</td>
+<td>fewer allocations = less GC pressure</td>
+</tr>
+<tr>
+<td>Use streams for large files/responses</td>
+<td>keeps memory flat regardless of data size</td>
+</tr>
+<tr>
+<td>Paginate database queries</td>
+<td>avoids loading huge result sets into memory at once</td>
+</tr>
+<tr>
+<td>Cache expensive, repeatable computations</td>
+<td>trades memory for CPU when appropriate</td>
+</tr>
+<tr>
+<td>Debounce/throttle high-frequency events</td>
+<td>limits how often expensive work runs</td>
+</tr>
+<tr>
+<td>Prefer <code>Map</code>/<code>Set</code> over objects/arrays for large lookup-heavy data</td>
+<td>O(1) lookups, no prototype chain overhead</td>
+</tr>
+<tr>
+<td>Profile before optimizing</td>
+<td>fixes the actual bottleneck instead of a guessed one</td>
+</tr>
+</tbody>
+</table>
+<h2 id="debouncing-an-expensive-operation">Debouncing an expensive operation<a class="headerlink" href="#debouncing-an-expensive-operation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">debounce</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span><span class="w"> </span><span class="nx">delayMs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">timeoutId</span><span class="p">;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">debounced</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timeoutId</span><span class="p">);</span><span class="w"> </span><span class="c1">// cancel any pending call</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nx">timeoutId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">fn</span><span class="p">(...</span><span class="nx">args</span><span class="p">),</span><span class="w"> </span><span class="nx">delayMs</span><span class="p">);</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">}</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="kd">function</span><span class="w"> </span><span class="nx">expensiveSearch</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`searching for &quot;</span><span class="si">${</span><span class="nx">query</span><span class="si">}</span><span class="sb">&quot;...`</span><span class="p">);</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="p">}</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="kd">const</span><span class="w"> </span><span class="nx">debouncedSearch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">debounce</span><span class="p">(</span><span class="nx">expensiveSearch</span><span class="p">,</span><span class="w"> </span><span class="mf">300</span><span class="p">);</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="nx">debouncedSearch</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nx">debouncedSearch</span><span class="p">(</span><span class="s2">&quot;ap&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="nx">debouncedSearch</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// only this call actually runs expensiveSearch, ~300ms later</span>
+</code></pre></div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write a <code>LRUCache</code> class (least-recently-used cache) backed by a <code>Map</code> with
+a fixed <code>maxSize</code>: <code>get(key)</code> returns the value and marks it recently used;
+<code>set(key, value)</code> adds/updates an entry and evicts the least-recently-used
+entry when the cache exceeds <code>maxSize</code>. Then write a small script that adds
+more entries than <code>maxSize</code> allows and logs the final contents, confirming
+the oldest unused entries were evicted rather than the cache growing
+unbounded.</p>
 
 
 

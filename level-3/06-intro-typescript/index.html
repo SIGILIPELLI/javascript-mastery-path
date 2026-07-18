@@ -1450,6 +1450,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Introduction to TypeScript
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1466,6 +1484,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-and-running-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing and running TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Function types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces-for-function-shapes-and-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaces for function shapes and extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-aliases-vs-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        type aliases vs. interfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-a-javascript-file-to-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating a JavaScript file to TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2138,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-and-running-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing and running TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Function types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces-for-function-shapes-and-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaces for function shapes and extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-aliases-vs-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        type aliases vs. interfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-a-javascript-file-to-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating a JavaScript file to TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,13 +2253,214 @@
 
 
 <h1 id="06-introduction-to-typescript">06 · Introduction to TypeScript<a class="headerlink" href="#06-introduction-to-typescript" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Basic types, interfaces, and migrating a small JavaScript file to TypeScript.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>TypeScript is JavaScript with an optional static type system layered on
+top. It compiles down to plain JavaScript, so anything TypeScript can
+express, the browser or Node ultimately runs as regular JS — the types only
+help you catch mistakes <em>before</em> running the code.</p>
+<h2 id="installing-and-running-typescript">Installing and running TypeScript<a class="headerlink" href="#installing-and-running-typescript" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npm<span class="w"> </span>install<span class="w"> </span>--save-dev<span class="w"> </span>typescript
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>npx<span class="w"> </span>tsc<span class="w"> </span>--init<span class="w">   </span><span class="c1"># generates tsconfig.json</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ES2022&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ESNext&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&quot;strict&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&quot;outDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dist&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">&quot;esModuleInterop&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>npx<span class="w"> </span>tsc<span class="w">            </span><span class="c1"># compiles all .ts files according to tsconfig.json</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>node<span class="w"> </span>dist/main.js<span class="w">   </span><span class="c1"># run the compiled JavaScript output</span>
+</code></pre></div>
+<h2 id="basic-types">Basic types<a class="headerlink" href="#basic-types" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">isActive</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">let</span><span class="w"> </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;editor&quot;</span><span class="p">];</span><span class="w">   </span><span class="c1">// array of strings</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kd">let</span><span class="w"> </span><span class="nx">scores</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">];</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">// Tuple: a fixed-length array with known types per position</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kd">let</span><span class="w"> </span><span class="nx">point</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">];</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">// any disables type checking — avoid it; escape hatch of last resort</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kd">let</span><span class="w"> </span><span class="nx">anything</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;could be anything&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1">// unknown is the safer version of any — must be narrowed before use</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="kd">let</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">unknown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span><span class="w"> </span><span class="c1">// OK — TypeScript knows it&#39;s a string here</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="function-types">Function types<a class="headerlink" href="#function-types" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// Optional parameter with `?`, default parameter, and a void return type</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kd">function</span><span class="w"> </span><span class="nx">greet</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">greeting?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">greeting</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nx">greet</span><span class="p">(</span><span class="s2">&quot;Ada&quot;</span><span class="p">);</span><span class="w">           </span><span class="c1">// Hello, Ada!</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nx">greet</span><span class="p">(</span><span class="s2">&quot;Ada&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Welcome&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Welcome, Ada!</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1">// add(&quot;2&quot;, 3); // Compile error: Argument of type &#39;string&#39; is not assignable to type &#39;number&#39;</span>
+</code></pre></div>
+<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h2>
+<p>An <code>interface</code> describes the <strong>shape</strong> of an object — which properties it
+must have and their types. TypeScript checks that any value used as that
+type actually matches the shape.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">interface</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nx">isAdmin?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"> </span><span class="c1">// optional property</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">printUser</span><span class="p">(</span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="kt">User</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb"> &lt;</span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="si">}</span><span class="sb">&gt;</span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">isAdmin</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot; (admin)&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="kd">const</span><span class="w"> </span><span class="nx">ada</span><span class="o">:</span><span class="w"> </span><span class="kt">User</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ada@example.com&quot;</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">printUser</span><span class="p">(</span><span class="nx">ada</span><span class="p">));</span><span class="w"> </span><span class="c1">// Ada &lt;ada@example.com&gt;</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1">// const bad: User = { id: 2, name: &quot;Missing Email&quot; };</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c1">// Compile error: Property &#39;email&#39; is missing in type &#39;{ id: number; name: string; }&#39;</span>
+</code></pre></div>
+<h2 id="interfaces-for-function-shapes-and-extension">Interfaces for function shapes and extension<a class="headerlink" href="#interfaces-for-function-shapes-and-extension" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">interface</span><span class="w"> </span><span class="nx">Comparator</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="c1">// callable shape: a function taking two numbers</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">ascending</span><span class="o">:</span><span class="w"> </span><span class="kt">Comparator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">].</span><span class="nx">sort</span><span class="p">(</span><span class="nx">ascending</span><span class="p">));</span><span class="w"> </span><span class="c1">// [1, 2, 3]</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kd">interface</span><span class="w"> </span><span class="nx">Animal</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="kd">interface</span><span class="w"> </span><span class="nx">Dog</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Animal</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// extend: Dog has everything Animal has, plus breed</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="nx">breed</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="kd">const</span><span class="w"> </span><span class="nx">rex</span><span class="o">:</span><span class="w"> </span><span class="kt">Dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Rex&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">breed</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Labrador&quot;</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rex</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">rex</span><span class="p">.</span><span class="nx">breed</span><span class="p">);</span><span class="w"> </span><span class="c1">// Rex Labrador</span>
+</code></pre></div>
+<h2 id="type-aliases-vs-interfaces">type aliases vs. interfaces<a class="headerlink" href="#type-aliases-vs-interfaces" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">type</span><span class="w"> </span><span class="nx">ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w">         </span><span class="c1">// union type: either a number or a string</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kr">type</span><span class="w"> </span><span class="nx">Status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;closed&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// string literal union — an enum-like set</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kd">function</span><span class="w"> </span><span class="nx">findById</span><span class="p">(</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">ID</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`looking up </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nx">findById</span><span class="p">(</span><span class="mf">42</span><span class="p">);</span><span class="w">     </span><span class="c1">// OK</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nx">findById</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK — ID allows both</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1">// findById(true); // Compile error</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="kd">let</span><span class="w"> </span><span class="nx">orderStatus</span><span class="o">:</span><span class="w"> </span><span class="kt">Status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1">// orderStatus = &quot;cancelled&quot;; // Compile error: not assignable to type &#39;Status&#39;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>interface</code></th>
+<th><code>type</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Object shapes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Unions (<code>A \| B</code>)</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Extending/merging</td>
+<td><code>extends</code>, declaration merging</td>
+<td><code>&amp;</code> intersections</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>public object/class shapes</td>
+<td>unions, aliases, utility types</td>
+</tr>
+</tbody>
+</table>
+<h2 id="migrating-a-javascript-file-to-typescript">Migrating a JavaScript file to TypeScript<a class="headerlink" href="#migrating-a-javascript-file-to-typescript" title="Permanent link">&para;</a></h2>
+<p><code>cart.js</code> — the plain JavaScript version:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// cart.js</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">createCart</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">addItem</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="p">,</span><span class="w"> </span><span class="nx">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="p">,</span><span class="w"> </span><span class="nx">quantity</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">total</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">items</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">quantity</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">addItem</span><span class="p">,</span><span class="w"> </span><span class="nx">total</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="p">}</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCart</span><span class="p">();</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="nx">cart</span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;Book&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">12.99</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cart</span><span class="p">.</span><span class="nx">total</span><span class="p">());</span><span class="w"> </span><span class="c1">// 25.98</span>
+</code></pre></div>
+<p><code>cart.ts</code> — the same logic with types added incrementally:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// cart.ts</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">interface</span><span class="w"> </span><span class="nx">CartItem</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nx">quantity</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="kd">interface</span><span class="w"> </span><span class="nx">Cart</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nx">addItem</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">quantity?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="nx">total</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="kt">CartItem</span><span class="p">[];</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="p">}</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">createCart</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">Cart</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="kt">CartItem</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">addItem</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">quantity</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="p">,</span><span class="w"> </span><span class="nx">quantity</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">total</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">items</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">quantity</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">addItem</span><span class="p">,</span><span class="w"> </span><span class="nx">total</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="p">}</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cart</span><span class="o">:</span><span class="w"> </span><span class="kt">Cart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCart</span><span class="p">();</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="nx">cart</span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;Book&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">12.99</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cart</span><span class="p">.</span><span class="nx">total</span><span class="p">());</span><span class="w"> </span><span class="c1">// 25.98</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="c1">// cart.addItem(&quot;Pen&quot;, &quot;1.50&quot;); // Compile error: &#39;&quot;1.50&quot;&#39; is not assignable to parameter of type &#39;number&#39;</span>
+</code></pre></div>
+<p>Notice what changed: an <code>interface</code> for each shape (<code>CartItem</code>, <code>Cart</code>), a
+return type on each function, and parameter types — the runtime behavior is
+identical, but typos or wrong argument types are now caught by <code>tsc</code> before
+the code ever runs.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Take a plain JavaScript file that manages a simple <code>Library</code> (an array of
+<code>{ title, author, available }</code> book objects with <code>addBook</code>, <code>checkOut</code>, and
+<code>returnBook</code> functions) and rewrite it as TypeScript: define a <code>Book</code>
+interface and a <code>Library</code> interface describing the object's shape, add
+parameter/return types to every function, and introduce a <code>Status</code> union
+type (<code>"available" | "checked-out"</code>) used instead of the boolean
+<code>available</code> flag.</p>
 
 
 

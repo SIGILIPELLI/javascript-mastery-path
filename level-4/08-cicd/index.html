@@ -1908,6 +1908,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · CI/CD for JavaScript Projects
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1924,6 +1942,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ci-vs-cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI vs. CD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-github-actions-workflow-lint-test-build-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A GitHub Actions workflow: lint → test → build → deploy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-dependencies-for-faster-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching dependencies for faster CI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-status-checks-making-ci-a-real-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required status checks — making CI a real gate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2127,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ci-vs-cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI vs. CD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-github-actions-workflow-lint-test-build-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A GitHub Actions workflow: lint → test → build → deploy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-dependencies-for-faster-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching dependencies for faster CI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-status-checks-making-ci-a-real-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required status checks — making CI a real gate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,13 +2231,201 @@
 
 
 <h1 id="08-cicd-for-javascript-projects">08 · CI/CD for JavaScript Projects<a class="headerlink" href="#08-cicd-for-javascript-projects" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Continuous integration and deployment pipelines for JavaScript projects.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Continuous Integration (CI) automatically checks every change (lint, test,
+build) before it merges. Continuous Deployment/Delivery (CD) automatically
+ships passing changes toward production. Together they turn "did I break
+anything?" from a manual, error-prone question into an automated gate.</p>
+<h2 id="ci-vs-cd">CI vs. CD<a class="headerlink" href="#ci-vs-cd" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Continuous Integration</th>
+<th>Continuous Delivery</th>
+<th>Continuous Deployment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What runs automatically</td>
+<td>Lint, tests, build on every push/PR</td>
+<td>CI, plus packaging a release-ready artifact</td>
+<td>CI, plus automatic deploy to production</td>
+</tr>
+<tr>
+<td>Human step remaining</td>
+<td>Merge the PR</td>
+<td>Click "deploy"</td>
+<td>None — merging IS deploying</td>
+</tr>
+<tr>
+<td>Typical trigger</td>
+<td>Push, pull request</td>
+<td>Merge to main</td>
+<td>Merge to main</td>
+</tr>
+</tbody>
+</table>
+<p>Most teams land on continuous delivery for production deploys (a human still
+approves the final push) and full continuous deployment for staging/preview
+environments.</p>
+<h2 id="a-github-actions-workflow-lint-test-build-deploy">A GitHub Actions workflow: lint → test → build → deploy<a class="headerlink" href="#a-github-actions-workflow-lint-test-build-deploy" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># .github/workflows/ci.yml</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="nt">lint</span><span class="p">:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm ci</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm run lint</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lint</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">18</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">20</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">22</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># verify against multiple supported Node versions</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.node-version }}</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm ci</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm test -- --coverage</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codecov/codecov-action@v4</span><span class="w"> </span><span class="c1"># optional — publish coverage reports</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">          </span><span class="nt">fail_ci_if_error</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm ci</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm run build</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build-output</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dist/</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span><span class="w"> </span><span class="c1"># only deploy from main, never from PR branches</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span><span class="w">               </span><span class="c1"># requires manual approval if configured on the repo</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/download-artifact@v4</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build-output</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dist/</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./scripts/deploy.sh</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">          </span><span class="nt">DEPLOY_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DEPLOY_TOKEN }}</span>
+</code></pre></div>
+<p>A few details worth internalizing: <code>needs:</code> chains jobs so <code>test</code> won't run
+if <code>lint</code> fails, saving CI minutes; the <code>matrix</code> strategy runs the same job
+against several Node versions in parallel; and <code>if: github.ref == ...</code> keeps
+deployment from firing on every pull request.</p>
+<h2 id="caching-dependencies-for-faster-ci">Caching dependencies for faster CI<a class="headerlink" href="#caching-dependencies-for-faster-ci" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Already handled above by `cache: npm` in setup-node, but the manual</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># equivalent (useful for non-npm caches, e.g. Playwright browsers) looks like:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cache Playwright browsers</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/ms-playwright</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">playwright-${{ runner.os }}-${{ hashFiles(&#39;package-lock.json&#39;) }}</span>
+</code></pre></div>
+<h2 id="required-status-checks-making-ci-a-real-gate">Required status checks — making CI a real gate<a class="headerlink" href="#required-status-checks-making-ci-a-real-gate" title="Permanent link">&para;</a></h2>
+<p>A CI workflow only prevents bad merges if the repository is configured to
+require it. On GitHub: <strong>Settings → Branches → Branch protection rules</strong> →
+require the <code>lint</code>, <code>test</code>, and <code>build</code> jobs to pass before a PR can merge,
+and require branches to be up to date before merging.</p>
+<h2 id="deployment-strategies">Deployment strategies<a class="headerlink" href="#deployment-strategies" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>How it works</th>
+<th>Rollback speed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recreate</td>
+<td>Stop old version, start new version</td>
+<td>Slow (downtime during switch)</td>
+</tr>
+<tr>
+<td>Rolling</td>
+<td>Replace instances one at a time</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Blue-green</td>
+<td>Run two full environments, switch traffic at once</td>
+<td>Fast (switch traffic back)</td>
+</tr>
+<tr>
+<td>Canary</td>
+<td>Route a small % of traffic to the new version first</td>
+<td>Fast (pull the canary, no wider impact)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># A canary-style deploy step using a hypothetical CLI —</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># the pattern (small % first, then promote) generalizes across platforms</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy canary (5% of traffic)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./scripts/deploy.sh --strategy canary --weight 5</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Wait and check error rate</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./scripts/check-error-rate.sh --threshold 1%</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Promote to 100%</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./scripts/deploy.sh --strategy canary --weight 100</span>
+</code></pre></div>
+<h2 id="secrets-management">Secrets management<a class="headerlink" href="#secrets-management" title="Permanent link">&para;</a></h2>
+<p>Never commit secrets (API keys, database URLs, deploy tokens) to the
+repository — use the CI platform's secret store, injected as environment
+variables at run time.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># GitHub Actions — secrets configured under Settings → Secrets and variables</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./scripts/deploy.sh</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DATABASE_URL }}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">DEPLOY_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DEPLOY_TOKEN }}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># .gitignore — make it structurally hard to commit secrets by accident</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>.env
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>.env.local
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>*.pem
+</code></pre></div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>A team's CI pipeline currently only runs <code>npm test</code> on every push, taking 12
+minutes because it reinstalls dependencies from scratch every time and runs
+lint, unit tests, and E2E tests all in one serial job. Redesign the workflow
+(as YAML, using the structure above) into separate <code>lint</code>, <code>test</code>, and <code>e2e</code>
+jobs that run in parallel where possible, with dependency caching enabled,
+and explain in one sentence which job(s) should block a PR merge versus which
+could be advisory-only.</p>
 
 
 

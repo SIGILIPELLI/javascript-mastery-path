@@ -1852,6 +1852,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Scaling Node.js Applications
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1868,6 +1886,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#node-is-single-threaded-why-that-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node is single-threaded — why that matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-with-nodes-cluster-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clustering with Node's cluster module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load balancing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#horizontal-vs-vertical-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Horizontal vs. vertical scaling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2116,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#node-is-single-threaded-why-that-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node is single-threaded — why that matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-with-nodes-cluster-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clustering with Node's cluster module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load balancing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#horizontal-vs-vertical-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Horizontal vs. vertical scaling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2209,230 @@
 
 
 <h1 id="06-scaling-nodejs-applications">06 · Scaling Node.js Applications<a class="headerlink" href="#06-scaling-nodejs-applications" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Clustering, caching strategies, and load-balancing concepts for Node
-services.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Node.js runs JavaScript on a single thread. That's fine for I/O-bound work
+(most web APIs), but it means one Node process can only use one CPU core —
+scaling further requires clustering, caching, and load balancing, each
+covered here with real code.</p>
+<h2 id="node-is-single-threaded-why-that-matters">Node is single-threaded — why that matters<a class="headerlink" href="#node-is-single-threaded-why-that-matters" title="Permanent link">&para;</a></h2>
+<p>A single Node process handles concurrent requests well because I/O
+(database calls, HTTP requests) is non-blocking — but CPU-bound work (heavy
+computation, image processing, big JSON parsing) blocks the entire event
+loop, stalling every other in-flight request.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// BAD — a CPU-heavy synchronous loop blocks ALL other requests</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/report&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="nx">_000_000_000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// blocks the event loop</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">});</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// BETTER — offload CPU-heavy work to a worker thread, keep the event loop free</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Worker</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;node:worker_threads&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/report&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Worker</span><span class="p">(</span><span class="s2">&quot;./report-worker.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nx">worker</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">total</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="p">}));</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nx">worker</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="w"> </span><span class="p">}));</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="clustering-with-nodes-cluster-module">Clustering with Node's <code>cluster</code> module<a class="headerlink" href="#clustering-with-nodes-cluster-module" title="Permanent link">&para;</a></h2>
+<p><code>cluster</code> forks multiple copies of your Node process — one per CPU core —
+each with its own event loop, sharing the same listening port. A crashed
+worker doesn't take down the whole app.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// cluster.js — entry point that forks one worker per CPU core</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">cluster</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;node:cluster&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">import</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;node:os&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">import</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;node:process&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">numCPUs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">availableParallelism</span><span class="p">();</span><span class="w"> </span><span class="c1">// or os.cpus().length</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">isPrimary</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Primary </span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">pid</span><span class="si">}</span><span class="sb"> is running, forking </span><span class="si">${</span><span class="nx">numCPUs</span><span class="si">}</span><span class="sb"> workers`</span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">numCPUs</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="nx">cluster</span><span class="p">.</span><span class="nx">fork</span><span class="p">();</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span><span class="nx">cluster</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;exit&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">worker</span><span class="p">,</span><span class="w"> </span><span class="nx">code</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="sb">`Worker </span><span class="si">${</span><span class="nx">worker</span><span class="p">.</span><span class="nx">process</span><span class="p">.</span><span class="nx">pid</span><span class="si">}</span><span class="sb"> died (</span><span class="si">${</span><span class="nx">signal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">code</span><span class="si">}</span><span class="sb">). Restarting...`</span><span class="p">);</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nx">cluster</span><span class="p">.</span><span class="nx">fork</span><span class="p">();</span><span class="w"> </span><span class="c1">// keep the pool at full strength</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">  </span><span class="c1">// Each worker runs its own independent copy of the actual app</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="k">import</span><span class="p">(</span><span class="s2">&quot;./server.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Worker </span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">pid</span><span class="si">}</span><span class="sb"> started`</span><span class="p">);</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// server.js — a normal Express app, unaware it&#39;s running inside a cluster worker</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/health&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">pid</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">pid</span><span class="p">,</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="p">}));</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">);</span>
+</code></pre></div>
+<p>Requests are load-balanced across workers by the OS/Node's internal round-robin
+scheduler. In production, tools like <strong>PM2</strong> wrap this pattern with process
+management, log aggregation, and zero-downtime reloads so you rarely hand-roll
+<code>cluster</code> directly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>pm2
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pm2<span class="w"> </span>start<span class="w"> </span>server.js<span class="w"> </span>-i<span class="w"> </span>max<span class="w">   </span><span class="c1"># &quot;-i max&quot; = one worker per CPU core</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>pm2<span class="w"> </span>reload<span class="w"> </span>server.js<span class="w">          </span><span class="c1"># zero-downtime restart, one worker at a time</span>
+</code></pre></div>
+<h2 id="caching-strategies">Caching strategies<a class="headerlink" href="#caching-strategies" title="Permanent link">&para;</a></h2>
+<p>Caching avoids repeating expensive work (database queries, external API
+calls, computation) for data that doesn't change on every request.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// In-memory cache — fast, but per-process (each cluster worker has its own copy)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// and lost on restart. Fine for single-instance apps or short-lived data.</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">TTL_MS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">60</span><span class="nx">_000</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getProduct</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cached</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cache</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cached</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">cached</span><span class="p">.</span><span class="nx">timestamp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">TTL_MS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">cached</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nx">cache</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Redis cache — shared across all instances/processes, survives individual</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">// process restarts, supports TTL natively</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;redis&quot;</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">({</span><span class="w"> </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REDIS_URL</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">await</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getProductCached</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cacheKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`product:</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cached</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">cacheKey</span><span class="p">);</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cached</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">cached</span><span class="p">);</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">cacheKey</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">EX</span><span class="o">:</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="c1">// expires in 60s</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="p">}</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="c1">// Cache invalidation — clear the cache entry whenever the underlying data changes</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">updateProduct</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">changes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">updated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">changes</span><span class="p">);</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">del</span><span class="p">(</span><span class="sb">`product:</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;cache invalidation is one of the two hard things&quot;</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">updated</span><span class="p">;</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Where it lives</th>
+<th>Survives restart?</th>
+<th>Shared across instances?</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In-memory (<code>Map</code>)</td>
+<td>Inside one Node process</td>
+<td>No</td>
+<td>No</td>
+<td>Single-instance apps, hot/small data</td>
+</tr>
+<tr>
+<td>Redis / Memcached</td>
+<td>External service</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Multi-instance/clustered deployments</td>
+</tr>
+<tr>
+<td>CDN edge cache</td>
+<td>Edge network (Cloudflare, Fastly)</td>
+<td>Yes</td>
+<td>Yes (globally)</td>
+<td>Static assets, public API responses</td>
+</tr>
+<tr>
+<td>HTTP cache headers</td>
+<td>Client/browser</td>
+<td>Yes</td>
+<td>No (per-client)</td>
+<td>Reducing repeat requests from the same client</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load-balancing">Load balancing<a class="headerlink" href="#load-balancing" title="Permanent link">&para;</a></h2>
+<p>When you run multiple Node instances (via <code>cluster</code>, multiple containers, or
+multiple machines), a load balancer distributes incoming traffic across them.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># nginx.conf — a simple round-robin load balancer in front of 3 Node instances</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">upstream</span><span class="w"> </span><span class="s">node_app</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">3001</span><span class="p">;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">3002</span><span class="p">;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">3003</span><span class="p">;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://node_app</span><span class="p">;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>In containerized/cloud deployments, this role is usually filled by a managed
+load balancer (AWS ALB, GCP Load Balancer, Kubernetes <code>Service</code>) rather than a
+hand-configured nginx box — but the concept (distribute requests, health-check
+backends, remove unhealthy ones from rotation) is identical.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// A health-check endpoint the load balancer polls to decide whether to route traffic here</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/health&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">ping</span><span class="p">();</span><span class="w"> </span><span class="c1">// verify the dependency this instance actually needs</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">200</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">503</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;unhealthy&quot;</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="c1">// load balancer stops routing here</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="horizontal-vs-vertical-scaling">Horizontal vs. vertical scaling<a class="headerlink" href="#horizontal-vs-vertical-scaling" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Vertical scaling</th>
+<th>Horizontal scaling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How</td>
+<td>Bigger machine (more CPU/RAM)</td>
+<td>More machines/processes</td>
+</tr>
+<tr>
+<td>Node fit</td>
+<td>Limited — single thread caps CPU use per process</td>
+<td>Natural fit — <code>cluster</code>, containers, multiple instances</td>
+</tr>
+<tr>
+<td>Downtime to scale</td>
+<td>Often requires a restart</td>
+<td>New instances added/removed without downtime</td>
+</tr>
+<tr>
+<td>Ceiling</td>
+<td>Hardware limits of one machine</td>
+<td>Practically unbounded (with a data layer that can keep up)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>You have a Node API currently running as a single process that's pegged at
+100% CPU on one core while 7 other cores sit idle. Using the <code>cluster</code>
+snippet above as a starting point, write the entry-point code to run it
+across all available cores, and describe (a sentence or two) how you'd add a
+Redis-backed cache for a <code>GET /products/:id</code> endpoint that's hit far more
+often than products change.</p>
 
 
 

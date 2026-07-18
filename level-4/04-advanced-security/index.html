@@ -1796,6 +1796,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Advanced Security Practices
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1812,6 +1830,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-vs-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication vs. authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwts-signing-and-verifying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWTs: signing and verifying
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#password-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-owasp-top-10-in-javascript-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The OWASP Top 10, in JavaScript terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-injection-example-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common injection example, fixed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-headers-and-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security headers and rate limiting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2127,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-vs-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication vs. authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwts-signing-and-verifying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWTs: signing and verifying
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#password-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-owasp-top-10-in-javascript-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The OWASP Top 10, in JavaScript terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-injection-example-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common injection example, fixed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-headers-and-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security headers and rate limiting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,13 +2231,214 @@
 
 
 <h1 id="04-advanced-security-practices">04 · Advanced Security Practices<a class="headerlink" href="#04-advanced-security-practices" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Authentication, JWTs, and the OWASP Top 10 as they apply to JavaScript apps.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Security at production scale isn't a checklist you run once — it's a set of
+defaults you bake into architecture. This module covers authentication with
+JWTs and the OWASP Top 10 risks as they specifically show up in JavaScript
+applications.</p>
+<h2 id="authentication-vs-authorization">Authentication vs. authorization<a class="headerlink" href="#authentication-vs-authorization" title="Permanent link">&para;</a></h2>
+<p><strong>Authentication</strong> answers "who are you?" (login). <strong>Authorization</strong> answers
+"what are you allowed to do?" (permissions). Conflating the two is a common
+source of vulnerabilities — a valid, authenticated token doesn't automatically
+mean the request should be allowed.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// authentication: verifying identity</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">authenticate</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="o">?</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;Bearer &quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">token</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;missing token&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">verifyToken</span><span class="p">(</span><span class="nx">token</span><span class="p">);</span><span class="w"> </span><span class="c1">// throws if invalid/expired</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nx">next</span><span class="p">();</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;invalid or expired token&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">// authorization: checking permission for THIS specific action</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kd">function</span><span class="w"> </span><span class="nx">requireRole</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">role</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">403</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;forbidden&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nx">next</span><span class="p">();</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">}</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="nx">app</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;/users/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">authenticate</span><span class="p">,</span><span class="w"> </span><span class="nx">requireRole</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">),</span><span class="w"> </span><span class="nx">deleteUserHandler</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="jwts-signing-and-verifying">JWTs: signing and verifying<a class="headerlink" href="#jwts-signing-and-verifying" title="Permanent link">&para;</a></h2>
+<p>A JSON Web Token (JWT) is a signed, self-contained token — the server can
+verify it hasn't been tampered with without a database lookup, at the cost of
+being hard to revoke early (mitigations below).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>install<span class="w"> </span>jsonwebtoken
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// auth/tokens.js</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">jwt</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;jsonwebtoken&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">ACCESS_SECRET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">JWT_ACCESS_SECRET</span><span class="p">;</span><span class="w"> </span><span class="c1">// never hardcode this</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">ACCESS_TOKEN_TTL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;15m&quot;</span><span class="p">;</span><span class="w">                        </span><span class="c1">// short-lived on purpose</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">REFRESH_TOKEN_TTL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;7d&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">signAccessToken</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">jwt</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">sub</span><span class="o">:</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// payload — keep it small, no sensitive data</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nx">ACCESS_SECRET</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">expiresIn</span><span class="o">:</span><span class="w"> </span><span class="nx">ACCESS_TOKEN_TTL</span><span class="p">,</span><span class="w"> </span><span class="nx">issuer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;acme-api&quot;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="p">);</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">verifyAccessToken</span><span class="p">(</span><span class="nx">token</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span><span class="w"> </span><span class="nx">ACCESS_SECRET</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">issuer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;acme-api&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">  </span><span class="c1">// throws JsonWebTokenError (bad signature) or TokenExpiredError (expired)</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// login route using the helpers above</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/auth/login&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">usersRepository</span><span class="p">.</span><span class="nx">findByEmail</span><span class="p">(</span><span class="nx">email</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">bcrypt</span><span class="p">.</span><span class="nx">compare</span><span class="p">(</span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">passwordHash</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="c1">// deliberately identical message for &quot;no such user&quot; and &quot;wrong password&quot; —</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="c1">// don&#39;t leak which one it was</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;invalid email or password&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signAccessToken</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">accessToken</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">});</span>
+</code></pre></div>
+<p>Short-lived access tokens (minutes, not days) limit the damage window if one
+leaks. Pair them with a longer-lived <strong>refresh token</strong>, stored server-side (or
+in an <code>httpOnly</code> cookie) so it can be revoked, to re-issue access tokens
+without forcing re-login.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// middleware — drop-in for any protected route</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">authenticate</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="o">?</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;Bearer &quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">token</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;missing token&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">verifyAccessToken</span><span class="p">(</span><span class="nx">token</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nx">next</span><span class="p">();</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;TokenExpiredError&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;token expired&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;TOKEN_EXPIRED&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;invalid token&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="password-storage">Password storage<a class="headerlink" href="#password-storage" title="Permanent link">&para;</a></h2>
+<p>Never store plaintext passwords, and never roll your own hashing. Use
+<code>bcrypt</code> (or <code>argon2</code>), which is deliberately slow and salts automatically.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>npm<span class="w"> </span>install<span class="w"> </span>bcrypt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">bcrypt</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;bcrypt&quot;</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">SALT_ROUNDS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12</span><span class="p">;</span><span class="w"> </span><span class="c1">// higher = slower = more resistant to brute force</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">hashPassword</span><span class="p">(</span><span class="nx">plaintext</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">bcrypt</span><span class="p">.</span><span class="nx">hash</span><span class="p">(</span><span class="nx">plaintext</span><span class="p">,</span><span class="w"> </span><span class="nx">SALT_ROUNDS</span><span class="p">);</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">verifyPassword</span><span class="p">(</span><span class="nx">plaintext</span><span class="p">,</span><span class="w"> </span><span class="nx">hash</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">bcrypt</span><span class="p">.</span><span class="nx">compare</span><span class="p">(</span><span class="nx">plaintext</span><span class="p">,</span><span class="w"> </span><span class="nx">hash</span><span class="p">);</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="the-owasp-top-10-in-javascript-terms">The OWASP Top 10, in JavaScript terms<a class="headerlink" href="#the-owasp-top-10-in-javascript-terms" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>OWASP risk</th>
+<th>How it shows up in a JS app</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broken access control</td>
+<td>Missing <code>requireRole</code>/ownership checks on routes</td>
+<td>Authorize every mutating route, check resource ownership server-side</td>
+</tr>
+<tr>
+<td>Cryptographic failures</td>
+<td>Plaintext passwords, hardcoded JWT secrets</td>
+<td><code>bcrypt</code>/<code>argon2</code>, secrets from env vars/secret manager</td>
+</tr>
+<tr>
+<td>Injection</td>
+<td>String-concatenated SQL, <code>eval()</code> on user input</td>
+<td>Parameterized queries/ORM, never <code>eval</code>/<code>new Function</code> on untrusted input</td>
+</tr>
+<tr>
+<td>Insecure design</td>
+<td>No rate limiting on login, no idempotency on payments</td>
+<td>Threat-model auth/payment flows before writing code</td>
+</tr>
+<tr>
+<td>Security misconfiguration</td>
+<td>Default Express headers, verbose error stacks in prod</td>
+<td><code>helmet</code>, disable stack traces in production responses</td>
+</tr>
+<tr>
+<td>Vulnerable/outdated components</td>
+<td>Unpatched npm dependencies</td>
+<td><code>npm audit</code>, Dependabot/Renovate, pin versions</td>
+</tr>
+<tr>
+<td>Identification/authentication failures</td>
+<td>Long-lived tokens, no lockout on brute force</td>
+<td>Short-lived JWTs, refresh token rotation, rate-limit <code>/login</code></td>
+</tr>
+<tr>
+<td>Software/data integrity failures</td>
+<td>Installing packages from untrusted sources, no lockfile</td>
+<td><code>package-lock.json</code> committed, verify package provenance</td>
+</tr>
+<tr>
+<td>Logging/monitoring failures</td>
+<td>No audit trail for sensitive actions</td>
+<td>Structured logs for auth events — see <a href="../09-observability/">Module 9</a></td>
+</tr>
+<tr>
+<td>Server-side request forgery (SSRF)</td>
+<td>Fetching a user-supplied URL server-side unchecked</td>
+<td>Allow-list destinations, block internal IP ranges</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-injection-example-fixed">Common injection example, fixed<a class="headerlink" href="#common-injection-example-fixed" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// VULNERABLE — string concatenation lets an attacker inject SQL</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`SELECT * FROM users WHERE email = &#39;</span><span class="si">${</span><span class="nx">email</span><span class="si">}</span><span class="sb">&#39;`</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">// SAFE — parameterized query; the driver escapes the value</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM users WHERE email = $1&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">email</span><span class="p">]);</span>
+</code></pre></div>
+<h2 id="security-headers-and-rate-limiting">Security headers and rate limiting<a class="headerlink" href="#security-headers-and-rate-limiting" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>npm<span class="w"> </span>install<span class="w"> </span>helmet<span class="w"> </span>express-rate-limit
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">helmet</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;helmet&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">rateLimit</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express-rate-limit&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">helmet</span><span class="p">());</span><span class="w"> </span><span class="c1">// sets sensible security headers (CSP, X-Frame-Options, etc.)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">loginLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rateLimit</span><span class="p">({</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nx">windowMs</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span><span class="w"> </span><span class="c1">// 15 minutes</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w">                    </span><span class="c1">// 10 attempts per IP per window</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;too many login attempts, try again later&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">});</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/auth/login&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">loginLimiter</span><span class="p">,</span><span class="w"> </span><span class="nx">loginHandler</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>A code review flags this route:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/api/orders/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">authenticate</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ordersRepository</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">order</span><span class="p">);</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">});</span>
+</code></pre></div>
+<p>Identify the OWASP Top 10 category this violates (hint: any authenticated
+user can fetch any order by guessing/incrementing IDs), and rewrite the
+handler to fix it. Then add rate limiting to a <code>/auth/login</code> route using
+<code>express-rate-limit</code> with a stricter window than the example above.</p>
 
 
 

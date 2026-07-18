@@ -1712,6 +1712,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Full-Stack Architecture Patterns
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1728,6 +1746,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#layered-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layered architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monorepos-vs-polyrepos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monorepos vs. polyrepos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structuring-a-full-stack-app-for-maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structuring a full-stack app for maintainability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-an-architecture-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing an architecture style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2105,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#layered-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layered architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monorepos-vs-polyrepos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monorepos vs. polyrepos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structuring-a-full-stack-app-for-maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structuring a full-stack app for maintainability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-an-architecture-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing an architecture style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2187,203 @@
 
 
 <h1 id="01-full-stack-architecture-patterns">01 · Full-Stack Architecture Patterns<a class="headerlink" href="#01-full-stack-architecture-patterns" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Layered architecture, monorepos vs. polyrepos, and structuring a full-stack
-JavaScript application for maintainability.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>At Master level, the hard problems stop being "how do I write this function"
+and become "how do I structure a codebase so a team of engineers can change it
+safely for years." This module covers the architectural decisions that shape
+everything else in Level 4.</p>
+<h2 id="layered-architecture">Layered architecture<a class="headerlink" href="#layered-architecture" title="Permanent link">&para;</a></h2>
+<p>A layered (n-tier) architecture separates a full-stack JavaScript app into
+distinct responsibilities, each depending only on the layer(s) beneath it.
+This keeps business logic testable without a database or HTTP server.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>src/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  routes/          # HTTP layer — parses requests, calls services, formats responses
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    users.routes.js
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  controllers/      # Thin glue between routes and services
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    users.controller.js
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  services/         # Business logic — framework-agnostic, easy to unit test
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    users.service.js
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  repositories/      # Data access — the only layer that knows about SQL/ORM
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    users.repository.js
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  models/            # Domain types / schema shapes
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    user.model.js
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// services/users.service.js — pure business logic, no HTTP or SQL here</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">createUsersService</span><span class="p">(</span><span class="nx">usersRepository</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">registerUser</span><span class="p">({</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">email</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;invalid email&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">existing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">usersRepository</span><span class="p">.</span><span class="nx">findByEmail</span><span class="p">(</span><span class="nx">email</span><span class="p">);</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">existing</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;email already registered&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">usersRepository</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// controllers/users.controller.js — translates HTTP &lt;-&gt; service calls</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">createUsersController</span><span class="p">(</span><span class="nx">usersService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">register</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">usersService</span><span class="p">.</span><span class="nx">registerUser</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">201</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>Because <code>usersService</code> only depends on an abstract <code>usersRepository</code>
+interface, you can swap Postgres for an in-memory fake in tests without
+touching business logic — this is dependency injection in practice, not just
+a buzzword.</p>
+<h2 id="monorepos-vs-polyrepos">Monorepos vs. polyrepos<a class="headerlink" href="#monorepos-vs-polyrepos" title="Permanent link">&para;</a></h2>
+<p>A <strong>monorepo</strong> holds multiple related packages (API, web app, shared types,
+CLI tools) in one repository with one version-controlled history. A
+<strong>polyrepo</strong> splits each into its own repository. Neither is universally
+"right" — the decision depends on team size, deployment independence, and how
+much code is genuinely shared.</p>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Monorepo</th>
+<th>Polyrepo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sharing code (types, utils)</td>
+<td>Trivial — direct import</td>
+<td>Needs a published package</td>
+</tr>
+<tr>
+<td>Atomic cross-package changes</td>
+<td>One commit, one PR</td>
+<td>Coordinated PRs across repos</td>
+</tr>
+<tr>
+<td>CI build time</td>
+<td>Can grow large; needs caching/filtering</td>
+<td>Each repo's CI stays small</td>
+</tr>
+<tr>
+<td>Independent deploy cadence</td>
+<td>Requires tooling discipline</td>
+<td>Natural — each repo deploys alone</td>
+</tr>
+<tr>
+<td>Onboarding</td>
+<td>One clone, one setup</td>
+<td>Multiple clones, multiple setups</td>
+</tr>
+<tr>
+<td>Tooling maturity needed</td>
+<td>Higher (Nx, Turborepo, workspaces)</td>
+<td>Lower</td>
+</tr>
+</tbody>
+</table>
+<p>A typical Node/JS monorepo uses npm/pnpm/yarn <strong>workspaces</strong> to link local
+packages without publishing them to a registry:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// package.json (repo root)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;acme-platform&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;private&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;workspaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;apps/*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;packages/*&quot;</span><span class="p">]</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>acme-platform/
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  apps/
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    api/            # Express/Fastify backend
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    web/            # React/Next.js frontend
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  packages/
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    shared-types/    # TypeScript types shared by api and web
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    ui/              # Shared component library
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  package.json
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  turbo.json          # or nx.json — build orchestration/caching
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// apps/api/package.json (dependency on an internal workspace package)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;@acme/api&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="s2">&quot;dependencies&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="s2">&quot;@acme/shared-types&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;workspace:*&quot;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>workspace:*</code> tells the package manager "resolve this from the local
+workspace, not the npm registry" — changes to <code>shared-types</code> are picked up
+immediately by anything that imports it, with no publish step.</p>
+<h2 id="structuring-a-full-stack-app-for-maintainability">Structuring a full-stack app for maintainability<a class="headerlink" href="#structuring-a-full-stack-app-for-maintainability" title="Permanent link">&para;</a></h2>
+<p>A few principles keep a full-stack JavaScript codebase navigable as it grows:</p>
+<ul>
+<li><strong>Feature folders over type folders at scale.</strong> Grouping by feature
+  (<code>features/billing/</code>, <code>features/orders/</code>) rather than by type
+  (<code>controllers/</code>, <code>services/</code>) keeps related code together and makes deletion
+  safe — removing a feature means removing one folder.</li>
+<li><strong>A shared "core" package for cross-cutting concerns</strong> — logging, config
+  loading, error classes — imported by every service so behavior stays
+  consistent.</li>
+<li><strong>Explicit module boundaries.</strong> Each feature module exports a small public
+  API (usually via an <code>index.js</code>/<code>index.ts</code> barrel file) and treats its own
+  internals as private, even within the same repo.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// features/billing/index.js — the only file other features may import from</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">export</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createInvoice</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./billing.service.js&quot;</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">export</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">InvoiceStatus</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./billing.types.js&quot;</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">// billing.repository.js and internal helpers are NOT re-exported —</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">// nothing outside this folder should reach into billing&#39;s internals.</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// features/orders/order.service.js</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createInvoice</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../billing/index.js&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// uses billing&#39;s public API only</span>
+</code></pre></div>
+<h2 id="choosing-an-architecture-style">Choosing an architecture style<a class="headerlink" href="#choosing-an-architecture-style" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Style</th>
+<th>Best fit</th>
+<th>Trade-off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layered (n-tier) monolith</td>
+<td>Small-to-mid teams, one deployable</td>
+<td>Can become a "big ball of mud" without discipline</td>
+</tr>
+<tr>
+<td>Modular monolith (feature folders)</td>
+<td>Mid-size teams, single deploy, clear ownership</td>
+<td>Requires enforcing boundaries (lint rules, code review)</td>
+</tr>
+<tr>
+<td>Microservices</td>
+<td>Large orgs, independent scaling/deploy</td>
+<td>Operational overhead: networking, observability, data consistency</td>
+</tr>
+<tr>
+<td>Serverless functions</td>
+<td>Spiky/unpredictable load, small discrete tasks</td>
+<td>Cold starts, vendor lock-in, harder local debugging</td>
+</tr>
+</tbody>
+</table>
+<p>Most teams should start with a modular monolith and only split into
+microservices once a specific, measured pain (deploy coupling, scaling one
+piece independently, team ownership boundaries) justifies the operational
+cost — covered in depth in <a href="../03-microservices-serverless/">Module 3</a>.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>You're joining a team maintaining a full-stack JavaScript app that currently
+has one giant <code>server.js</code> file (2,000+ lines) mixing routes, SQL queries, and
+business logic. Sketch a target folder structure (layered or feature-folder
+style — your choice) you'd migrate it to, and write a short paragraph
+explaining the order you'd migrate pieces in so the app keeps working at every
+step (no "big bang rewrite").</p>
 
 
 

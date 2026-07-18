@@ -1018,6 +1018,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Promises & Async/Await
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1034,6 +1052,124 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-promise-represents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Promise represents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-promise-around-async-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Promise around async work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chaining-then" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaining .then
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        async/await
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling-with-trycatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error handling with try/catch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-promises-in-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running promises in parallel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promiseall-vs-promiseallsettled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise.all vs. Promise.allSettled
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promise-combinators-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise combinators cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2149,113 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-promise-represents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Promise represents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-promise-around-async-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Promise around async work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chaining-then" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaining .then
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        async/await
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling-with-trycatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error handling with try/catch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-promises-in-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running promises in parallel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promiseall-vs-promiseallsettled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise.all vs. Promise.allSettled
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promise-combinators-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise combinators cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2275,164 @@
 
 
 <h1 id="04-promises-asyncawait">04 · Promises &amp; Async/Await<a class="headerlink" href="#04-promises-asyncawait" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Creating and chaining Promises, <code>async</code>/<code>await</code> syntax, and error handling
-with <code>try</code>/<code>catch</code> around asynchronous code.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>This module builds on the event loop and microtask queue from
+<a href="../03-async-javascript-i/">Module 3</a> — Promises are the mechanism that
+schedules work onto that microtask queue.</p>
+<h2 id="what-a-promise-represents">What a Promise represents<a class="headerlink" href="#what-a-promise-represents" title="Permanent link">&para;</a></h2>
+<p>A Promise is an object representing a value that may not be available yet.
+It's always in one of three states: <strong>pending</strong>, <strong>fulfilled</strong>, or
+<strong>rejected</strong> — and once it settles (fulfills or rejects), it never changes
+again.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">willSucceed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;done!&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// moves the promise to &quot;fulfilled&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">500</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">});</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nx">willSucceed</span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span><span class="w"> </span><span class="c1">// done! (after ~500ms)</span>
+</code></pre></div>
+<h2 id="creating-a-promise-around-async-work">Creating a Promise around async work<a class="headerlink" href="#creating-a-promise-around-async-work" title="Permanent link">&para;</a></h2>
+<p>Wrap any callback-based operation in <code>new Promise</code> to give it a <code>.then</code>/
+<code>.catch</code> interface, calling <code>resolve</code> on success and <code>reject</code> on failure.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="nx">ms</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ms</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nx">reject</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;delay must be non-negative&quot;</span><span class="p">));</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">value</span><span class="p">),</span><span class="w"> </span><span class="nx">ms</span><span class="p">);</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nx">delay</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span><span class="w"> </span><span class="c1">// hello</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">));</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nx">delay</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">).</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">));</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1">// delay must be non-negative</span>
+</code></pre></div>
+<h2 id="chaining-then">Chaining <code>.then</code><a class="headerlink" href="#chaining-then" title="Permanent link">&para;</a></h2>
+<p>Each <code>.then</code> returns a new Promise, so steps that depend on the previous
+result can be chained instead of nested — this directly replaces the
+callback pyramid from Module 3.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getUser</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getOrders</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="sb">`order-1 for </span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="sb">`order-2 for </span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">]);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nx">getUser</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">getOrders</span><span class="p">(</span><span class="nx">user</span><span class="p">))</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">orders</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">orders</span><span class="p">[</span><span class="mf">0</span><span class="p">]))</span><span class="w"> </span><span class="c1">// order-1 for Ada</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;something failed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="asyncawait"><code>async</code>/<code>await</code><a class="headerlink" href="#asyncawait" title="Permanent link">&para;</a></h2>
+<p><code>async</code>/<code>await</code> is syntax sugar over Promises: an <code>async</code> function always
+returns a Promise, and <code>await</code> pauses execution inside it until the awaited
+Promise settles — without blocking the rest of the program.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">loadOrderSummary</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getUser</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span><span class="w">        </span><span class="c1">// pauses here until resolved</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getOrders</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span><span class="w"> </span><span class="c1">// then continues</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">orders</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb"> orders`</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nx">loadOrderSummary</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">summary</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">summary</span><span class="p">));</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// Ada: 2 orders</span>
+</code></pre></div>
+<p>The same logic written with raw <code>.then</code> chains is functionally identical,
+but <code>await</code> reads top-to-bottom like synchronous code.</p>
+<h2 id="error-handling-with-trycatch">Error handling with <code>try</code>/<code>catch</code><a class="headerlink" href="#error-handling-with-trycatch" title="Permanent link">&para;</a></h2>
+<p>Wrap <code>await</code> calls in <code>try</code>/<code>catch</code> exactly like synchronous code — this is
+the big ergonomic win over <code>.then().catch()</code> chains for multi-step logic.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">safeLoadOrderSummary</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getUser</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getOrders</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">orders</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb"> orders`</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;failed to load summary:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="nx">safeLoadOrderSummary</span><span class="p">(</span><span class="mf">1</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">summary</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">summary</span><span class="p">));</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1">// Ada: 2 orders</span>
+</code></pre></div>
+<h2 id="running-promises-in-parallel">Running promises in parallel<a class="headerlink" href="#running-promises-in-parallel" title="Permanent link">&para;</a></h2>
+<p>Sequential <code>await</code> calls that don't depend on each other waste time. Kick
+off independent operations together and await them as a group instead.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">loadDashboard</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="c1">// Sequential — slower, waits for each one before starting the next</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;profile&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;settings&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="c1">// total: ~400ms</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="c1">// Parallel — starts both immediately, waits for whichever is slower</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">profile</span><span class="p">,</span><span class="w"> </span><span class="nx">settings</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nx">delay</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;profile&quot;</span><span class="p">),</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nx">delay</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;settings&quot;</span><span class="p">),</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="p">]);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="c1">// total: ~200ms</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">profile</span><span class="p">,</span><span class="w"> </span><span class="nx">settings</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nx">loadDashboard</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="promiseall-vs-promiseallsettled"><code>Promise.all</code> vs. <code>Promise.allSettled</code><a class="headerlink" href="#promiseall-vs-promiseallsettled" title="Permanent link">&para;</a></h2>
+<p><code>Promise.all</code> rejects as soon as <em>any</em> promise rejects, discarding the
+others' results. <code>Promise.allSettled</code> always waits for every promise and
+reports each outcome individually — useful when partial failure is fine.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">delay</span><span class="p">(</span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok-1&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;task failed&quot;</span><span class="p">)),</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok-2&quot;</span><span class="p">)];</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">tasks</span><span class="p">).</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;all() rejected:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">));</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">// all() rejected: task failed</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">Promise</span><span class="p">.</span><span class="nx">allSettled</span><span class="p">(</span><span class="nx">tasks</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">results</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">results</span><span class="p">));</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1">// [</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1">//   { status: &#39;fulfilled&#39;, value: &#39;ok-1&#39; },</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1">//   { status: &#39;rejected&#39;, reason: Error: task failed },</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1">//   { status: &#39;fulfilled&#39;, value: &#39;ok-2&#39; }</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1">// ]</span>
+</code></pre></div>
+<h2 id="promise-combinators-cheat-sheet">Promise combinators cheat sheet<a class="headerlink" href="#promise-combinators-cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Resolves when</th>
+<th>Rejects when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Promise.all</code></td>
+<td>every promise fulfills</td>
+<td>any single promise rejects (fails fast)</td>
+</tr>
+<tr>
+<td><code>Promise.allSettled</code></td>
+<td>every promise settles (fulfilled or rejected)</td>
+<td>never — always fulfills with a status report</td>
+</tr>
+<tr>
+<td><code>Promise.race</code></td>
+<td>the first promise to settle, settles</td>
+<td>the first promise to settle rejects</td>
+</tr>
+<tr>
+<td><code>Promise.any</code></td>
+<td>the first promise to fulfill, fulfills</td>
+<td>only if <em>all</em> promises reject</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write an <code>async</code> function <code>fetchWithTimeout(promise, ms)</code> that returns
+whatever <code>promise</code> resolves to, but rejects with <code>new Error("timed out")</code> if
+it takes longer than <code>ms</code> milliseconds. Hint: use <code>Promise.race</code> with a
+second promise that rejects after a <code>setTimeout</code>.</p>
 
 
 

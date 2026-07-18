@@ -934,6 +934,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Closures & Scope Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -950,6 +968,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lexical-scope-revisited" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lexical scope, revisited
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-closure-actually-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a closure actually is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-module-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The module pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-classic-loop-pitfall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The classic loop pitfall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#closures-over-mutable-state-a-caution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closures over mutable state — a caution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-vs-closures-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope vs. closures cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2127,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lexical-scope-revisited" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lexical scope, revisited
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-closure-actually-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a closure actually is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-module-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The module pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-classic-loop-pitfall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The classic loop pitfall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#closures-over-mutable-state-a-caution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closures over mutable state — a caution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-vs-closures-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope vs. closures cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,13 +2231,184 @@
 
 
 <h1 id="01-closures-scope-deep-dive">01 · Closures &amp; Scope Deep Dive<a class="headerlink" href="#01-closures-scope-deep-dive" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Lexical scope, closures, the module pattern, and common closure pitfalls in loops.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>This module builds directly on lexical scope from
+<a href="../../level-1/04-functions-scope/">Level 1 · Module 4</a> — if function scope and
+hoisting aren't solid yet, revisit that page first.</p>
+<h2 id="lexical-scope-revisited">Lexical scope, revisited<a class="headerlink" href="#lexical-scope-revisited" title="Permanent link">&para;</a></h2>
+<p>A function's scope is determined by <em>where it is written in the source</em>, not
+by where it's called from. Every function "remembers" the scope chain that
+existed at the moment it was defined.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">makeGreeter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// lives in makeGreeter&#39;s scope</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// defined here, so it can see `greeting`</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">greeting</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kd">const</span><span class="w"> </span><span class="nx">greet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">makeGreeter</span><span class="p">();</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greet</span><span class="p">(</span><span class="s2">&quot;Ada&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// Hello, Ada!</span>
+</code></pre></div>
+<p><code>greet</code> still works even though <code>makeGreeter()</code> already finished running.
+That's the whole idea of a closure.</p>
+<h2 id="what-a-closure-actually-is">What a closure actually is<a class="headerlink" href="#what-a-closure-actually-is" title="Permanent link">&para;</a></h2>
+<p>A closure is the combination of a function and the lexical environment it was
+declared in. The inner function keeps a live reference to the outer
+variables — not a snapshot — so changes are visible across calls.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">makeCounter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// private state, not accessible from outside</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nx">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">count</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nx">reset</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="kd">const</span><span class="w"> </span><span class="nx">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">makeCounter</span><span class="p">();</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nx">increment</span><span class="p">());</span><span class="w"> </span><span class="c1">// 1</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nx">increment</span><span class="p">());</span><span class="w"> </span><span class="c1">// 2</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="nx">counter</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nx">increment</span><span class="p">());</span><span class="w"> </span><span class="c1">// 1</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="c1">// `count` cannot be reached directly — no counter.count property exists</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span><span class="w"> </span><span class="c1">// undefined</span>
+</code></pre></div>
+<p>Each call to <code>makeCounter()</code> creates a brand-new, independent <code>count</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">counterA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">makeCounter</span><span class="p">();</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">counterB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">makeCounter</span><span class="p">();</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nx">counterA</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nx">counterA</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nx">counterB</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counterA</span><span class="p">.</span><span class="nx">increment</span><span class="p">());</span><span class="w"> </span><span class="c1">// 3</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counterB</span><span class="p">.</span><span class="nx">increment</span><span class="p">());</span><span class="w"> </span><span class="c1">// 2 — completely separate closure</span>
+</code></pre></div>
+<h2 id="the-module-pattern">The module pattern<a class="headerlink" href="#the-module-pattern" title="Permanent link">&para;</a></h2>
+<p>Before ES modules existed, closures were the standard way to create private
+state and a public API in the same object — this is still useful inside a
+single file or function today.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">bankAccount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// private — only reachable through the returned methods</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">deposit</span><span class="p">(</span><span class="nx">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">amount</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;deposit must be positive&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nx">balance</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">amount</span><span class="p">;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">balance</span><span class="p">;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">withdraw</span><span class="p">(</span><span class="nx">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">balance</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;insufficient funds&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="nx">balance</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">amount</span><span class="p">;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">balance</span><span class="p">;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">getBalance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">balance</span><span class="p">;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">deposit</span><span class="p">,</span><span class="w"> </span><span class="nx">withdraw</span><span class="p">,</span><span class="w"> </span><span class="nx">getBalance</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// public API</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">})();</span><span class="w"> </span><span class="c1">// IIFE — Immediately Invoked Function Expression, runs right away</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="nx">bankAccount</span><span class="p">.</span><span class="nx">deposit</span><span class="p">(</span><span class="mf">100</span><span class="p">);</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="nx">bankAccount</span><span class="p">.</span><span class="nx">withdraw</span><span class="p">(</span><span class="mf">30</span><span class="p">);</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bankAccount</span><span class="p">.</span><span class="nx">getBalance</span><span class="p">());</span><span class="w"> </span><span class="c1">// 70</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bankAccount</span><span class="p">.</span><span class="nx">balance</span><span class="p">);</span><span class="w">      </span><span class="c1">// undefined — truly private</span>
+</code></pre></div>
+<h2 id="the-classic-loop-pitfall">The classic loop pitfall<a class="headerlink" href="#the-classic-loop-pitfall" title="Permanent link">&para;</a></h2>
+<p>A common bug: capturing a loop variable declared with <code>var</code> inside a
+callback, expecting each callback to remember "its" value.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Broken: var is function-scoped, so all three callbacks share ONE `i`</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;var i:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">),</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// var i: 3</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">// var i: 3</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">// var i: 3</span>
+</code></pre></div>
+<p>By the time the callbacks run, the loop has already finished and <code>i</code> is <code>3</code>
+for all of them, because there was only ever one <code>i</code> in the whole loop.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Fixed: let creates a fresh binding for each iteration</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;let j:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">),</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">// let j: 0</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// let j: 1</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">// let j: 2</span>
+</code></pre></div>
+<p>If you're stuck with <code>var</code> (e.g. maintaining older code), wrap the body in an
+IIFE to force a new scope per iteration:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">capturedK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;captured k:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">capturedK</span><span class="p">),</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="p">})(</span><span class="nx">k</span><span class="p">);</span><span class="w"> </span><span class="c1">// pass the current value in explicitly</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1">// captured k: 0</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1">// captured k: 1</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1">// captured k: 2</span>
+</code></pre></div>
+<h2 id="closures-over-mutable-state-a-caution">Closures over mutable state — a caution<a class="headerlink" href="#closures-over-mutable-state-a-caution" title="Permanent link">&para;</a></h2>
+<p>Closures capture <em>variables</em>, not values. If several functions share a
+closure and one mutates the variable, every function sees the new value —
+which is often exactly what you want, but can also cause subtle bugs.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">createSharedState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;initial&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nx">read</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nx">write</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">      </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newValue</span><span class="p">;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="kd">const</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSharedState</span><span class="p">();</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">read</span><span class="p">());</span><span class="w"> </span><span class="c1">// initial</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="nx">state</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;changed&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">read</span><span class="p">());</span><span class="w"> </span><span class="c1">// changed — both functions share the same `value`</span>
+</code></pre></div>
+<h2 id="scope-vs-closures-cheat-sheet">Scope vs. closures cheat sheet<a class="headerlink" href="#scope-vs-closures-cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lexical scope</td>
+<td>Where a variable is accessible, decided by source-code position</td>
+</tr>
+<tr>
+<td>Block scope</td>
+<td><code>let</code>/<code>const</code> are confined to the nearest <code>{ }</code></td>
+</tr>
+<tr>
+<td>Function scope</td>
+<td><code>var</code> is confined to the nearest function, ignoring blocks</td>
+</tr>
+<tr>
+<td>Closure</td>
+<td>A function plus the scope it was created in, kept alive after the outer function returns</td>
+</tr>
+<tr>
+<td>Module pattern</td>
+<td>Using a closure (often an IIFE) to expose a public API while hiding private state</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write a function <code>createQueue()</code> that uses a closure to keep a private
+array. Return an object with <code>enqueue(item)</code> (adds to the end),
+<code>dequeue()</code> (removes and returns the front item), and <code>size()</code> (returns the
+current length) — with no way for outside code to access the underlying
+array directly.</p>
 
 
 

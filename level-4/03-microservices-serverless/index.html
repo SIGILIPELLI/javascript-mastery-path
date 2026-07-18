@@ -1768,6 +1768,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Microservices & Serverless Patterns
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1784,6 +1802,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-makes-a-good-microservice-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What makes a good microservice boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-between-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication between services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serverless-functions-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serverless / Functions-as-a-Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservices-vs-serverless-vs-monolith" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microservices vs. serverless vs. monolith
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idempotency-and-retries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotency and retries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2116,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-makes-a-good-microservice-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What makes a good microservice boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-between-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication between services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serverless-functions-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serverless / Functions-as-a-Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservices-vs-serverless-vs-monolith" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microservices vs. serverless vs. monolith
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idempotency-and-retries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotency and retries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2209,210 @@
 
 
 <h1 id="03-microservices-serverless-patterns">03 · Microservices &amp; Serverless Patterns<a class="headerlink" href="#03-microservices-serverless-patterns" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Microservice boundaries and serverless (functions-as-a-service) patterns in
-JavaScript/Node.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Once a monolith genuinely outgrows a single deployable unit, two common paths
+open up: splitting into independently-deployed <strong>microservices</strong>, or going
+<strong>serverless</strong> and letting a cloud platform run individual functions on
+demand. Both trade simplicity for scalability and independence — know the
+cost before you pay it.</p>
+<h2 id="what-makes-a-good-microservice-boundary">What makes a good microservice boundary<a class="headerlink" href="#what-makes-a-good-microservice-boundary" title="Permanent link">&para;</a></h2>
+<p>The most common microservices mistake is splitting by technical layer
+("auth service", "database service") instead of by <strong>business capability</strong>.
+A good boundary aligns with a bounded context that a small team can own end
+to end.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Good boundaries (by business capability):
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  orders-service      — owns order creation, status, history
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  inventory-service    — owns stock levels, reservations
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  notifications-service — owns email/SMS/push delivery
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Bad boundaries (by technical layer):
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  database-service     — every other service depends on this for all queries
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  validation-service    — a shared library pretending to be a service
+</code></pre></div>
+<p>A useful test: can you deploy this service on its own, with its own
+datastore, without another team's release blocking you? If not, it's not
+really an independent service yet — it's a distributed monolith, which
+combines the operational cost of microservices with the coupling of a
+monolith.</p>
+<h2 id="communication-between-services">Communication between services<a class="headerlink" href="#communication-between-services" title="Permanent link">&para;</a></h2>
+<p>Services talk to each other synchronously (HTTP/gRPC — simple, but couples
+availability) or asynchronously (message queue/event bus — decouples
+availability, adds eventual consistency).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Synchronous: orders-service calls inventory-service directly over HTTP</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">reserveStock</span><span class="p">(</span><span class="nx">orderId</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;http://inventory-service/reservations&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">orderId</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="p">}),</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`inventory-service rejected reservation: </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Asynchronous: orders-service publishes an event; inventory-service reacts</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// (using a generic pub/sub client — the same shape applies to</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">// SQS/SNS, RabbitMQ, Kafka, or Redis Streams)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// orders-service — publisher</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">createOrder</span><span class="p">(</span><span class="nx">order</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">orders</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">order</span><span class="p">);</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">eventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s2">&quot;order.created&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">orderId</span><span class="o">:</span><span class="w"> </span><span class="nx">order</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="nx">order</span><span class="p">.</span><span class="nx">items</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">order</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1">// inventory-service — subscriber, runs independently</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nx">eventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">&quot;order.created&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">reserveInventory</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">items</span><span class="p">);</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">});</span>
+</code></pre></div>
+<p>Asynchronous messaging means <code>orders-service</code> doesn't go down if
+<code>inventory-service</code> is temporarily unavailable — the event waits in the queue
+— but it also means you must design for eventual consistency and duplicate
+delivery (make handlers <strong>idempotent</strong>).</p>
+<h2 id="serverless-functions-as-a-service">Serverless / Functions-as-a-Service<a class="headerlink" href="#serverless-functions-as-a-service" title="Permanent link">&para;</a></h2>
+<p>Serverless platforms (AWS Lambda, Azure Functions, Google Cloud Functions,
+Cloudflare Workers) run your function on demand, scale to zero when idle, and
+bill per invocation instead of per running server. You write a <strong>handler</strong>
+function; the platform manages the runtime, scaling, and infrastructure.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// handler.js — an AWS Lambda-style handler for API Gateway (Node.js runtime)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">body</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="nx">statusCode</span><span class="o">:</span><span class="w"> </span><span class="mf">400</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;email is required&quot;</span><span class="w"> </span><span class="p">}),</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="p">};</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">createUser</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">      </span><span class="nx">statusCode</span><span class="o">:</span><span class="w"> </span><span class="mf">201</span><span class="p">,</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">user</span><span class="p">),</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;handler failed&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span><span class="w"> </span><span class="c1">// structured logs go to CloudWatch</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">      </span><span class="nx">statusCode</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;internal error&quot;</span><span class="w"> </span><span class="p">}),</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="p">};</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># serverless.yml — a minimal Serverless Framework config for the handler above</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">users-api</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">provider</span><span class="p">:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nodejs20.x</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nt">functions</span><span class="p">:</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="nt">createUser</span><span class="p">:</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nt">handler</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">handler.handler</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nt">events</span><span class="p">:</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">httpApi</span><span class="p">:</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/users</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">          </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post</span>
+</code></pre></div>
+<p>A key serverless discipline: handlers should be <strong>stateless</strong> and short-lived.
+Don't hold in-memory caches or long-lived connections you expect to persist
+across invocations — the platform may reuse the execution environment
+("warm start") or spin up a brand-new one ("cold start") without notice.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// A defensive pattern: lazily initialize expensive resources</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// so they&#39;re reused on warm starts but safely recreated on cold starts</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">dbConnection</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getConnection</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">dbConnection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nx">dbConnection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">connectToDatabase</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DATABASE_URL</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">dbConnection</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getConnection</span><span class="p">();</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="c1">// ... use db</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">};</span>
+</code></pre></div>
+<h2 id="microservices-vs-serverless-vs-monolith">Microservices vs. serverless vs. monolith<a class="headerlink" href="#microservices-vs-serverless-vs-monolith" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Monolith</th>
+<th>Microservices</th>
+<th>Serverless (FaaS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deployment unit</td>
+<td>One app</td>
+<td>Many independently-deployed services</td>
+<td>Individual functions</td>
+</tr>
+<tr>
+<td>Scaling</td>
+<td>Whole app scales together</td>
+<td>Each service scales independently</td>
+<td>Automatic, per-function, to zero</td>
+</tr>
+<tr>
+<td>Operational overhead</td>
+<td>Low</td>
+<td>High (networking, service discovery, observability)</td>
+<td>Low-to-medium (managed by platform)</td>
+</tr>
+<tr>
+<td>Cold start latency</td>
+<td>None</td>
+<td>None (services stay running)</td>
+<td>Present, especially for infrequent functions</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Small-mid teams, most products</td>
+<td>Large orgs needing independent scaling/ownership</td>
+<td>Spiky/event-driven workloads, glue code</td>
+</tr>
+<tr>
+<td>Local dev/debugging</td>
+<td>Easiest</td>
+<td>Hardest (many services to run)</td>
+<td>Moderate (emulators exist but imperfect)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="idempotency-and-retries">Idempotency and retries<a class="headerlink" href="#idempotency-and-retries" title="Permanent link">&para;</a></h2>
+<p>Distributed systems retry failed calls — your handlers must tolerate being
+invoked more than once for the same logical request without corrupting data.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Idempotent handler using a client-supplied idempotency key</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">chargeCustomer</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">existingCharge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">charges</span><span class="p">.</span><span class="nx">findByIdempotencyKey</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">idempotencyKey</span><span class="p">);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">existingCharge</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">existingCharge</span><span class="p">;</span><span class="w"> </span><span class="c1">// already processed — return the same result, don&#39;t double-charge</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">charge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">paymentGateway</span><span class="p">.</span><span class="nx">charge</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">amount</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">customerId</span><span class="p">);</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">charges</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="w"> </span><span class="p">...</span><span class="nx">charge</span><span class="p">,</span><span class="w"> </span><span class="nx">idempotencyKey</span><span class="o">:</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">idempotencyKey</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">charge</span><span class="p">;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Design (no need to fully implement) a system for an e-commerce checkout flow
+split into <code>orders-service</code>, <code>inventory-service</code>, and <code>payments-service</code>.
+Sketch: (1) which service owns which data, (2) whether each interaction
+between services should be synchronous or asynchronous and why, and (3) one
+serverless function you'd add to this system (e.g. sending an order
+confirmation email) and why a FaaS function is a better fit for it than a
+long-running service.</p>
 
 
 

@@ -962,6 +962,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Prototypes & Classes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -978,6 +996,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#every-object-has-a-prototype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Every object has a prototype
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructor-functions-the-pre-class-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constructor functions (the pre-class way)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        class syntax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance-with-extends-and-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance with extends and super
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getters-setters-and-private-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getters, setters, and private fields
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static members
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototype-chain-vs-class-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prototype chain vs. class syntax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2138,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#every-object-has-a-prototype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Every object has a prototype
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructor-functions-the-pre-class-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constructor functions (the pre-class way)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        class syntax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance-with-extends-and-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance with extends and super
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getters-setters-and-private-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getters, setters, and private fields
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static members
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototype-chain-vs-class-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prototype chain vs. class syntax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2253,175 @@
 
 
 <h1 id="02-prototypes-classes">02 · Prototypes &amp; Classes<a class="headerlink" href="#02-prototypes-classes" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-The prototype chain, <code>class</code> syntax, inheritance with <code>extends</code>/<code>super</code>, and
-static members.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<h2 id="every-object-has-a-prototype">Every object has a prototype<a class="headerlink" href="#every-object-has-a-prototype" title="Permanent link">&para;</a></h2>
+<p>JavaScript objects link to another object called their prototype, and look
+up missing properties there. This chain is how methods like <code>.toString()</code>
+"just work" on objects you never defined them on.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">animal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">eats</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nx">describe</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;an animal that eats&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">};</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">rabbit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// rabbit&#39;s prototype is `animal`</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nx">rabbit</span><span class="p">.</span><span class="nx">jumps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rabbit</span><span class="p">.</span><span class="nx">jumps</span><span class="p">);</span><span class="w">        </span><span class="c1">// true — own property</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rabbit</span><span class="p">.</span><span class="nx">eats</span><span class="p">);</span><span class="w">         </span><span class="c1">// true — found on the prototype</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rabbit</span><span class="p">.</span><span class="nx">describe</span><span class="p">());</span><span class="w">   </span><span class="c1">// an animal that eats — inherited method</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">rabbit</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</code></pre></div>
+<h2 id="constructor-functions-the-pre-class-way">Constructor functions (the pre-<code>class</code> way)<a class="headerlink" href="#constructor-functions-the-pre-class-way" title="Permanent link">&para;</a></h2>
+<p>Before <code>class</code> syntax, functions combined with <code>new</code> and <code>.prototype</code> were
+the standard way to create many objects that share methods.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">age</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// Methods go on the prototype so every instance shares ONE copy in memory</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">greet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="sb">`Hi, I&#39;m </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">};</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kd">const</span><span class="w"> </span><span class="nx">ada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Ada&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">);</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="kd">const</span><span class="w"> </span><span class="nx">grace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Grace&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">45</span><span class="p">);</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ada</span><span class="p">.</span><span class="nx">greet</span><span class="p">());</span><span class="w">   </span><span class="c1">// Hi, I&#39;m Ada</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">grace</span><span class="p">.</span><span class="nx">greet</span><span class="p">());</span><span class="w"> </span><span class="c1">// Hi, I&#39;m Grace</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ada</span><span class="p">.</span><span class="nx">greet</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">grace</span><span class="p">.</span><span class="nx">greet</span><span class="p">);</span><span class="w"> </span><span class="c1">// true — same function, shared via prototype</span>
+</code></pre></div>
+<h2 id="class-syntax"><code>class</code> syntax<a class="headerlink" href="#class-syntax" title="Permanent link">&para;</a></h2>
+<p><code>class</code> is syntactic sugar over the same prototype mechanism — cleaner to
+read, but it compiles down to functions and prototypes under the hood.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">class</span><span class="w"> </span><span class="nx">Animal</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nx">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb"> makes a sound.`</span><span class="p">;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="kd">const</span><span class="w"> </span><span class="nx">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Animal</span><span class="p">(</span><span class="s2">&quot;Rex&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dog</span><span class="p">.</span><span class="nx">speak</span><span class="p">());</span><span class="w"> </span><span class="c1">// Rex makes a sound.</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dog</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">Animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">Animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// function — classes are functions under the hood</span>
+</code></pre></div>
+<h2 id="inheritance-with-extends-and-super">Inheritance with <code>extends</code> and <code>super</code><a class="headerlink" href="#inheritance-with-extends-and-super" title="Permanent link">&para;</a></h2>
+<p><code>extends</code> sets up the prototype chain between two classes; <code>super</code> calls the
+parent class's constructor or methods.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">class</span><span class="w"> </span><span class="nx">Dog</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Animal</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">breed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span><span class="w"> </span><span class="c1">// must run before using `this` — calls Animal&#39;s constructor</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">breed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">breed</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nx">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">super</span><span class="p">.</span><span class="nx">speak</span><span class="p">();</span><span class="w"> </span><span class="c1">// call the parent version, then extend it</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">base</span><span class="si">}</span><span class="sb"> Specifically, a bark! (</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">breed</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kd">const</span><span class="w"> </span><span class="nx">rex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Dog</span><span class="p">(</span><span class="s2">&quot;Rex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Labrador&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rex</span><span class="p">.</span><span class="nx">speak</span><span class="p">());</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1">// Rex makes a sound. Specifically, a bark! (Labrador)</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rex</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">Dog</span><span class="p">);</span><span class="w">    </span><span class="c1">// true</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rex</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">Animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// true — Dog&#39;s chain includes Animal</span>
+</code></pre></div>
+<h2 id="getters-setters-and-private-fields">Getters, setters, and private fields<a class="headerlink" href="#getters-setters-and-private-fields" title="Permanent link">&para;</a></h2>
+<p>Classes support computed properties via <code>get</code>/<code>set</code>, and true private state
+using a <code>#</code> prefix (not accessible from outside the class at all).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">class</span><span class="w"> </span><span class="nx">BankAccount</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="n">#balance</span><span class="p">;</span><span class="w"> </span><span class="c1">// private field — a syntax error to access as account.#balance outside</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">initialBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">#balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initialBalance</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nx">get</span><span class="w"> </span><span class="nx">balance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">#balance</span><span class="p">;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="nx">deposit</span><span class="p">(</span><span class="nx">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">amount</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;deposit must be positive&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">#balance</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">amount</span><span class="p">;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="kd">const</span><span class="w"> </span><span class="nx">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BankAccount</span><span class="p">(</span><span class="mf">100</span><span class="p">);</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="nx">account</span><span class="p">.</span><span class="nx">deposit</span><span class="p">(</span><span class="mf">50</span><span class="p">);</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">balance</span><span class="p">);</span><span class="w"> </span><span class="c1">// 150 — read through the getter</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="c1">// console.log(account.#balance); // SyntaxError if written outside the class</span>
+</code></pre></div>
+<h2 id="static-members">Static members<a class="headerlink" href="#static-members" title="Permanent link">&para;</a></h2>
+<p><code>static</code> properties and methods belong to the class itself, not to
+instances — useful for factory methods or shared utilities.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">class</span><span class="w"> </span><span class="nx">Point</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="nx">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// shared &quot;constant&quot; instance</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="nx">distance</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">((</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="kd">const</span><span class="w"> </span><span class="nx">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="kd">const</span><span class="w"> </span><span class="nx">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Point</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">);</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Point</span><span class="p">.</span><span class="nx">distance</span><span class="p">(</span><span class="nx">p1</span><span class="p">,</span><span class="w"> </span><span class="nx">p2</span><span class="p">));</span><span class="w"> </span><span class="c1">// 5</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Point</span><span class="p">.</span><span class="nx">origin</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">Point</span><span class="p">.</span><span class="nx">origin</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0 0</span>
+</code></pre></div>
+<h2 id="prototype-chain-vs-class-syntax">Prototype chain vs. class syntax<a class="headerlink" href="#prototype-chain-vs-class-syntax" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Constructor function style</th>
+<th><code>class</code> style</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create instance</td>
+<td><code>new Person(...)</code></td>
+<td><code>new Person(...)</code></td>
+</tr>
+<tr>
+<td>Shared methods</td>
+<td><code>Person.prototype.method = ...</code></td>
+<td>defined inside the class body</td>
+</tr>
+<tr>
+<td>Inheritance</td>
+<td>manual <code>Object.create</code>/<code>.call()</code> wiring</td>
+<td><code>extends</code> + <code>super</code></td>
+</tr>
+<tr>
+<td>Private state</td>
+<td>closures or naming conventions (<code>_balance</code>)</td>
+<td><code>#field</code> (enforced by the engine)</td>
+</tr>
+<tr>
+<td>Underlying mechanism</td>
+<td>prototype chain</td>
+<td>same prototype chain, nicer syntax</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Create a <code>Shape</code> base class with a constructor field <code>name</code> and a method
+<code>describe()</code> returning <code>"&lt;name&gt; has an area of &lt;area&gt;"</code>. Then create
+<code>Rectangle</code> and <code>Circle</code> subclasses that <code>extend Shape</code>, each implementing
+its own <code>get area()</code> getter (Rectangle: <code>width * height</code>; Circle:
+<code>Math.PI * radius ** 2</code>, rounded to 2 decimals). Verify <code>describe()</code> works
+correctly for both.</p>
 
 
 

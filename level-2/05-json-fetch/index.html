@@ -1046,6 +1046,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Working with JSON & Fetch API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1062,6 +1080,124 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json-javascript-object-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON: JavaScript Object Notation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-json-cant-represent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What JSON can't represent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-malformed-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling malformed JSON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-fetch-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Fetch API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-for-http-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking for HTTP errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-data-with-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sending data with fetch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-in-the-browser-vs-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fetch in the browser vs. Node.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fetch cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2149,113 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json-javascript-object-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON: JavaScript Object Notation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-json-cant-represent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What JSON can't represent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-malformed-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling malformed JSON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-fetch-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Fetch API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-for-http-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking for HTTP errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-data-with-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sending data with fetch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-in-the-browser-vs-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fetch in the browser vs. Node.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fetch cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2275,181 @@
 
 
 <h1 id="05-working-with-json-fetch-api">05 · Working with JSON &amp; Fetch API<a class="headerlink" href="#05-working-with-json-fetch-api" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-<code>JSON.parse</code>/<code>JSON.stringify</code>, the Fetch API, request/response handling, and
-consuming public APIs from the browser and Node.js.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<h2 id="json-javascript-object-notation">JSON: JavaScript Object Notation<a class="headerlink" href="#json-javascript-object-notation" title="Permanent link">&para;</a></h2>
+<p>JSON is a text format for representing data — the universal language APIs
+use to send and receive structured data over HTTP.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;beta&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span><span class="w"> </span><span class="c1">// convert a JS value to a JSON string</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span><span class="w"> </span><span class="c1">// {&quot;name&quot;:&quot;Ada&quot;,&quot;age&quot;:30,&quot;tags&quot;:[&quot;admin&quot;,&quot;beta&quot;]}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">parsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span><span class="w"> </span><span class="c1">// convert a JSON string back to a JS value</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span><span class="w"> </span><span class="c1">// Ada</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">tags</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span><span class="w"> </span><span class="c1">// admin</span>
+</code></pre></div>
+<p><code>JSON.stringify</code> accepts extra arguments for pretty-printing and filtering
+keys — handy for logging or writing config files.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">// {</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">//   &quot;name&quot;: &quot;Ada&quot;,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">//   &quot;age&quot;: 30,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">//   &quot;tags&quot;: [</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">//     &quot;admin&quot;,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">//     &quot;beta&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">//   ]</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">// }</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;age&quot;</span><span class="p">]));</span><span class="w"> </span><span class="c1">// only these keys</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1">// {&quot;name&quot;:&quot;Ada&quot;,&quot;age&quot;:30}</span>
+</code></pre></div>
+<h2 id="what-json-cant-represent">What JSON can't represent<a class="headerlink" href="#what-json-cant-represent" title="Permanent link">&para;</a></h2>
+<p>JSON only supports plain data — some JavaScript values are silently dropped
+or converted when stringified.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">tricky</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nx">fn</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s2">&quot;hi&quot;</span><span class="p">,</span><span class="w">       </span><span class="c1">// functions are omitted entirely</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nx">missing</span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span><span class="p">,</span><span class="w">    </span><span class="c1">// undefined keys are omitted entirely</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nx">when</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">2024</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="c1">// Dates become ISO strings</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nx">empty</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">           </span><span class="c1">// null is preserved as-is</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">};</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">tricky</span><span class="p">));</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">// {&quot;when&quot;:&quot;2024-01-01T00:00:00.000Z&quot;,&quot;empty&quot;:null}</span>
+</code></pre></div>
+<h2 id="handling-malformed-json">Handling malformed JSON<a class="headerlink" href="#handling-malformed-json" title="Permanent link">&para;</a></h2>
+<p><code>JSON.parse</code> throws a <code>SyntaxError</code> on invalid input — always wrap it in
+<code>try</code>/<code>catch</code> when the data comes from outside your program (a network
+response, user input, a file).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">safeParseJSON</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">text</span><span class="p">),</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">safeParseJSON</span><span class="p">(</span><span class="s1">&#39;{&quot;ok&quot;: true}&#39;</span><span class="p">));</span><span class="w"> </span><span class="c1">// { data: { ok: true }, error: null }</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">safeParseJSON</span><span class="p">(</span><span class="s2">&quot;not json&quot;</span><span class="p">));</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1">// { data: null, error: &#39;Unexpected token o in JSON at position 1&#39; }</span>
+</code></pre></div>
+<h2 id="the-fetch-api">The Fetch API<a class="headerlink" href="#the-fetch-api" title="Permanent link">&para;</a></h2>
+<p><code>fetch</code> makes an HTTP request and returns a Promise that resolves to a
+<code>Response</code> object once the headers arrive — the body itself is read
+separately and asynchronously, via its own methods.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getTodo</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://jsonplaceholder.typicode.com/todos/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">todo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span><span class="w"> </span><span class="c1">// parses the body as JSON, returns a Promise</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">todo</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nx">getTodo</span><span class="p">(</span><span class="mf">1</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">todo</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">todo</span><span class="p">));</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">// { userId: 1, id: 1, title: &#39;delectus aut autem&#39;, completed: false }</span>
+</code></pre></div>
+<h2 id="checking-for-http-errors">Checking for HTTP errors<a class="headerlink" href="#checking-for-http-errors" title="Permanent link">&para;</a></h2>
+<p>A key <code>fetch</code> gotcha: the returned Promise only rejects on network failure
+(DNS error, no connection). A <code>404</code> or <code>500</code> response still resolves
+successfully — you must check <code>response.ok</code> yourself.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getTodoSafely</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://jsonplaceholder.typicode.com/todos/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="c1">// response.ok is false for any status outside 200-299</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`request failed with status </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;could not load todo:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nx">getTodoSafely</span><span class="p">(</span><span class="mf">999999</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">todo</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">todo</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="sending-data-with-fetch">Sending data with <code>fetch</code><a class="headerlink" href="#sending-data-with-fetch" title="Permanent link">&para;</a></h2>
+<p>For anything beyond a <code>GET</code>, pass an options object with the method, a JSON
+body, and the matching <code>Content-Type</code> header.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">createPost</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}),</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`create failed: </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="nx">createPost</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;World&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">created</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">created</span><span class="p">.</span><span class="nx">id</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="fetch-in-the-browser-vs-nodejs">Fetch in the browser vs. Node.js<a class="headerlink" href="#fetch-in-the-browser-vs-nodejs" title="Permanent link">&para;</a></h2>
+<p>Modern Node.js (18+) ships a global <code>fetch</code> that behaves the same as the
+browser's, so the same code generally runs in both environments unmodified.</p>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th><code>fetch</code> availability</th>
+<th>Common gotchas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Browser</td>
+<td>global, built-in</td>
+<td>CORS restrictions on cross-origin requests</td>
+</tr>
+<tr>
+<td>Node.js 18+</td>
+<td>global, built-in</td>
+<td>no CORS concept, but no DOM either</td>
+</tr>
+<tr>
+<td>Node.js &lt; 18</td>
+<td>not built-in</td>
+<td>needs a package like <code>node-fetch</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="fetch-cheat-sheet">Fetch cheat sheet<a class="headerlink" href="#fetch-cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET and parse JSON</td>
+<td><code>const data = await (await fetch(url)).json();</code></td>
+</tr>
+<tr>
+<td>Check for HTTP errors</td>
+<td><code>if (!response.ok) throw new Error(response.status);</code></td>
+</tr>
+<tr>
+<td>POST JSON</td>
+<td><code>fetch(url, { method: "POST", headers: {...}, body: JSON.stringify(data) })</code></td>
+</tr>
+<tr>
+<td>Parse JSON string</td>
+<td><code>JSON.parse(text)</code></td>
+</tr>
+<tr>
+<td>Serialize to JSON string</td>
+<td><code>JSON.stringify(value, null, 2)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write an <code>async</code> function <code>getUserPosts(userId)</code> that fetches
+<code>https://jsonplaceholder.typicode.com/posts?userId=&lt;userId&gt;</code>, throws a
+descriptive error if the response isn't OK, and otherwise returns an array
+of just the post titles (use <code>.map()</code> on the parsed JSON).</p>
 
 
 

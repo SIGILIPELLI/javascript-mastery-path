@@ -990,6 +990,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Asynchronous JavaScript I
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1006,6 +1024,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#synchronous-code-and-the-call-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synchronous code and the call stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callbacks-functions-passed-to-run-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Callbacks: functions passed to run later
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-event-loop-conceptually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The event loop, conceptually
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-queue-vs-microtask-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task queue vs. microtask queue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callback-hell-the-problem-promises-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Callback hell — the problem Promises solve
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queue-behavior-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queue behavior cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2127,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#synchronous-code-and-the-call-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synchronous code and the call stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callbacks-functions-passed-to-run-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Callbacks: functions passed to run later
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-event-loop-conceptually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The event loop, conceptually
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-queue-vs-microtask-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task queue vs. microtask queue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callback-hell-the-problem-promises-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Callback hell — the problem Promises solve
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queue-behavior-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queue behavior cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,13 +2231,166 @@
 
 
 <h1 id="03-asynchronous-javascript-i">03 · Asynchronous JavaScript I<a class="headerlink" href="#03-asynchronous-javascript-i" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Callbacks, the event loop, the call stack, task queue vs. microtask queue.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>JavaScript runs on a single thread, yet it handles timers, network requests,
+and user input without blocking. This module covers the mechanics that make
+that possible — the foundation for Promises and <code>async</code>/<code>await</code> in the next
+module.</p>
+<h2 id="synchronous-code-and-the-call-stack">Synchronous code and the call stack<a class="headerlink" href="#synchronous-code-and-the-call-stack" title="Permanent link">&para;</a></h2>
+<p>JavaScript executes one thing at a time, in order, using a call stack: each
+function call is pushed on, and popped off when it returns.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">third</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;third&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kd">function</span><span class="w"> </span><span class="nx">second</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;second&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nx">third</span><span class="p">();</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">first</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nx">second</span><span class="p">();</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nx">first</span><span class="p">();</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">// first</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1">// second</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1">// third</span>
+</code></pre></div>
+<p>Each call waits for the ones it invokes to finish completely before
+continuing — this is what "synchronous" and "blocking" mean.</p>
+<h2 id="callbacks-functions-passed-to-run-later">Callbacks: functions passed to run later<a class="headerlink" href="#callbacks-functions-passed-to-run-later" title="Permanent link">&para;</a></h2>
+<p>A callback is simply a function passed as an argument, to be called at some
+later point — often after an operation finishes.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">fetchUserName</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;starting lookup...&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// simulate work that takes time, e.g. a network request</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nx">callback</span><span class="p">(</span><span class="sb">`user-</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nx">fetchUserName</span><span class="p">(</span><span class="mf">42</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`got: </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"> </span><span class="c1">// runs ~1 second later</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">});</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;lookup requested, moving on&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// runs immediately, before the callback</span>
+</code></pre></div>
+<p>Output order:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>starting lookup...
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>lookup requested, moving on
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>got: user-42
+</code></pre></div>
+<p>The last line prints <em>after</em> the synchronous code has already finished,
+because <code>setTimeout</code> doesn't block — it schedules the callback for later.</p>
+<h2 id="the-event-loop-conceptually">The event loop, conceptually<a class="headerlink" href="#the-event-loop-conceptually" title="Permanent link">&para;</a></h2>
+<p>Node.js and browsers use an event loop to coordinate the call stack with
+pending work. The mental model:</p>
+<ol>
+<li>Run everything on the call stack until it's empty.</li>
+<li>Check whether there's pending callback work ready to run.</li>
+<li>Push the next ready callback onto the stack and run it.</li>
+<li>Repeat forever.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;1: sync&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;3: timeout callback&quot;</span><span class="p">),</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;2: sync&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">// 1: sync</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">// 2: sync</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// 3: timeout callback</span>
+</code></pre></div>
+<p>Even with a delay of <code>0</code>, the timeout callback still runs <em>after</em> all
+synchronous code — it has to wait for the call stack to empty first.</p>
+<h2 id="task-queue-vs-microtask-queue">Task queue vs. microtask queue<a class="headerlink" href="#task-queue-vs-microtask-queue" title="Permanent link">&para;</a></h2>
+<p>Not all "later" work is treated equally. Promise callbacks (<code>.then</code>,
+<code>async</code>/<code>await</code> continuations, covered next module) go into the <strong>microtask
+queue</strong>, which the event loop always fully drains before touching the
+<strong>task queue</strong> (also called the macrotask queue) that holds things like
+<code>setTimeout</code> and DOM events.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;1: sync start&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;4: setTimeout (task queue)&quot;</span><span class="p">),</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;3: promise (microtask queue)&quot;</span><span class="p">));</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;2: sync end&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">// 1: sync start</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">// 2: sync end</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1">// 3: promise (microtask queue)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">// 4: setTimeout (task queue)</span>
+</code></pre></div>
+<p>Even though both are scheduled with a "0 delay," the microtask always wins —
+all queued microtasks run before the next macrotask is picked up.</p>
+<h2 id="callback-hell-the-problem-promises-solve">Callback hell — the problem Promises solve<a class="headerlink" href="#callback-hell-the-problem-promises-solve" title="Permanent link">&para;</a></h2>
+<p>Nesting callback after callback to sequence dependent async steps quickly
+becomes hard to read and error-prone (each level needs its own error
+handling).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getUser</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">callback</span><span class="p">({</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="w"> </span><span class="p">}),</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getOrders</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">callback</span><span class="p">([</span><span class="s2">&quot;order-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;order-2&quot;</span><span class="p">]),</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getOrderDetails</span><span class="p">(</span><span class="nx">orderId</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">callback</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">orderId</span><span class="si">}</span><span class="sb">: shipped`</span><span class="p">),</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1">// Deeply nested — the &quot;pyramid of doom&quot;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="nx">getUser</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nx">getOrders</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">orders</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nx">getOrderDetails</span><span class="p">(</span><span class="nx">orders</span><span class="p">[</span><span class="mf">0</span><span class="p">],</span><span class="w"> </span><span class="p">(</span><span class="nx">details</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">details</span><span class="p">);</span><span class="w"> </span><span class="c1">// order-1: shipped</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">});</span>
+</code></pre></div>
+<p>Each step must wait on the previous one, and error handling would need a
+check at every single level. Promises (next module) exist specifically to
+flatten this structure and centralize error handling.</p>
+<h2 id="queue-behavior-cheat-sheet">Queue behavior cheat sheet<a class="headerlink" href="#queue-behavior-cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Queue</th>
+<th>Runs relative to sync code</th>
+<th>Runs relative to other queue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>console.log</code>, loops, direct calls</td>
+<td>call stack</td>
+<td>immediately</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>Promise.then</code>/<code>catch</code>/<code>finally</code>, <code>async</code> continuations</td>
+<td>microtask queue</td>
+<td>after current sync code finishes</td>
+<td>before any pending macrotask</td>
+</tr>
+<tr>
+<td><code>setTimeout</code>, <code>setInterval</code>, DOM events</td>
+<td>task (macro) queue</td>
+<td>after current sync code finishes</td>
+<td>after all pending microtasks drain</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Predict the exact console output order of the snippet below, then run it to
+check your answer:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">),</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">()</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">))</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">));</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">);</span>
+</code></pre></div>
 
 
 

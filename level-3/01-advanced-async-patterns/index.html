@@ -1310,6 +1310,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Advanced Async Patterns
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1326,6 +1344,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#promiseall-run-in-parallel-fail-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise.all — run in parallel, fail fast
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promiseallsettled-wait-for-everything-fail-safe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise.allSettled — wait for everything, fail-safe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promiserace-and-promiseany" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise.race and Promise.any
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combinator-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinator cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-iterators-and-for-await-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async iterators and for-await-of
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-generators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async generators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator-based-async-flows-the-idea-behind-asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator-based async flows (the idea behind async/await)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2138,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#promiseall-run-in-parallel-fail-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise.all — run in parallel, fail fast
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promiseallsettled-wait-for-everything-fail-safe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise.allSettled — wait for everything, fail-safe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promiserace-and-promiseany" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise.race and Promise.any
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combinator-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinator cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-iterators-and-for-await-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async iterators and for-await-of
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-generators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async generators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator-based-async-flows-the-idea-behind-asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator-based async flows (the idea behind async/await)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2253,242 @@
 
 
 <h1 id="01-advanced-async-patterns">01 · Advanced Async Patterns<a class="headerlink" href="#01-advanced-async-patterns" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-<code>Promise.all</code>/<code>race</code>/<code>allSettled</code>, async iterators, and generator-based async
-flows.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Level 2 covered <code>Promise</code> and <code>async</code>/<code>await</code> for single asynchronous
+operations. Real backend code usually has to juggle several async operations
+at once — running them in parallel, racing them, or tolerating some of them
+failing. This module covers the combinator methods on <code>Promise</code>, async
+iteration, and generator-based async flows.</p>
+<h2 id="promiseall-run-in-parallel-fail-fast">Promise.all — run in parallel, fail fast<a class="headerlink" href="#promiseall-run-in-parallel-fail-fast" title="Permanent link">&para;</a></h2>
+<p><code>Promise.all</code> runs promises concurrently and resolves with an array of
+results in the same order they were passed in. If <strong>any</strong> promise rejects,
+<code>Promise.all</code> rejects immediately with that error — the other promises keep
+running, but their results are discarded.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">fetchUser</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">resolve</span><span class="p">({</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="sb">`User </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="w"> </span><span class="p">}),</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kd">function</span><span class="w"> </span><span class="nx">fetchOrders</span><span class="p">(</span><span class="nx">userId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">resolve</span><span class="p">([</span><span class="sb">`order-</span><span class="si">${</span><span class="nx">userId</span><span class="si">}</span><span class="sb">-1`</span><span class="p">,</span><span class="w"> </span><span class="sb">`order-</span><span class="si">${</span><span class="nx">userId</span><span class="si">}</span><span class="sb">-2`</span><span class="p">]),</span><span class="w"> </span><span class="mf">30</span><span class="p">);</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">loadDashboard</span><span class="p">(</span><span class="nx">userId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">orders</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nx">fetchUser</span><span class="p">(</span><span class="nx">userId</span><span class="p">),</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nx">fetchOrders</span><span class="p">(</span><span class="nx">userId</span><span class="p">),</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="p">]);</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">orders</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nx">loadDashboard</span><span class="p">(</span><span class="mf">7</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c1">// { user: { id: 7, name: &#39;User 7&#39; }, orders: [ &#39;order-7-1&#39;, &#39;order-7-2&#39; ] }</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1">// Both requests ran concurrently — total wait is ~50ms, not ~80ms.</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">failingAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;second call failed&quot;</span><span class="p">)),</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mf">3</span><span class="p">),</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">]);</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;caught:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span><span class="w"> </span><span class="c1">// caught: second call failed</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nx">failingAll</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="promiseallsettled-wait-for-everything-fail-safe">Promise.allSettled — wait for everything, fail-safe<a class="headerlink" href="#promiseallsettled-wait-for-everything-fail-safe" title="Permanent link">&para;</a></h2>
+<p><code>Promise.allSettled</code> never short-circuits — it waits for every promise to
+finish and reports the outcome of each one, whether it fulfilled or rejected.
+Use it when you want partial results even if some operations fail (e.g.
+pinging several services and reporting which ones are up).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">checkServices</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">allSettled</span><span class="p">([</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;auth-service: ok&quot;</span><span class="p">),</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;payments-service: timeout&quot;</span><span class="p">)),</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;search-service: ok&quot;</span><span class="p">),</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p">]);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">results</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;fulfilled&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;OK:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;FAILED:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">reason</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="nx">checkServices</span><span class="p">();</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1">// OK: auth-service: ok</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="c1">// FAILED: payments-service: timeout</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="c1">// OK: search-service: ok</span>
+</code></pre></div>
+<h2 id="promiserace-and-promiseany">Promise.race and Promise.any<a class="headerlink" href="#promiserace-and-promiseany" title="Permanent link">&para;</a></h2>
+<p><code>Promise.race</code> settles as soon as the <em>first</em> promise settles — fulfilled or
+rejected. <code>Promise.any</code> settles as soon as the first promise <strong>fulfills</strong>,
+ignoring rejections unless every promise rejects (in which case it rejects
+with an <code>AggregateError</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="nx">ms</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">value</span><span class="p">),</span><span class="w"> </span><span class="nx">ms</span><span class="p">));</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">withTimeout</span><span class="p">(</span><span class="nx">promise</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">reject</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;timed out&quot;</span><span class="p">)),</span><span class="w"> </span><span class="nx">ms</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">promise</span><span class="p">,</span><span class="w"> </span><span class="nx">timeout</span><span class="p">]);</span><span class="w"> </span><span class="c1">// whichever settles first wins</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="nx">withTimeout</span><span class="p">(</span><span class="nx">delay</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slow response&quot;</span><span class="p">),</span><span class="w"> </span><span class="mf">50</span><span class="p">)</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;race error:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">));</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1">// race error: timed out — the 50ms timeout beat the 200ms delay</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">fastestMirror</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">winner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">any</span><span class="p">([</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nx">delay</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mirror-a&quot;</span><span class="p">),</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nx">delay</span><span class="p">(</span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mirror-b&quot;</span><span class="p">),</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nx">delay</span><span class="p">(</span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mirror-c&quot;</span><span class="p">),</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="p">]);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;first to respond:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">winner</span><span class="p">);</span><span class="w"> </span><span class="c1">// first to respond: mirror-b</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nx">fastestMirror</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="combinator-cheat-sheet">Combinator cheat sheet<a class="headerlink" href="#combinator-cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Settles when</th>
+<th>Rejects when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Promise.all</code></td>
+<td>all fulfill</td>
+<td>any one rejects (immediately)</td>
+</tr>
+<tr>
+<td><code>Promise.allSettled</code></td>
+<td>all settle (fulfilled or rejected)</td>
+<td>never — always fulfills</td>
+</tr>
+<tr>
+<td><code>Promise.race</code></td>
+<td>the first one settles (either way)</td>
+<td>first settled one is a rejection</td>
+</tr>
+<tr>
+<td><code>Promise.any</code></td>
+<td>the first one fulfills</td>
+<td>all reject (<code>AggregateError</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="async-iterators-and-for-await-of">Async iterators and for-await-of<a class="headerlink" href="#async-iterators-and-for-await-of" title="Permanent link">&para;</a></h2>
+<p>An <strong>async iterable</strong> is an object whose values arrive over time, each
+wrapped in a promise. <code>for await...of</code> consumes them one at a time, awaiting
+each promise automatically.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="nx">ms</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">value</span><span class="p">),</span><span class="w"> </span><span class="nx">ms</span><span class="p">));</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">asyncNumbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nx">asyncIterator</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span><span class="nx">next</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="nx">current</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">current</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span><span class="w"> </span><span class="nx">done</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">done</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">current</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">};</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">consume</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">asyncNumbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;received:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">);</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="p">}</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="nx">consume</span><span class="p">();</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="c1">// received: 1</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="c1">// received: 2</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="c1">// received: 3</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="c1">// done</span>
+</code></pre></div>
+<h2 id="async-generators">Async generators<a class="headerlink" href="#async-generators" title="Permanent link">&para;</a></h2>
+<p>An <strong>async generator</strong> (<code>async function*</code>) is the ergonomic way to build an
+async iterable — it can <code>await</code> inside the generator body and <code>yield</code> values
+as they become ready, which is exactly the shape you need for paginated API
+calls or reading a large file in chunks.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="nx">ms</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">value</span><span class="p">),</span><span class="w"> </span><span class="nx">ms</span><span class="p">));</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="o">*</span><span class="w"> </span><span class="nx">fetchPages</span><span class="p">(</span><span class="nx">totalPages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">totalPages</span><span class="p">;</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="sb">`page-</span><span class="si">${</span><span class="nx">page</span><span class="si">}</span><span class="sb">-data`</span><span class="p">);</span><span class="w"> </span><span class="c1">// simulate a network call</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="k">yield</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">loadAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">collected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">fetchPages</span><span class="p">(</span><span class="mf">3</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="nx">collected</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">page</span><span class="p">);</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">collected</span><span class="p">);</span><span class="w"> </span><span class="c1">// [ &#39;page-1-data&#39;, &#39;page-2-data&#39;, &#39;page-3-data&#39; ]</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="p">}</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="nx">loadAll</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="generator-based-async-flows-the-idea-behind-asyncawait">Generator-based async flows (the idea behind async/await)<a class="headerlink" href="#generator-based-async-flows-the-idea-behind-asyncawait" title="Permanent link">&para;</a></h2>
+<p>Before <code>async</code>/<code>await</code> existed, libraries drove plain generators to express
+async control flow: a generator <code>yield</code>s a promise, a runner function awaits
+it and resumes the generator with the result. Understanding this "runner"
+pattern demystifies what <code>async</code>/<code>await</code> compiles down to conceptually.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="nx">ms</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">value</span><span class="p">),</span><span class="w"> </span><span class="nx">ms</span><span class="p">));</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">function</span><span class="o">*</span><span class="w"> </span><span class="nx">workflow</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="sb">`order-</span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">]);</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">orders</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1">// A minimal runner that drives any generator of this shape to completion.</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">(</span><span class="nx">generatorFn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">generatorFn</span><span class="p">();</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">step</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">value</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">step</span><span class="p">);</span><span class="w"> </span><span class="c1">// await the yielded promise, then resume</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">step</span><span class="p">();</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="p">}</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="nx">run</span><span class="p">(</span><span class="nx">workflow</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="c1">// { user: { id: 1, name: &#39;Ada&#39; }, orders: [ &#39;order-1&#39; ] }</span>
+</code></pre></div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write an async function <code>pingAll(urls, timeoutMs)</code> that takes an array of
+"URLs" (simulate each with a <code>delay()</code> helper that resolves or randomly
+rejects) and returns an array of <code>{ url, status: "ok" | "failed" | "timeout" }</code>
+objects — one per URL — using <code>Promise.allSettled</code> combined with a
+per-request timeout built from <code>Promise.race</code>. No URL's failure should stop
+the others from reporting.</p>
 
 
 

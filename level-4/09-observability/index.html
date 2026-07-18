@@ -1936,6 +1936,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Observability
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1952,6 +1970,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structured-logging-with-pino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured logging with pino
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structured-logging-with-winston" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured logging with winston
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pino-vs-winston" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pino vs. winston
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#never-log-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Never log secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-check-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health-check endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-pillars-compared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three pillars, compared
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2138,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structured-logging-with-pino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured logging with pino
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structured-logging-with-winston" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured logging with winston
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pino-vs-winston" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pino vs. winston
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#never-log-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Never log secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-check-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health-check endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-pillars-compared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three pillars, compared
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,13 +2253,215 @@
 
 
 <h1 id="09-observability">09 · Observability<a class="headerlink" href="#09-observability" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Logging and monitoring basics for Node.js services.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Once an app runs in production across multiple instances, you can't attach a
+debugger and step through a bug. Observability — structured logs, metrics,
+and health checks — is how you understand what a running system is actually
+doing without interrupting it.</p>
+<h2 id="structured-logging-with-pino">Structured logging with <code>pino</code><a class="headerlink" href="#structured-logging-with-pino" title="Permanent link">&para;</a></h2>
+<p>Structured logs are machine-parseable JSON (not free-form text), which lets
+log aggregators (Datadog, CloudWatch, Elastic) filter and query them reliably.
+<code>pino</code> is a very low-overhead structured logger for Node.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npm<span class="w"> </span>install<span class="w"> </span>pino<span class="w"> </span>pino-http
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// logger.js</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">pino</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;pino&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pino</span><span class="p">({</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">LOG_LEVEL</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;info&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nx">formatters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">label</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="p">}),</span><span class="w"> </span><span class="c1">// log level as a string, not a number</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="nx">pino</span><span class="p">.</span><span class="nx">stdTimeFunctions</span><span class="p">.</span><span class="nx">isoTime</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">});</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// server.js — attach request-scoped logging via pino-http</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">import</span><span class="w"> </span><span class="nx">pinoHttp</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;pino-http&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./logger.js&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">pinoHttp</span><span class="p">({</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="p">}));</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/orders/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nx">req</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">info</span><span class="p">({</span><span class="w"> </span><span class="nx">orderId</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;fetching order&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// structured fields, not string concat</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ordersService</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">order</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="nx">req</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">warn</span><span class="p">({</span><span class="w"> </span><span class="nx">orderId</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;order not found&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">404</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;not found&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">order</span><span class="p">);</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">error</span><span class="p">({</span><span class="w"> </span><span class="nx">err</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="nx">orderId</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;failed to fetch order&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;internal error&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="p">});</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// example log line pino emits — one JSON object per line, easy to grep/index</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;info&quot;</span><span class="p">,</span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="s2">&quot;2026-07-18T10:22:31.000Z&quot;</span><span class="p">,</span><span class="nt">&quot;orderId&quot;</span><span class="p">:</span><span class="s2">&quot;o-123&quot;</span><span class="p">,</span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="s2">&quot;fetching order&quot;</span><span class="p">}</span>
+</code></pre></div>
+<h2 id="structured-logging-with-winston">Structured logging with <code>winston</code><a class="headerlink" href="#structured-logging-with-winston" title="Permanent link">&para;</a></h2>
+<p><code>winston</code> is more configurable (multiple "transports" — files, HTTP, third-party
+services — at once) at the cost of more overhead than <code>pino</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm<span class="w"> </span>install<span class="w"> </span>winston
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// logger.js</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">winston</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;winston&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">createLogger</span><span class="p">({</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">LOG_LEVEL</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;info&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">combine</span><span class="p">(</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">(),</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span><span class="w"> </span><span class="c1">// structured JSON output, same goal as pino above</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="p">),</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nx">transports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">Console</span><span class="p">(),</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">File</span><span class="p">({</span><span class="w"> </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;error.log&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="p">}),</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">});</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;order created&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">orderId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;o-123&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">total</span><span class="o">:</span><span class="w"> </span><span class="mf">42.5</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;payment failed&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">orderId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;o-123&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">reason</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;card_declined&quot;</span><span class="w"> </span><span class="p">});</span>
+</code></pre></div>
+<h2 id="pino-vs-winston"><code>pino</code> vs. <code>winston</code><a class="headerlink" href="#pino-vs-winston" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>pino</th>
+<th>winston</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance</td>
+<td>Very high (minimal per-call overhead)</td>
+<td>Lower (more features cost cycles)</td>
+</tr>
+<tr>
+<td>Output format</td>
+<td>JSON by default</td>
+<td>Configurable (JSON, plain text, custom)</td>
+</tr>
+<tr>
+<td>Transports (file, HTTP, etc.)</td>
+<td>Via separate <code>pino-transport</code> plugins</td>
+<td>Built-in, many out of the box</td>
+</tr>
+<tr>
+<td>Best fit</td>
+<td>High-throughput services where log volume matters</td>
+<td>Apps needing flexible multi-destination logging</td>
+</tr>
+</tbody>
+</table>
+<h2 id="never-log-secrets">Never log secrets<a class="headerlink" href="#never-log-secrets" title="Permanent link">&para;</a></h2>
+<p>Redact sensitive fields before they ever reach a log line — logs often end up
+in less access-controlled systems than your database.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// A redaction list applied at the logger level (pino supports this natively)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pino</span><span class="p">({</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nx">redact</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;req.headers.authorization&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;*.password&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;*.creditCard&quot;</span><span class="p">],</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="health-check-endpoints">Health-check endpoints<a class="headerlink" href="#health-check-endpoints" title="Permanent link">&para;</a></h2>
+<p>A health-check endpoint tells orchestrators (Kubernetes, a load balancer, PM2)
+whether an instance is ready to receive traffic — distinguish <strong>liveness</strong>
+("is the process alive?") from <strong>readiness</strong> ("can it currently serve
+requests?").</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// health.js</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/health/live&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">200</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="c1">// process is up — no dependency checks</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">});</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/health/ready&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">checks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">healthy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;SELECT 1&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="nx">checks</span><span class="p">.</span><span class="nx">database</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="nx">checks</span><span class="p">.</span><span class="nx">database</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;unreachable&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="nx">healthy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">ping</span><span class="p">();</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="nx">checks</span><span class="p">.</span><span class="nx">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">    </span><span class="nx">checks</span><span class="p">.</span><span class="nx">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;unreachable&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="nx">healthy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">healthy</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">503</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="nx">healthy</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;ready&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;not ready&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">checks</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="basic-metrics">Basic metrics<a class="headerlink" href="#basic-metrics" title="Permanent link">&para;</a></h2>
+<p>Metrics are numeric time-series data (request counts, latency, error rates)
+aggregated over time — cheaper to store and query at scale than raw logs, and
+the basis for dashboards and alerts.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>npm<span class="w"> </span>install<span class="w"> </span>prom-client
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// metrics.js — expose Prometheus-format metrics for scraping</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;prom-client&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">register</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">Registry</span><span class="p">();</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nx">client</span><span class="p">.</span><span class="nx">collectDefaultMetrics</span><span class="p">({</span><span class="w"> </span><span class="nx">register</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="c1">// CPU, memory, event loop lag, etc.</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kd">const</span><span class="w"> </span><span class="nx">httpRequestDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">Histogram</span><span class="p">({</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http_request_duration_seconds&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nx">help</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Duration of HTTP requests in seconds&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="nx">labelNames</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;route&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;status_code&quot;</span><span class="p">],</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="nx">registers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">register</span><span class="p">],</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="p">});</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">metricsMiddleware</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">httpRequestDuration</span><span class="p">.</span><span class="nx">startTimer</span><span class="p">();</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;finish&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="nx">end</span><span class="p">({</span><span class="w"> </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="p">,</span><span class="w"> </span><span class="nx">route</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">route</span><span class="o">?</span><span class="p">.</span><span class="nx">path</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;unknown&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">status_code</span><span class="o">:</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="p">}</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/metrics&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">register</span><span class="p">.</span><span class="nx">contentType</span><span class="p">);</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">register</span><span class="p">.</span><span class="nx">metrics</span><span class="p">());</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="the-three-pillars-compared">The three pillars, compared<a class="headerlink" href="#the-three-pillars-compared" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>Answers</th>
+<th>Tooling examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logs</td>
+<td>What exactly happened, in detail, on one request/event</td>
+<td>pino, winston, CloudWatch Logs, Elastic</td>
+</tr>
+<tr>
+<td>Metrics</td>
+<td>How is the system behaving in aggregate, over time</td>
+<td>Prometheus, Datadog, CloudWatch Metrics</td>
+</tr>
+<tr>
+<td>Traces</td>
+<td>How did one request flow across multiple services</td>
+<td>OpenTelemetry, Jaeger, Datadog APM</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Add structured logging (with <code>pino</code>, redacting <code>password</code> and <code>authorization</code>
+fields) plus a <code>/health/ready</code> endpoint to a small Express app that depends on
+a Postgres database and a Redis cache. The readiness endpoint should return
+<code>503</code> if either dependency is unreachable, and each check's individual status
+should be visible in the JSON response body, as in the example above.</p>
 
 
 

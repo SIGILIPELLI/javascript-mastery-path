@@ -1366,6 +1366,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Building a REST API with Express
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1382,6 +1400,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-and-starting-a-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing and starting a server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-strings-and-request-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query strings and request data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Middleware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#express-router-organizing-routes-across-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Express Router — organizing routes across files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling-middleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error-handling middleware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-status-codes-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP status codes cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2013,6 +2138,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-and-starting-a-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing and starting a server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-strings-and-request-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query strings and request data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Middleware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#express-router-organizing-routes-across-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Express Router — organizing routes across files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling-middleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error-handling middleware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-status-codes-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP status codes cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2032,14 +2253,241 @@
 
 
 <h1 id="03-building-a-rest-api-with-express">03 · Building a REST API with Express<a class="headerlink" href="#03-building-a-rest-api-with-express" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Routing, middleware, request/response handling, and building a small REST
-API with Express.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Express is the most widely used Node.js web framework — a thin layer over
+Node's built-in <code>http</code> module that adds routing, middleware, and convenient
+request/response helpers. This module builds a small REST API from scratch.</p>
+<h2 id="installing-and-starting-a-server">Installing and starting a server<a class="headerlink" href="#installing-and-starting-a-server" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npm<span class="w"> </span>install<span class="w"> </span>express
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// server.js</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3000</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;API is running&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">});</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Server listening on http://localhost:</span><span class="si">${</span><span class="nx">PORT</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">});</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>node<span class="w"> </span>server.js
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Server listening on http://localhost:3000</span>
+</code></pre></div>
+<h2 id="routing">Routing<a class="headerlink" href="#routing" title="Permanent link">&para;</a></h2>
+<p>Routes match an HTTP method and a URL path to a handler function. Route
+parameters (<code>:id</code>) capture dynamic segments of the URL.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span><span class="w"> </span><span class="c1">// parses JSON request bodies into req.body</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">notes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Buy milk&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Walk the dog&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">];</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/notes&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">notes</span><span class="p">);</span><span class="w"> </span><span class="c1">// sends JSON + sets Content-Type automatically</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">});</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/notes/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">notes</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">n</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">));</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">note</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">404</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;note not found&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">note</span><span class="p">);</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">});</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/notes&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text is required&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">notes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">  </span><span class="nx">notes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">note</span><span class="p">);</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">201</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">note</span><span class="p">);</span><span class="w"> </span><span class="c1">// 201 Created</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="p">});</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>http://localhost:3000/notes
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># [{&quot;id&quot;:1,&quot;text&quot;:&quot;Buy milk&quot;},{&quot;id&quot;:2,&quot;text&quot;:&quot;Walk the dog&quot;}]</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:3000/notes<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;text&quot;:&quot;Read a book&quot;}&#39;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># {&quot;id&quot;:3,&quot;text&quot;:&quot;Read a book&quot;}</span>
+</code></pre></div>
+<h2 id="query-strings-and-request-data">Query strings and request data<a class="headerlink" href="#query-strings-and-request-data" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// GET /search?q=milk&amp;limit=5</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/search&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">q</span><span class="p">,</span><span class="w"> </span><span class="nx">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">;</span><span class="w"> </span><span class="c1">// req.query holds parsed query-string params</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="nx">q</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nx">limit</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">limit</span><span class="p">),</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nx">results</span><span class="o">:</span><span class="w"> </span><span class="nx">notes</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">n</span><span class="p">.</span><span class="nx">text</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">((</span><span class="nx">q</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">toLowerCase</span><span class="p">())),</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">});</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Request data</th>
+<th>Accessed via</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Route params</td>
+<td><code>req.params</code></td>
+<td><code>/notes/:id</code> -&gt; <code>req.params.id</code></td>
+</tr>
+<tr>
+<td>Query string</td>
+<td><code>req.query</code></td>
+<td><code>?q=milk</code> -&gt; <code>req.query.q</code></td>
+</tr>
+<tr>
+<td>JSON body</td>
+<td><code>req.body</code> (needs <code>express.json()</code>)</td>
+<td>POST payload</td>
+</tr>
+<tr>
+<td>Headers</td>
+<td><code>req.headers</code></td>
+<td><code>req.headers["authorization"]</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="middleware">Middleware<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h2>
+<p>Middleware functions run between the request arriving and the route handler
+— they can inspect/modify <code>req</code>/<code>res</code>, or short-circuit the request. Calling
+<code>next()</code> passes control to the next middleware or route handler; not calling
+it leaves the request hanging.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// A simple request logger, applied to every route</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">()</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nx">next</span><span class="p">();</span><span class="w"> </span><span class="c1">// must be called or the request never reaches its route</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">});</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1">// Middleware scoped to one route: a naive API-key check</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">requireApiKey</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s2">&quot;x-api-key&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;secret123&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;invalid or missing API key&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="nx">app</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;/notes/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">requireApiKey</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">notes</span><span class="p">.</span><span class="nx">findIndex</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">n</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">));</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">index</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">404</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;note not found&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">  </span><span class="nx">notes</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">204</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span><span class="w"> </span><span class="c1">// 204 No Content — success, nothing to return</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="express-router-organizing-routes-across-files">Express Router — organizing routes across files<a class="headerlink" href="#express-router-organizing-routes-across-files" title="Permanent link">&para;</a></h2>
+<p>Real APIs split routes by resource instead of putting everything in one
+file. <code>express.Router()</code> creates a mini standalone router that the main app
+mounts under a path prefix.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// routes/notes.js</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Router</span><span class="p">();</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">notes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Buy milk&quot;</span><span class="w"> </span><span class="p">}];</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">notes</span><span class="p">));</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">notes</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">n</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">));</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">note</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">404</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;not found&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">note</span><span class="p">);</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">});</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">router</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// server.js</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">import</span><span class="w"> </span><span class="nx">notesRouter</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./routes/notes.js&quot;</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&quot;/notes&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">notesRouter</span><span class="p">);</span><span class="w"> </span><span class="c1">// all routes above are now prefixed with /notes</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="error-handling-middleware">Error-handling middleware<a class="headerlink" href="#error-handling-middleware" title="Permanent link">&para;</a></h2>
+<p>Express recognizes an error-handling middleware by its <strong>four</strong> parameters
+<code>(err, req, res, next)</code>. Place it last, after all routes, to catch anything
+thrown or passed to <code>next(error)</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/boom&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;something went wrong&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">});</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1">// Error-handling middleware — must be defined AFTER all routes</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;internal server error&quot;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="http-status-codes-cheat-sheet">HTTP status codes cheat sheet<a class="headerlink" href="#http-status-codes-cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>successful GET/PUT</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td>successful POST that creates a resource</td>
+</tr>
+<tr>
+<td>204</td>
+<td>No Content</td>
+<td>successful DELETE, nothing to return</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>validation failure</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>missing/invalid credentials</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>resource doesn't exist</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>unhandled exception</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Build an Express API for a <code>/tasks</code> resource with an in-memory array:
+<code>GET /tasks</code> (list all), <code>GET /tasks/:id</code>, <code>POST /tasks</code> (validate that
+<code>title</code> is a non-empty string, respond <code>400</code> otherwise), <code>PATCH /tasks/:id</code>
+to toggle a <code>done</code> boolean, and <code>DELETE /tasks/:id</code>. Add a logging
+middleware and a final error-handling middleware that catches anything
+unexpected and responds with a <code>500</code> JSON error instead of crashing the
+server.</p>
 
 
 
