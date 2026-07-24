@@ -1,3 +1,8 @@
+---
+title: "Learn JavaScript Free: Beginner to Master Course"
+description: "Free JavaScript course from beginner to advanced -- hands-on lessons with runnable code and real capstone projects. Part of a 37-course free learning library."
+---
+
 # JavaScript Mastery Path
 
 A structured, module-wise JavaScript training program that takes you from your
