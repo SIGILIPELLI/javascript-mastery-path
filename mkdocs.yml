@@ -1,8 +1,8 @@
 site_name: JavaScript Mastery Path
 site_description: A structured, module-wise JavaScript training program from entry level to master level.
-site_url: https://sigilipelli.github.io/javascript-mastery-path/
-repo_url: https://github.com/SIGILIPELLI/javascript-mastery-path
-repo_name: javascript-mastery-path
+site_url: https://sigilipelli.github.io/javascript-skillmastery/
+repo_url: https://github.com/SIGILIPELLI/javascript-skillmastery
+repo_name: javascript-skillmastery
 
 theme:
   name: material
