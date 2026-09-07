@@ -235,6 +235,27 @@ run(workflow).then(console.log);
 // { user: { id: 1, name: 'Ada' }, orders: [ 'order-1' ] }
 ```
 
+## How It Actually Works
+
+`Promise.all` and `Promise.race` are built entirely on the microtask machinery already
+covered: `Promise.all` creates one wrapper promise and attaches a `.then` reaction to
+every input promise; each reaction, when it fires, records its result at the matching
+index and decrements an internal counter, resolving the wrapper only when the counter
+hits zero — a single rejection reaction calls the wrapper's reject function immediately,
+but the *other* promises are **not cancelled**, they simply continue running to
+completion with their results discarded (JavaScript promises have no built-in
+cancellation — this is why `AbortController` exists as a separate, manually-checked
+signal, not a promise feature).
+
+Async generators (`async function*`) combine two desugaring transforms: the generator
+transform (pause/resume via `yield`, implemented as a state machine V8 builds from your
+function body, with local variables lifted into a heap-allocated context object so
+they survive across suspend points) and the async/promise transform layered on top —
+each `for await...of` iteration calls `.next()` on the generator, gets back a promise,
+awaits it, and only then evaluates whether to continue. This means a `for await` loop
+processes items strictly one at a time, in order, even if the underlying async iterable
+could theoretically produce them out of order — the ordering guarantee comes entirely
+from awaiting each `.next()` before requesting the next one.
 ## Exercise
 
 Write an async function `pingAll(urls, timeoutMs)` that takes an array of

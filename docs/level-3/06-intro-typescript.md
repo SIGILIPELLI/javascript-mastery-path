@@ -208,6 +208,26 @@ return type on each function, and parameter types — the runtime behavior is
 identical, but typos or wrong argument types are now caught by `tsc` before
 the code ever runs.
 
+## How It Actually Works
+
+TypeScript's types are **completely erased** before your code ever reaches V8 — the
+compiler (`tsc`, or esbuild/SWC's faster equivalents) parses your `.ts` file into an
+AST that includes type annotations, performs its structural type-checking entirely at
+compile time by walking that AST, and then emits plain JavaScript with every type
+annotation, interface, and generic parameter stripped out. This is why a type error
+never throws at runtime and why `interface`/`type` have zero runtime cost — they don't
+exist anymore by the time V8 sees the file. It also explains why you can't do
+`if (x instanceof SomeInterface)` — interfaces leave no runtime trace to check against,
+only classes (which compile to real constructor functions) do.
+
+TypeScript's structural typing (as opposed to nominal typing in languages like Java)
+means two differently-named types are compatible if their shapes match — `type Point =
+{x: number, y: number}` accepts any object with those two numeric fields, regardless of
+what the object's own declared type was called. This directly mirrors how V8's hidden
+classes work at the engine level (identity by shape, not by declared name), which is
+part of why TypeScript's type model maps so cleanly onto JS's actual object
+representation — structural compatibility at the type level and hidden-class shape
+matching at the engine level are solving analogous problems at different layers.
 ## Exercise
 
 Take a plain JavaScript file that manages a simple `Library` (an array of

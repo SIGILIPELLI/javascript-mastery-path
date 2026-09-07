@@ -160,6 +160,24 @@ variables at run time.
 *.pem
 ```
 
+## How It Actually Works
+
+A CI pipeline step like `npm ci` behaves differently from `npm install` in a way that
+matters for reproducibility: `npm ci` reads `package-lock.json` as the sole source of
+truth, deletes `node_modules` entirely first, and installs the *exact* versions and
+dependency tree recorded in the lockfile — it will error out rather than update the
+lockfile if `package.json` and the lockfile disagree. `npm install` will happily update
+the lockfile to satisfy new constraints. CI pipelines use `ci` specifically so that a
+build's dependency tree is byte-for-byte reproducible across every run, not subject to
+whatever the latest semver-compatible patch release happens to be on a given day.
+
+Build caching in CI (caching `node_modules` or the npm/yarn cache directory keyed by a
+hash of the lockfile) exploits the same content-addressable idea package managers use
+internally: if the lockfile's hash hasn't changed, the exact same dependency
+resolution would occur again, so restoring a previous run's installed output is
+behaviorally identical to reinstalling — the cache key is deliberately derived from the
+lockfile content specifically so any dependency change invalidates it automatically
+rather than requiring a human to remember to bump a cache version.
 ## Exercise
 
 A team's CI pipeline currently only runs `npm test` on every push, taking 12

@@ -177,6 +177,25 @@ local server like `npx serve`). Try:
 - Reloading the page — tasks persist because they're read from and written to
   `localStorage`
 
+## How It Actually Works
+
+This project ties together three runtime behaviors you've seen individually. First,
+`localStorage.setItem` is a **synchronous, blocking** call — it serializes your data to
+a string and writes it to disk-backed storage on the main thread, which is fine for a
+small todo list but would visibly freeze the UI for large payloads (this is exactly why
+IndexedDB exists as the async alternative). Second, every time you re-render the todo
+list by rebuilding DOM nodes, the browser doesn't repaint pixel-by-pixel as your code
+runs — it batches your DOM mutations and defers layout/paint to a rendering task that
+runs *after* your current synchronous script finishes, coalescing many changes into one
+visual update per frame.
+
+Third, the event listeners you attach to each todo item close over that item's data
+(often via closure or a `data-id` attribute read at click time). If you rebuild the
+entire list on every change (removing and recreating `<li>` elements) rather than
+mutating existing ones, every old listener and its closure becomes garbage — V8's
+generational garbage collector will reclaim them in its next young-generation ("scavenge")
+collection pass, since DOM nodes with no more references and their attached closures
+are exactly the short-lived objects that collector is optimized for.
 ## Stretch goals
 
 - Add due dates and sort tasks by them.

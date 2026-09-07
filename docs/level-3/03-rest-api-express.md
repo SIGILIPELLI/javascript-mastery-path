@@ -199,6 +199,25 @@ app.use((err, req, res, next) => {
 | 404 | Not Found | resource doesn't exist |
 | 500 | Internal Server Error | unhandled exception |
 
+## How It Actually Works
+
+Express's entire request-handling model is a **middleware chain**: each `app.use` or
+route handler is stored in an internal array along with the path pattern it matches,
+and dispatching a request walks that array in registration order, calling each matching
+middleware with a `next` function that, when invoked, resumes the walk to the next
+entry. This is just a manually-managed continuation-passing pattern — there's no magic
+scheduling involved, `next()` is a plain synchronous function call that recurses into
+the next middleware, which is exactly why forgetting to call `next()` (or `res.end()`)
+in a middleware hangs the request forever: the walk simply never continues.
+
+Because Node handles one request per "tick" of JS execution but the underlying HTTP
+server accepts many connections concurrently via the OS's async I/O, a single Express
+process genuinely serves many simultaneous requests — but only if your handlers yield
+control back to the event loop between blocking-ish work (via `await`, callbacks, or
+`setImmediate`). A synchronous CPU-heavy handler (e.g., hashing a huge payload
+in a tight loop) blocks the *entire* process, delaying every other in-flight request's
+processing, because there is exactly one JS thread regardless of how many TCP
+connections libuv is juggling underneath it.
 ## Exercise
 
 Build an Express API for a `/tasks` resource with an in-memory array:

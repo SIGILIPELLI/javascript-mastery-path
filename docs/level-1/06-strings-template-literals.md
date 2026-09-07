@@ -76,6 +76,25 @@ str = str.toUpperCase();  // you must reassign to keep the result
 | Format a number | `value.toFixed(2)`, `value.toLocaleString()` |
 | Pad a string | `str.padStart(n)`, `str.padEnd(n)` |
 
+## How It Actually Works
+
+Strings in V8 are immutable, but "immutable" doesn't mean "one representation." Short
+strings are stored inline as `SeqOneByteString` or `SeqTwoByteString` (depending on
+whether every character fits in Latin-1). Concatenating two strings with `+` or
+building one with a template literal doesn't necessarily copy all the characters
+immediately — V8 can create a **ConsString**, a lightweight object that just points at
+the two original strings and remembers their combined length. The actual character
+data is only flattened into one contiguous buffer the first time something needs to
+read it linearly (like calling `.charAt()` in a loop or passing it to a regex). This is
+why building large strings with many small `+=` operations can look cheap per line but
+suddenly pay a large one-time flattening cost the first time you inspect the result.
+
+Template literals (`` `${x}` ``) are handled specially by the parser: a tagged template
+like `` tag`a${b}c` `` is compiled so the *same* array of string parts (`["a", "c"]`) is
+passed to `tag` on every call at that call site — V8 caches and reuses that array
+object rather than rebuilding it, which is what lets libraries rely on referential
+identity of the strings array across calls to detect "this is the same literal
+template, just with different interpolated values."
 ## Exercise
 
 Write a function `slugify(title)` that converts `"Hello, World!  "` into

@@ -160,6 +160,26 @@ Promise.allSettled(tasks).then((results) => console.log(results));
 | `Promise.race` | the first promise to settle, settles | the first promise to settle rejects |
 | `Promise.any` | the first promise to fulfill, fulfills | only if *all* promises reject |
 
+## How It Actually Works
+
+A `Promise` is a state machine (`pending` → `fulfilled`/`rejected`, one-way, settled
+once) that maintains an internal list of reaction callbacks. Calling `.then` doesn't
+run your callback synchronously even if the promise is already resolved — the spec
+requires it to be scheduled as a **microtask**, via `queueMicrotask` internally.
+Microtasks run in their own queue that the event loop **fully drains** after every
+single callback (macrotask) finishes, and before the next macrotask (timer, I/O, render)
+is allowed to run. That's the concrete reason `Promise.resolve().then(fn)` always runs
+before `setTimeout(fn, 0)`, no matter what: the microtask queue is checked and emptied
+first, every time, even if new microtasks are added while draining it.
+
+`async`/`await` is syntax sugar over generators and promises: V8 desugars an `async
+function` into something conceptually like a generator function driven by an internal
+runner that calls `.next()` each time, and every `await expr` is transformed into
+`yield`-ing control back to that runner while chaining `.then()` onto
+`Promise.resolve(expr)`. This is why `await` a non-promise value still takes at least
+one microtask tick to resume — even `await 5` schedules a microtask — and why an
+`async function` *always* returns a promise, even if you `return` a plain value: the
+runner wraps whatever comes out in `Promise.resolve(...)` before handing it back.
 ## Exercise
 
 Write an `async` function `fetchWithTimeout(promise, ms)` that returns

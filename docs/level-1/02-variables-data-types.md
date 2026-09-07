@@ -103,6 +103,27 @@ if ("hello") {
 | `let` | Yes | block |
 | `var` | Yes | function (avoid) |
 
+## How It Actually Works
+
+`let` and `const` aren't just "block-scoped var" — they exist because of the **Temporal
+Dead Zone (TDZ)**. Every `let`/`const` binding is hoisted to the top of its block during
+compilation (V8 allocates the binding slot up front), but it stays uninitialized until
+the declaration line actually executes. Reading it before that throws
+`ReferenceError: Cannot access 'x' before initialization` — not because the variable
+doesn't exist yet, but because the engine is deliberately blocking access to a slot it
+already knows about. `var`, by contrast, is hoisted *and* initialized to `undefined`
+immediately, which is why `console.log(x); var x = 1;` silently prints `undefined`
+instead of throwing.
+
+At the representation level, V8 doesn't store every value the same way. Small integers
+get packed into a tagged **Smi** (small integer) representation directly in the pointer
+word — no heap allocation at all. Once a number needs a fraction or exceeds the Smi
+range, V8 boxes it as a `HeapNumber`. Objects get a **hidden class** (also called a
+"map") the moment they're created, which records the order and types of their
+properties; two objects created with properties added in the same order share a hidden
+class and can reuse the same optimized machine code for property access. This is a
+big part of why `{a:1, b:2}` is faster to work with than an object you build by adding
+properties in unpredictable order later.
 ## Exercise
 
 Write a script that stores a rectangle's `width` and `height`, computes its

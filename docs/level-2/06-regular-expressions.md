@@ -126,6 +126,26 @@ console.log(isoDate); // 2024-03-15
 | `str.matchAll(regex)` | String | iterator of full match objects (requires `g`) | extracting matches with capture groups |
 | `str.replace(regex, ...)` | String | new string | substituting or reformatting matched text |
 
+## How It Actually Works
+
+V8's regex engine (Irregexp) compiles each pattern into actual native machine code
+the first time it's used — not an interpreted state machine — because regex matching
+is common enough in real workloads to justify JIT compilation just like function
+bodies get. Simple patterns without backreferences or complex lookaround compile to a
+genuine finite automaton with linear-time matching guarantees. But JavaScript regex
+also supports backreferences (`\1`) and lookahead/lookbehind, which cannot be expressed
+as a pure finite automaton — Irregexp falls back to a **backtracking** engine for these,
+which is what makes certain patterns (nested quantifiers like `(a+)+b` against a
+non-matching string) exhibit catastrophic exponential-time blowup: the engine tries
+every possible way to split the input among the repeated groups before giving up.
+
+The `g` and `y` flags matter beyond "match all": a regex object with `g` set is
+**stateful** — it stores a `lastIndex` property and mutates it after each `.exec()`
+call, resuming the next call from where the last match ended. This is why reusing the
+same global regex object across unrelated calls (e.g., storing one at module scope and
+calling `.test()` on different strings) produces bugs where matches are silently
+skipped: `lastIndex` from a previous call is still there, has nothing to do with the new
+string, and its residual value point past where a match would have been found.
 ## Exercise
 
 Write a function `extractHashtags(text)` that returns an array of all

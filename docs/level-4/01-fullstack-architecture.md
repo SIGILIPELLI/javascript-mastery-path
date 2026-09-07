@@ -161,6 +161,26 @@ microservices once a specific, measured pain (deploy coupling, scaling one
 piece independently, team ownership boundaries) justifies the operational
 cost — covered in depth in [Module 3](03-microservices-serverless.md).
 
+## How It Actually Works
+
+A "full-stack" JS architecture runs on **two separate JS engines with different
+capabilities**: the browser's V8 (sandboxed, DOM access, no filesystem) and Node's V8
+embedding (no DOM, full filesystem/network access). Server-side rendering exists because
+these two contexts can execute the *same* component code but produce different outputs
+— on the server, rendering means synchronously walking your component tree and
+serializing it to an HTML string (no DOM APIs available, no event listeners actually
+attached yet); on the client, "hydration" re-runs that same component tree against the
+*already-present* server-rendered DOM nodes, attaching real event listeners and internal
+state to existing elements instead of creating new ones — which is why a mismatch
+between server output and client's first render throws hydration warnings: the client
+assumed a DOM shape that doesn't match what's actually there.
+
+API boundaries between a frontend and backend are enforced entirely by the network
+layer, not the language: even though both sides might be TypeScript, there is no shared
+runtime — a type used on the server has been fully erased and has zero presence in the
+compiled client bundle unless you explicitly share type definition files (a common
+"full-stack TypeScript" pattern), and the real contract enforced at runtime is whatever
+bytes actually cross the wire as JSON, validated (or not) independently on each side.
 ## Exercise
 
 You're joining a team maintaining a full-stack JavaScript app that currently

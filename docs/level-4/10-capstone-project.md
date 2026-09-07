@@ -534,6 +534,29 @@ docker compose up --build
 # "task-data" named volume across container restarts
 ```
 
+## How It Actually Works
+
+This capstone's request path is the same event-loop story from every earlier lesson,
+now end to end under real constraints: an incoming request hits Express's middleware
+chain (JWT auth middleware included) running synchronously on the main thread; the JWT
+verification step is itself synchronous CPU work (an HMAC or RSA signature check) that
+briefly blocks the loop, which is why extremely high-throughput auth services sometimes
+offload verification to worker threads; then the route handler's `await` on a database
+call yields control back to the event loop via the microtask/promise machinery, letting
+other requests' middleware run while this one's query is in flight over the actual TCP
+socket to SQLite/Postgres; the response only gets written once that awaited promise's
+microtask resumes execution.
+
+Running this stack in Docker doesn't change any of that JS-level behavior — the
+container just gives the Node process (and its one event loop, one V8 heap) an isolated
+filesystem, network namespace, and resource limits, imposed by the OS kernel via
+cgroups/namespaces, entirely outside V8's awareness. A container's memory limit
+matters concretely here: V8 sizes its default heap limits partly based on available
+system memory at startup, so a container with a low memory cap can cause V8 to trigger
+garbage collection more aggressively (or crash with an out-of-memory error) well before
+the same code would under equivalent unconstrained conditions — which is why
+production Node containers often pass `--max-old-space-size` explicitly rather than
+trusting V8's auto-detected default.
 ## Where to go from here
 
 If you want to keep extending this capstone as a portfolio piece: swap

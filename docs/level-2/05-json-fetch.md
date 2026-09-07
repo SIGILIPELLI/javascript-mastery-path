@@ -158,6 +158,27 @@ browser's, so the same code generally runs in both environments unmodified.
 | Parse JSON string | `JSON.parse(text)` |
 | Serialize to JSON string | `JSON.stringify(value, null, 2)` |
 
+## How It Actually Works
+
+`fetch()` returns a promise that resolves as soon as the **headers** arrive — not when
+the full body has downloaded. That's why `response.ok`/`response.status` are available
+immediately in your first `.then`, but reading the body via `response.json()` returns
+*another* promise: it has to keep reading from the underlying stream (backed by the
+network layer outside JS entirely) until all bytes arrive, then run the JSON parser on
+the accumulated text. `JSON.parse` itself is a recursive-descent parser implemented in
+C++ inside V8 (not JS) for speed — it builds the object graph in one pass rather than
+building a intermediate token stream first, which is part of why parsing huge JSON
+payloads can briefly block the main thread despite `fetch` itself being non-blocking.
+
+`fetch` deliberately does **not** reject on HTTP error statuses like 404 or 500 — it
+only rejects on network-level failures (DNS failure, connection refused, CORS block).
+This is a common bug source: the promise resolving successfully just means "a response
+arrived," so checking `response.ok` yourself is mandatory. Under the hood, the actual
+network request is handled entirely outside the JS engine — by the browser's networking
+stack or, in Node, by the underlying HTTP client — running on separate OS threads; your
+JS thread is never blocked waiting on the socket, it's just waiting for a promise
+resolution to be queued as a microtask once the response event arrives from that other
+thread.
 ## Exercise
 
 Write an `async` function `getUserPosts(userId)` that fetches

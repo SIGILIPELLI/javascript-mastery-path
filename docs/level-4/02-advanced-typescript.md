@@ -234,6 +234,28 @@ request("GET /users");   // OK
 | `Awaited<T>` | The resolved value type of a Promise |
 | `NonNullable<T>` | Removes `null`/`undefined` from a union |
 
+## How It Actually Works
+
+Generics in TypeScript are resolved entirely at compile time through a process called
+**type inference and substitution** — when you call `identity<number>(5)` or just
+`identity(5)` and let TypeScript infer `T`, the compiler walks the call site, unifies
+the argument's type against the generic parameter, and substitutes that concrete type
+everywhere `T` appears in the function's declared type, purely to type-check the call;
+none of this exists once compiled to JS, where `identity` is just a function with no
+knowledge it was ever generic. This is fundamentally different from generics in a
+language like Java or C#, which (for reference types) retain some runtime information
+via type erasure with bridge methods, or from C++ templates, which generate a distinct
+compiled function per instantiation — TypeScript's generics leave zero runtime
+footprint of any kind.
+
+Conditional types (`T extends U ? X : Y`) and mapped types (`{[K in keyof T]: ...}`) are
+evaluated by the compiler's type-checker as a kind of **functional program that operates
+on types instead of values**, resolved through repeated substitution until it reaches a
+fixed type or the compiler's recursion depth limit. This is why deeply recursive
+conditional types can hit "type instantiation is excessively deep" errors — you've
+written something equivalent to an infinite (or very long) recursive function, except
+the "function" runs during compilation over the type-space rather than during execution
+over the value-space.
 ## Exercise
 
 Given this base type:

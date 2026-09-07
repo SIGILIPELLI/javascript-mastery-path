@@ -216,6 +216,27 @@ static `import`/`export` is what makes reliable tree-shaking possible.
 | Minification | shrink code size (short names, no whitespace) | production build mode |
 | Content-hash filenames | safe long-term browser caching | `[contenthash]` in output filename |
 
+## How It Actually Works
+
+Code-splitting via dynamic `import()` works because a dynamic import call, unlike a
+static `import` statement, is a genuine runtime expression that returns a promise —
+bundlers detect this call shape during their static graph analysis and, instead of
+inlining that module into the main bundle, extract it into a **separate chunk file**
+loaded on demand. At runtime, the transformed `import()` call becomes something like
+injecting a `<script>` tag (or, in Node, a dynamic `require`) that fetches that chunk
+and resolves the promise once it has loaded and executed — which is why code-split
+chunks introduce a genuine network round trip the first time they're needed, trading
+smaller initial bundle size for that one-time load delay.
+
+Minifiers don't just strip whitespace — they perform real static analysis on the AST:
+renaming local variables to single letters is safe specifically because closures and
+block scoping give the minifier a provably closed set of references to rename together
+(this is why minifiers can't safely rename properties accessed via bracket notation
+with a dynamic string — they can't prove at compile time which property is meant).
+Dead-code elimination in a minifier walks the same reachability logic a tree-shaking
+bundler does, just at function/statement granularity instead of module granularity —
+both are proving, from static structure alone, that some code can never execute or its
+result can never be observed.
 ## Exercise
 
 Take a small multi-page app with `dashboard.js`, `settings.js`, and

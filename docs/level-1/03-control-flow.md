@@ -108,6 +108,24 @@ console.log(describeDay("Wed")); // weekday
 `case` unless you `break` or `return` — grouping cases without a `break`
 (as with `"Sat"`/`"Sun"` above) is a common, intentional pattern.
 
+## How It Actually Works
+
+`if`, `for`, and `while` compile down to conditional jump bytecodes in V8's Ignition
+interpreter — essentially the same primitive `JumpIfFalse`/`Jump` instructions a CPU
+would use, just operating on V8's internal bytecode registers instead of hardware
+registers. Every time a branch condition is evaluated, V8's inline caches record which
+*type* of value showed up (a boolean from a comparison, a truthy object, etc.). A loop
+that always compares numbers gets a monomorphic (single-shape) inline cache and runs
+fast; a loop whose condition sometimes compares numbers and sometimes strings becomes
+**polymorphic**, forcing V8 to fall back to slower generic comparison code.
+
+Loops are also where V8's tiering decision matters most: Ignition interpretes bytecode
+normally, but a loop back-edge counter increments on every iteration. Once that counter
+crosses a threshold, V8 triggers **On-Stack Replacement (OSR)** — it compiles an
+optimized version of the *currently running* loop with TurboFan and swaps execution
+into it mid-flight, without waiting for the function to be called again. This is why a
+loop that runs millions of iterations can visibly speed up partway through — you're
+watching OSR kick in.
 ## Exercise
 
 Write a program that prints FizzBuzz for numbers 1–30: multiples of 3 print

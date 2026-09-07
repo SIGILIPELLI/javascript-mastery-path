@@ -129,6 +129,28 @@ function applyTwice(fn, value) {
 console.log(applyTwice(squareFn, 3)); // 81
 ```
 
+## How It Actually Works
+
+Every time a function is called, V8 pushes a new **stack frame** holding its local
+variables, arguments, and a reference to where execution should resume when it returns.
+But scope resolution — how `x` inside a nested function finds the right `x` — doesn't
+walk the call stack at all. It walks a separate structure built at *parse time* called
+the **scope chain**: each function literal captures a pointer to the lexical
+environment it was defined in, not the one it's called from. That's why a function
+defined at the top level and called deep inside another function still only sees
+top-level variables, never the caller's locals — scope is about where code is written,
+not where it's invoked (this is "lexical scoping").
+
+Function *hoisting* differs sharply by declaration form. A `function foo() {}`
+declaration is fully hoisted — both the name and the function body are available
+before the line runs, because V8's parser does a pre-pass that registers named function
+declarations in the enclosing scope before executing any statements. A function
+expression (`const foo = function() {}`) only hoists the `const` binding (in the TDZ,
+unusable), not the assignment — so calling it before the line throws. `arguments` is
+its own quirk: for non-arrow functions, V8 lazily materializes an `arguments` object
+backed by the actual argument values on the stack; arrow functions have no `arguments`
+binding of their own at all, so referencing `arguments` inside one walks the scope
+chain up to the nearest enclosing non-arrow function.
 ## Exercise
 
 Write a function `summarize(...values)` that returns an object with the `min`,

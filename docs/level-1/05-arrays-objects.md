@@ -114,6 +114,26 @@ scoreboard.set("Grace", 15);
 console.log(scoreboard.get("Ada")); // 10
 ```
 
+## How It Actually Works
+
+Arrays in V8 aren't a single data structure — they silently switch between several
+internal representations depending on how you use them. A "packed" array of small
+integers (`[1,2,3]`) is stored as a contiguous `PACKED_SMI_ELEMENTS` backing store,
+essentially a raw C array, giving O(1) indexed access with no boxing. The moment you do
+something like `arr[0] = 1.5` or `arr[10] = 'x'` on a 3-element array, V8 has to
+**transition** the array to a more general representation (`PACKED_DOUBLE_ELEMENTS`,
+then `PACKED_ELEMENTS`, and finally `DICTIONARY_ELEMENTS` if you create sparse holes
+like `arr[1000] = 1`). Each transition is one-way and makes every future element
+access slightly slower, because V8 now has to handle more cases per access.
+
+Object property access works through the hidden-class mechanism mentioned earlier:
+`obj.name` doesn't do a hash-map lookup on every call. The first time V8 sees that
+access site, it records "objects with this hidden class have `name` at offset 2" as an
+**inline cache (IC)**. Every subsequent access at that same call site checks "does this
+object still have that hidden class?" — if yes, it reads the offset directly with no
+lookup at all (a monomorphic hit). `Object.freeze`, deleting properties, or adding
+properties in inconsistent orders across similar objects all defeat this optimization
+by forcing hidden-class transitions or dictionary-mode storage.
 ## Exercise
 
 Given an array of words, use `.reduce()` to build an object mapping each

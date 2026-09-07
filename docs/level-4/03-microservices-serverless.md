@@ -184,6 +184,29 @@ async function chargeCustomer(request) {
 }
 ```
 
+## How It Actually Works
+
+A serverless function's "cold start" is a real, measurable engine-boot cost: when no
+warm instance exists, the platform has to provision a new sandbox (often a lightweight
+VM or container), start a fresh Node process, initialize V8 from scratch, run your
+module's top-level code (all your `require`/`import` statements executing, any
+connections you open at module scope), and only then invoke your handler for the first
+time — every step here is exactly the same startup sequence as running `node index.js`
+locally, just happening on-demand under time pressure. This is why code that does
+expensive work at module scope (large JSON parsing, building lookup tables) shows up
+disproportionately in cold-start latency, and why platforms encourage keeping
+connections/clients as module-level singletons — so a **warm** invocation of the same
+sandboxed process reuses that already-initialized state instead of repeating the
+startup cost.
+
+Microservices communicating over HTTP or a message queue trade in-process function
+calls (a single call stack, shared memory, synchronous or same-process-async) for
+network calls with an entirely different failure model: a function call either returns
+or throws, deterministically; a network call to another service can also simply never
+respond, forcing you to reason about timeouts as a first-class concern that has no
+equivalent when everything runs in one process. This is precisely why patterns like
+circuit breakers and retries with backoff exist for service-to-service calls but have no
+analog for calling a function defined in the same file.
 ## Exercise
 
 Design (no need to fully implement) a system for an e-commerce checkout flow

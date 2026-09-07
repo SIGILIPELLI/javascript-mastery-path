@@ -225,6 +225,26 @@ emitter.emit("greet", "Ada"); // Hello, Ada!
 | Factory | centralize object creation logic | a function returning different objects/classes |
 | Observer | decouple "something happened" from "what to do about it" | listener arrays / `EventEmitter` |
 
+## How It Actually Works
+
+The Module pattern (an IIFE returning an object) and ES modules solve the same problem
+— avoiding global namespace pollution — through very different mechanisms. An IIFE
+relies purely on closures: variables declared inside never escape the function's
+lexical environment unless explicitly returned, so "private" state is really just
+"unreachable from outside the closure," enforced by scope, not by any access-control
+feature of the language. ES modules get real, engine-level isolation instead: each
+module has its own top-level scope by specification, and nothing you declare at module
+top level ever becomes a global unless you explicitly attach it to `globalThis` — no
+IIFE wrapper needed because the module system itself provides the boundary.
+
+The Observer pattern (pub/sub, `EventEmitter`) works because JS functions are first-class
+values that can be stored in a plain array or Map keyed by event name; `.emit()` is just
+a synchronous loop over that array calling each stored function in registration order —
+there's no scheduling, no queue, it's a direct function call chain, which means a
+listener that throws will halt the emit loop and any listeners registered after it
+won't run (`EventEmitter` in Node re-throws synchronously unless you're on an `'error'`
+event, which gets special-cased specifically because an uncaught error there crashes
+the process by design).
 ## Exercise
 
 Build a small `TaskQueue` using the observer pattern: it should support

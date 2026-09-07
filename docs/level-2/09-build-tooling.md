@@ -161,6 +161,28 @@ if (import.meta.env.MODE === "development") {
 }
 ```
 
+## How It Actually Works
+
+A bundler's core job is building a **module dependency graph** by statically parsing
+every `import`/`require` statement into an AST (much like V8's own parser does) without
+executing any code — this static analysis is exactly what enables **tree-shaking**:
+if the bundler's graph shows a named export is never imported anywhere in the reachable
+graph, it can prove that code is dead and strip it, but only for ES modules, where
+imports/exports are static by spec. CommonJS's dynamic `require(computedPath)` defeats
+this analysis, which is a major reason ESM-authored libraries tree-shake far better
+than CommonJS ones.
+
+Source maps solve a real mismatch: the code actually executing in the browser (minified,
+transpiled, bundled into one file) bears no resemblance to the code you wrote across
+many files. A source map is a compact, VLQ-encoded table of `(generated position) ->
+(original file, line, column)` mappings; when the DevTools debugger hits a breakpoint,
+it looks up the currently-executing bytecode's generated position in that table and
+displays your original source instead. Dev-mode bundlers (Vite, esbuild) skip most
+bundling entirely during development, instead serving native ES modules directly to the
+browser and relying on HTTP/2 to make many small requests cheap — bundling is deferred
+to the production build step specifically because the browser's own module loader can
+do the dependency resolution for you at dev time, faster than a bundler can rebuild a
+whole graph on every save.
 ## Exercise
 
 Initialize a new project with `npm init -y`, add `"dev"`, `"build"`, and

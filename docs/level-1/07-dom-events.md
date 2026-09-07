@@ -111,6 +111,27 @@ list.addEventListener("click", (event) => {
 });
 ```
 
+## How It Actually Works
+
+The DOM and JavaScript are two separate worlds connected by bindings: the DOM tree
+itself lives in the browser's C++ rendering engine, and every `element.addEventListener`
+call registers your callback in the engine's event-dispatch tables, not in V8's memory
+directly. When a click happens, the browser doesn't run your handler immediately as
+part of the click — it constructs an `Event` object and schedules a **task** on the
+main thread's task queue. The event loop picks up that task, and only then does it call
+into V8 to run your handler synchronously to completion before picking up the next
+task. This is why a slow event handler blocks all rendering and other events: there is
+only one thread, and tasks run one at a time to completion.
+
+Event dispatch itself follows three phases you can hook into: **capture** (root down to
+target, via the `{capture: true}` option), **target**, and **bubble** (target back up
+to root, the default). `event.stopPropagation()` halts this walk but doesn't cancel the
+browser's own default behavior (scrolling, following a link) — for that you need
+`event.preventDefault()`, which just sets a flag the browser checks after your handler
+returns. Because listeners are stored as references, closures you create inside
+`addEventListener` keep their entire enclosing scope alive for as long as the listener
+is attached — a common, hard-to-spot memory leak source when elements are removed from
+the DOM without calling `removeEventListener` first.
 ## Exercise
 
 Build a page with a text input and a button. When the button is clicked,

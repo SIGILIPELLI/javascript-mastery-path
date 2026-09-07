@@ -99,6 +99,24 @@ extension ecosystem), WebStorm (free for non-commercial use), or even a plain
 text editor plus the terminal. Pick one and move on — the editor matters far
 less than practice.
 
+## How It Actually Works
+
+When you run `node app.js`, Node doesn't just "read your code and do it." It boots the
+V8 engine (the same JS engine inside Chrome), which first **parses** your source into
+an Abstract Syntax Tree (AST), then compiles it — not to machine code immediately, but
+through Ignition, V8's bytecode interpreter. Only functions that run often enough
+("hot" functions) get promoted to TurboFan, V8's optimizing JIT compiler, which emits
+real machine code specialized for the shapes of data you've actually passed in. This is
+why the *first* run of a script is always interpreted bytecode, and why a function
+can get faster the more it's called — V8 is learning about it as it goes.
+
+The `node` binary itself is a thin C++ shell around V8 plus libuv, the library that
+gives Node its event loop, thread pool, and non-blocking file/network I/O. When you
+later write `console.log`, that's not part of the JS language at all — it's a host API
+that Node injects into the global object, backed by libuv writing to a file descriptor.
+Understanding this split — V8 runs *pure* JavaScript, Node/the browser bolt on I/O and
+timers — explains almost every "why does this work differently here" question you'll
+hit later in the course.
 ## Exercise
 
 Write a script `greet-many.js` that defines an array of three names and prints

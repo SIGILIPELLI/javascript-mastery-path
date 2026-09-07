@@ -152,6 +152,26 @@ flatten this structure and centralize error handling.
 | `Promise.then`/`catch`/`finally`, `async` continuations | microtask queue | after current sync code finishes | before any pending macrotask |
 | `setTimeout`, `setInterval`, DOM events | task (macro) queue | after current sync code finishes | after all pending microtasks drain |
 
+## How It Actually Works
+
+JavaScript has exactly one call stack, so "asynchronous" never means "runs in
+parallel inside your code" — it means "the browser/Node runtime does the waiting, and
+schedules your callback later." `setTimeout(fn, 0)` doesn't run `fn` immediately even
+with a zero delay: it hands the timer to the host environment (libuv in Node, the
+browser's timer thread), and when the delay elapses, the runtime places `fn` on the
+**macrotask queue** (also called the task queue). The event loop only pulls a
+macrotask off that queue when the call stack is completely empty — so a synchronous
+loop that runs for 5 seconds will delay even a `setTimeout(fn, 0)` callback by the same
+5 seconds, no matter how small the requested delay was.
+
+Callbacks passed to things like `fs.readFile` or an XHR's `onload` follow the same
+model but through different queues depending on the API — Node's I/O callbacks are
+scheduled by libuv's thread pool completing work off the main thread and then posting
+the JS callback back onto the main event loop's poll phase. The key mental model: your
+JS code is never actually running concurrently with anything else — every callback,
+however it got scheduled, runs to completion on the single main thread before the next
+one starts, which is why a single infinite `while(true)` loop anywhere freezes every
+timer, every event, and every I/O callback in the whole program.
 ## Exercise
 
 Predict the exact console output order of the snippet below, then run it to

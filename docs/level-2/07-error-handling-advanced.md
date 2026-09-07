@@ -197,6 +197,28 @@ loadConfig("/missing.json").catch((error) => {
 | Promise created but never awaited/caught | always attach `.catch()`, or listen for `unhandledrejection`/`unhandledRejection` as a safety net |
 | Truly unknown/corrupted state | log and crash/restart (`uncaughtException`) rather than continue silently |
 
+## How It Actually Works
+
+Custom error classes that `extend Error` hit a real V8/transpiler interaction worth
+understanding: `Error`'s constructor uses `Error.captureStackTrace` to attach the stack
+trace to `this`, and because `class` requires `super()` to run before `this` exists,
+skipping `super(message)` in a subclass means the resulting object never gets a
+constructed stack at all. When code is transpiled down to ES5 (older Babel targets),
+`extends Error` famously breaks `instanceof` checks, because ES5 "classes" are just
+constructor functions calling `Error.call(this)`, which returns a *new* plain `Error`
+object rather than initializing `this` — the fix (`Object.setPrototypeOf(this,
+new.target.prototype)`) is a workaround for exactly this gap between real class
+semantics and their ES5 emulation.
+
+Async error propagation follows the microtask model, not the synchronous stack-unwind
+model: a `throw` inside an `async function` doesn't propagate up the JS call stack the
+way a synchronous throw does — it's captured by the generator-driven runner (see the
+async/await lesson) and turned into a **rejected promise**. This is why wrapping an
+`await someAsyncCall()` in a synchronous `try/catch` works (the `await` desugars to
+control flow that re-throws into that same function body when the underlying promise
+rejects), but a rejection from a promise you merely *created* and didn't `await` or
+`.catch()` becomes an "unhandled rejection" — detected only after a full microtask-queue
+drain finds no handler was ever attached.
 ## Exercise
 
 Create a `TimeoutError` class extending `Error`. Then write an `async`

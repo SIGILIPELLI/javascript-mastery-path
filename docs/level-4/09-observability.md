@@ -192,6 +192,24 @@ app.get("/metrics", async (req, res) => {
 | Metrics | How is the system behaving in aggregate, over time | Prometheus, Datadog, CloudWatch Metrics |
 | Traces | How did one request flow across multiple services | OpenTelemetry, Jaeger, Datadog APM |
 
+## How It Actually Works
+
+Structured logging and metrics collection in Node have a subtle event-loop interaction:
+writing to `stdout` synchronously (the default for `console.log` when stdout is a
+terminal) can itself block the event loop briefly for large log volumes, which is why
+production logging libraries (pino, winston) default to buffering and/or writing
+asynchronously, or delegate serialization to a worker thread — the goal is to keep
+observability itself from becoming the bottleneck it's meant to measure.
+
+Distributed tracing (propagating a trace ID across service calls) relies on Node's
+`AsyncLocalStorage` (from the `async_hooks` module) to solve a real problem: a single
+incoming request's `async`/`await` chain hops across many separate callback
+invocations and microtask resumptions, none of which share a call stack in the way
+synchronous code would — `AsyncLocalStorage` works by having V8/Node track each async
+resource's causal parent (the async operation that scheduled it) internally, so a
+context value set at the start of handling a request can be retrieved correctly even
+deep inside an awaited database call several async hops later, without threading a
+context object through every single function signature by hand.
 ## Exercise
 
 Add structured logging (with `pino`, redacting `password` and `authorization`

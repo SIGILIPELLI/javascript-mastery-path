@@ -199,6 +199,24 @@ describe("counter", () => {
 | `.toHaveBeenCalledWith(...)` | a `jest.fn()` mock's call arguments |
 | `.toBeNull()` / `.toBeUndefined()` | absence checks |
 
+## How It Actually Works
+
+Jest doesn't run your test file as plain Node — it uses `jest-environment-node` (or
+`jsdom`) to construct a fresh global scope per test file, and wraps `require`/`import`
+resolution with its own module registry so `jest.mock()` can transparently swap out a
+real module for a fake one *before* your test file's `require` calls ever resolve to
+the real implementation. This is why `jest.mock('./api')` calls are hoisted to the top
+of the file by Jest's Babel transform automatically — mocking has to happen before the
+module graph loads, and normal JS execution order (top to bottom) would otherwise run
+your imports before the mock call.
+
+`jest.useFakeTimers()` illustrates the event loop mechanics directly: it replaces the
+real `setTimeout`/`setInterval` with an in-memory implementation that never actually
+waits on the OS clock — calling `jest.advanceTimersByTime(1000)` manually walks Jest's
+fake macrotask queue forward and synchronously fires any callbacks whose scheduled time
+has passed. This is what lets a test for a 30-second debounce complete in milliseconds:
+you're not making the code faster, you're replacing the entire timer subsystem the code
+depends on with a deterministic, synchronously-advanceable stand-in.
 ## Exercise
 
 Create `stringUtils.js` exporting a function `truncate(str, maxLength)` that

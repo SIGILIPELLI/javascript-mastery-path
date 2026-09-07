@@ -200,6 +200,27 @@ all the time.
 | Malformed/malicious input | validate shape and type at the boundary (schema libraries like `zod`) |
 | Vulnerable dependencies | `npm audit`, keep packages updated, minimize dependency count |
 
+## How It Actually Works
+
+Cross-site scripting (XSS) is possible because the browser's HTML parser and the
+JS engine share the same execution context by design — anything the parser interprets
+as a `<script>` tag or an inline event handler attribute gets handed straight to V8 for
+execution, with no distinction between "trusted app code" and "data that happens to
+look like code." Setting `innerHTML` re-invokes the HTML parser on your string, so any
+`<script>` or `onerror=` content in unsanitized user input is parsed and executed with
+the same privileges as your own code — there's no sandboxing between "content" and
+"code" at that boundary, which is precisely why escaping/sanitizing untrusted strings
+before insertion (or using `textContent` instead of `innerHTML`) is the actual fix, not
+merely a best practice.
+
+CSRF exploits a different mechanism entirely: the browser automatically attaches
+cookies to *any* request to a domain, regardless of which page initiated the request,
+because cookies are scoped to the origin, not to the page that triggered the request.
+A `SameSite=Strict` or `SameSite=Lax` cookie attribute changes this at the browser
+level — the browser itself refuses to attach the cookie to cross-site requests,
+enforced entirely by the browser's networking stack before your server code ever runs,
+which is why it closes an entire class of CSRF attacks without any application code
+changes at all, as long as the browser honors the attribute (older browsers don't).
 ## Exercise
 
 Add input validation to the `POST /notes` route from

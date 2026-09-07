@@ -231,6 +231,28 @@ createReadStream("data/notes.txt")
 | Duplex | both | a TCP socket |
 | Transform | in, modified, out | `zlib.createGzip()`, a CSV parser |
 
+## How It Actually Works
+
+Node's event loop, implemented by libuv, isn't a single queue — it's a sequence of
+distinct **phases** that run in a fixed order every tick: timers (due `setTimeout`/
+`setInterval` callbacks), pending callbacks, idle/prepare (internal), poll (retrieve new
+I/O events, execute I/O callbacks — this phase can block here waiting for events if
+there's nothing else to do), check (`setImmediate` callbacks specifically live here),
+and close callbacks. Microtasks (promise `.then`, `queueMicrotask`) and
+`process.nextTick` callbacks are **not** a phase — Node drains the `nextTick` queue and
+then the microtask queue completely after *every single callback*, not just once per
+loop iteration, which is why `process.nextTick` callbacks can starve I/O entirely if
+they keep scheduling more of themselves.
+
+The reason Node can do non-blocking file I/O in a single-threaded language is that
+CPU/blocking-style operations (`fs.readFile`, DNS lookups, some crypto) are handed off
+to libuv's **thread pool** (default size 4, tunable via `UV_THREADPOOL_SIZE`) — actual
+OS threads do the blocking read, and when it completes, libuv queues the JS callback to
+run on the single main thread during the poll phase. Network I/O (sockets, HTTP) on
+Linux doesn't even need the thread pool — it uses the OS's native async I/O
+notification (`epoll`), so `fetch`/`http.get` calls scale to far more concurrent
+connections than thread-pool-bound file operations, because there's no fixed pool size
+limiting them.
 ## Exercise
 
 Write a small Node script (ESM, `"type": "module"`) that reads a directory

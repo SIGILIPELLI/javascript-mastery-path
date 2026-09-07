@@ -182,6 +182,27 @@ console.log(state.read()); // changed — both functions share the same `value`
 | Closure | A function plus the scope it was created in, kept alive after the outer function returns |
 | Module pattern | Using a closure (often an IIFE) to expose a public API while hiding private state |
 
+## How It Actually Works
+
+A closure isn't "a function that remembers stuff" in some magical sense — it's a
+function value paired with a live reference to the **lexical environment record** it
+was created in. When V8 compiles a function, its parser statically determines which
+outer variables the function body references; if any inner function might outlive the
+outer call (by being returned, stored, or passed as a callback), V8 allocates that
+variable's storage on the **heap** instead of the normal stack frame, specifically so it
+survives after the outer function returns and its stack frame is popped. Variables the
+optimizer proves are *never* captured stay on the stack and get reclaimed immediately —
+closures aren't free, but they only cost what they actually capture.
+
+This has a sharp consequence: a closure keeps its **entire** environment record alive,
+not just the one variable it uses. If a function captures one small variable but is
+defined in a scope that also holds a huge array, that array can stay reachable (and
+un-garbage-collected) for as long as the closure exists, unless V8's optimizer can prove
+the closure never touches it — a documented source of surprising memory retention in
+long-lived closures like event handlers or memoization caches. The classic
+`for (var i...)` loop bug exists precisely because `var` creates one shared binding for
+the whole function, so every closure captures the *same* environment slot; `let` creates
+a **fresh lexical environment per iteration**, so each closure captures its own `i`.
 ## Exercise
 
 Write a function `createQueue()` that uses a closure to keep a private

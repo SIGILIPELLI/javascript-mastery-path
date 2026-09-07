@@ -203,6 +203,27 @@ debouncedSearch("ap");
 debouncedSearch("app"); // only this call actually runs expensiveSearch, ~300ms later
 ```
 
+## How It Actually Works
+
+V8's garbage collector is **generational**: it splits the heap into a small
+"young generation" (further split into a tiny nursery and an intermediate space) and a
+much larger "old generation." Nearly all objects die young — short-lived intermediate
+values, one-off closures, temporary arrays — so V8 optimizes for that case with
+**Scavenge**, a fast copying collector that runs frequently on just the young
+generation and copies surviving objects out to a survivor space; objects that survive
+two scavenges get **promoted** to the old generation. The old generation is collected
+far less often, using a slower mark-sweep-compact algorithm (**Mark-Compact**), because
+scanning and compacting a large heap is expensive and old objects are statistically
+much less likely to have become garbage.
+
+Memory leaks in long-running Node processes almost always trace back to something
+holding a reference the developer thinks is temporary: an ever-growing array pushed to
+but never trimmed, event listeners attached repeatedly without ever being removed (each
+one keeps its closure's entire captured environment alive), or a `Map`/`Set` used as a
+cache with no eviction policy. `WeakMap`/`WeakSet` exist specifically to break this
+class of leak — their keys don't count as strong references for garbage collection
+purposes, so an entry disappears on its own once nothing else references the key,
+without needing manual cleanup code at all.
 ## Exercise
 
 Write a `LRUCache` class (least-recently-used cache) backed by a `Map` with

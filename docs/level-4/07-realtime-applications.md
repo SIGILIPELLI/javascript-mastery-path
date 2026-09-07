@@ -175,6 +175,28 @@ Socket.IO ships an official `@socket.io/redis-adapter` that implements this
 exact pattern for you, so rooms and broadcasts work correctly across a
 horizontally-scaled cluster of servers.
 
+## How It Actually Works
+
+WebSockets exist because HTTP's request-response model has no way for a server to push
+data without the client asking first — a WebSocket connection starts as a normal HTTP
+request with an `Upgrade: websocket` header, and once the server responds
+`101 Switching Protocols`, the **same underlying TCP socket** is repurposed for a
+full-duplex framed protocol instead of HTTP — no more request/response pairing, just
+independent frames flowing either direction whenever either side calls `send()`. On the
+Node side, this socket is registered with libuv exactly like any other socket — a
+`'message'` event handler is just a callback scheduled onto the event loop's poll phase
+whenever new bytes arrive, no different mechanically from a regular HTTP request
+handler, which is why a slow synchronous WebSocket message handler blocks the entire
+event loop just like a slow HTTP handler would.
+
+Broadcasting to many connected clients (a chat room, live updates) is just a loop over
+an in-memory collection of open socket references, calling `.send()` on each — this
+only works within a single process's memory, though, which is exactly why scaling
+WebSockets across multiple Node processes/instances requires an external pub/sub layer
+(Redis pub/sub, for example): process A can't call `.send()` on a socket object that
+physically lives in process B's memory, so a message has to be published somewhere
+both processes can observe, and each process then broadcasts to its own locally-held
+sockets.
 ## Exercise
 
 Extend the `ws`-based live counter example above into a live "who's online"

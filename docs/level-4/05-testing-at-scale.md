@@ -207,6 +207,26 @@ jobs:
 - Isolate tests from real third-party services (payment gateways, email
   providers) behind fakes/sandboxes so external outages don't fail your CI.
 
+## How It Actually Works
+
+Running test suites in parallel across worker processes (Jest's default) works because
+each worker is a genuinely separate Node process with its own V8 heap and event loop —
+true OS-level process isolation, not just separate scopes within one process. This is
+why global state leaking between test *files* is rare (different processes can't share
+memory) but leaking between test *cases within the same file* is common and dangerous —
+those share one V8 heap, one module cache, and one event loop, so a timer or open
+handle left behind by one test can affect the next test that happens to run in the same
+worker.
+
+Flaky tests overwhelmingly trace back to implicit ordering assumptions about the event
+loop and microtask queue: a test that doesn't fully `await` an async operation before
+asserting is racing the assertion against a pending microtask or macrotask that may or
+may not have resolved by the time the assertion runs — it "usually" passes because
+microtasks typically drain fast, but under different CPU load, worker scheduling, or CI
+machine speed, that timing assumption breaks. This is also why fake timers
+(`jest.useFakeTimers`) make timer-dependent tests deterministic: they replace real
+wall-clock-dependent scheduling with a queue you advance explicitly and synchronously,
+removing the race entirely rather than just making it less likely.
 ## Exercise
 
 Write a Playwright test for a "forgot password" flow: visiting `/forgot-password`,

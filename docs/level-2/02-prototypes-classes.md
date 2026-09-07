@@ -159,6 +159,29 @@ console.log(Point.origin.x, Point.origin.y); // 0 0
 | Private state | closures or naming conventions (`_balance`) | `#field` (enforced by the engine) |
 | Underlying mechanism | prototype chain | same prototype chain, nicer syntax |
 
+## How It Actually Works
+
+`class` syntax is sugar over V8's actual object model: every object carries an internal
+`[[Prototype]]` slot (exposed as `__proto__` or via `Object.getPrototypeOf`), and
+property lookup that misses on the object itself walks up this **prototype chain** one
+link at a time until it hits a match or reaches `null`. This lookup isn't a generic
+walk on every call, though — V8's inline caches record the full prototype chain shape
+for a given access site, so repeated lookups of an inherited method resolve in
+essentially the same constant time as an own property, as long as the chain's shape
+stays stable.
+
+Methods defined inside a `class` body are non-enumerable by design (unlike properties
+you assign with `this.x =`), and they live once on `ClassName.prototype`, shared by
+every instance — this is why methods don't duplicate per-instance the way closures over
+constructor-scope variables would. `class` also enforces things prototype-based
+constructors never did: calling a class without `new` throws immediately, and a
+subclass constructor cannot reference `this` until it calls `super()` — because the
+engine hasn't allocated `this` yet; `super()` is literally the call that runs the
+parent constructor and produces the object `this` will refer to. Private fields
+(`#field`) aren't just naming convention — they're stored in a separate internal slot
+keyed by a per-class unique brand, so external code can't even detect their existence via
+`Object.keys` or bracket access, unlike `_field` which is just a public property with an
+underscore.
 ## Exercise
 
 Create a `Shape` base class with a constructor field `name` and a method

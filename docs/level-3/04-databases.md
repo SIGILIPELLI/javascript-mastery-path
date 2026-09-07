@@ -210,6 +210,25 @@ run();
 | Query language | SQL | MongoDB Query Language (method calls + JSON filters) |
 | Good fit | structured, tabular data | nested/variable-shape data, rapid iteration |
 
+## How It Actually Works
+
+A database driver's `.query()` call in Node never blocks the event loop waiting on the
+network round-trip to the database server — it opens a TCP socket, writes the query as
+bytes according to the database's wire protocol, and returns a promise immediately;
+libuv's epoll-based socket handling notifies Node when response bytes arrive, at which
+point the driver parses the wire-protocol response and resolves your promise from
+within the poll phase's I/O callback. This is why a Node app can hold open dozens of
+concurrent, in-flight database queries on a single thread — each is just a registered
+"wake me up when this socket is readable" entry, not a thread of its own.
+
+Connection **pooling** exists because opening a fresh TCP connection (plus, for many
+databases, an auth handshake and TLS negotiation) costs multiple round-trips — a pool
+pre-opens a fixed number of connections and hands them out to queries as they arrive,
+queuing extra requests until a connection frees up. This directly trades memory/open
+sockets for latency: too small a pool serializes concurrent requests behind each other
+waiting for a free connection; too large a pool can overwhelm the database server's own
+per-connection resource limits (each open connection typically costs the database
+server real memory for its own session state, independent of your Node process).
 ## Exercise
 
 Using `better-sqlite3`, create a `students` table (`id`, `name`, `grade`)

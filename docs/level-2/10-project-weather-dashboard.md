@@ -335,6 +335,28 @@ In the browser:
 - Turn off your network connection and retry — confirm the status area
   shows a readable error instead of a blank or broken page
 
+## How It Actually Works
+
+This project's separation between `weather.js` (pure functions) and `app.js`
+(fetching/rendering) reflects a real event-loop concern: `weather.js`'s pure
+transforms run entirely synchronously on the main thread with no awaiting, so they
+never yield control mid-calculation — safe to call directly from a render path. The
+`fetch` call in `app.js`, by contrast, hands the actual network request off to the
+browser's networking stack (outside V8 and outside the single JS thread entirely),
+returning a pending promise immediately; the event loop is free to handle clicks,
+paints, and other work while the browser waits on the actual HTTP response, and only
+queues a microtask to resume your `.then`/`await` code once the response headers
+arrive.
+
+Testing `weather.js`'s pure functions in isolation (as `weather.test.js` does) works
+cleanly for exactly this reason: a pure function's output depends only on its
+arguments, so Jest can call it directly with fixed inputs and assert on the output
+with no event loop, no timers, and no mocking required. `app.js`'s fetch-and-render
+logic is deliberately kept thin and hard to unit test in the same way, because it's
+inherently async and side-effecting (it touches the DOM and the network) — this
+project's file layout is itself a demonstration of isolating synchronous, testable
+logic from asynchronous, effectful glue code.
+
 ## Stretch goals
 
 - Add a geocoding step: let users type a city name and look up its

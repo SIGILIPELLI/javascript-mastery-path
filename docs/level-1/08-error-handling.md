@@ -99,6 +99,27 @@ try {
 | `ReferenceError` | using a variable that doesn't exist |
 | `RangeError` | a value is outside an allowed range, e.g. invalid array length |
 
+## How It Actually Works
+
+`throw` doesn't return a value — it unwinds the call stack by walking upward from the
+current stack frame looking for the nearest enclosing `try` block whose code region
+covers the current instruction pointer. V8 tracks this via a per-function table of
+"protected regions" generated at compile time; when an exception is thrown, the engine
+consults that table frame by frame, popping stack frames (running any `finally` blocks
+it finds along the way) until it either finds a matching `catch` or reaches the top of
+the stack, at which point the error becomes an uncaught exception reported to the host
+(Node prints it and exits; browsers fire a `window.onerror` event).
+
+The `Error` object's `.stack` string is itself lazily computed: when you write `new
+Error()`, V8 doesn't format the whole string immediately — it captures a lightweight
+array of stack frame pointers, and only serializes them into the human-readable
+`"at functionName (file:line:col)"` text the first time `.stack` is actually read. This
+is a deliberate performance optimization (`Error.captureStackTrace` exists specifically
+to control this), because constructing full formatted stack traces for errors that are
+caught and ignored would be wasted work. `finally` blocks are guaranteed to run even if
+the `try` or `catch` returns or re-throws, because the engine's unwind logic treats
+"execute finally" as a mandatory step of leaving the protected region, regardless of
+how control flow is trying to leave it.
 ## Exercise
 
 Write a function `divideSafely(a, b)` that returns the division result, or a

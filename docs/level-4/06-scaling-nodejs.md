@@ -189,6 +189,28 @@ app.get("/health", async (req, res) => {
 | Downtime to scale | Often requires a restart | New instances added/removed without downtime |
 | Ceiling | Hardware limits of one machine | Practically unbounded (with a data layer that can keep up) |
 
+## How It Actually Works
+
+Node's `cluster` module (and process managers like PM2 in cluster mode) don't give you
+multithreading inside one process — they fork multiple **independent OS processes**,
+each running its own full V8 instance and event loop, and share listening sockets
+between them via the OS. On Linux, the master process's `SO_REUSEPORT`-style socket
+sharing (or, in Node's default round-robin scheduler, the master accepts connections
+and hands them to workers) means incoming connections get distributed across workers,
+letting you use multiple CPU cores despite JS itself being single-threaded per process
+— each worker still blocks and gets blocked independently, so a CPU-heavy request in
+one worker doesn't stall the others, but it also means workers share nothing by
+default: in-memory caches, WebSocket connection lists, or session stores must be
+explicitly shared via an external store (Redis, etc.) since each worker's memory is
+completely separate.
+
+Worker threads (`worker_threads` module) are the actual multithreading primitive in
+Node, distinct from cluster's multiprocessing: they share the same process (lower memory
+overhead than forking) but each worker still gets its **own V8 isolate and event loop**
+— JS objects are never shared by reference between them; data crosses via structured
+clone (a deep copy) or `SharedArrayBuffer` for raw binary data, because V8's heap and
+garbage collector are fundamentally not thread-safe for arbitrary JS object graphs, only
+for that one specific transferable-buffer escape hatch.
 ## Exercise
 
 You have a Node API currently running as a single process that's pegged at

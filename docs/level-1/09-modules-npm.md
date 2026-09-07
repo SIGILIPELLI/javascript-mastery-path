@@ -123,6 +123,26 @@ npm test         # shorthand for the "test" script
 | Import | `import x from "./file.js"` | `const x = require("./file")` |
 | File extension needed? | Yes, in Node | No |
 
+## How It Actually Works
+
+ES modules and CommonJS modules aren't just different syntax — they load and execute
+differently. CommonJS (`require`) is **synchronous**: calling `require('./a')` blocks
+right there, reads the file, wraps it in a function `(module, exports, require,
+__filename, __dirname) => {...}`, executes it top to bottom, and returns
+`module.exports`. Node caches the result keyed by resolved file path, so a second
+`require` of the same file returns the same object instantly without re-executing it —
+this is also why circular `require`s can hand back a *partially filled* `exports`
+object if module A requires B while B is still mid-execution requiring A back.
+
+ES modules (`import`/`export`) work in two distinct phases enforced by the engine
+itself: first a **linking** phase, where the module graph is parsed and every `export`
+binding is connected to every `import` that references it — as *live bindings*, not
+copied values, which is why `import { count } from './counter.js'` reflects later
+changes to `count` inside that module. Only after the entire graph is linked does
+**evaluation** run, top to bottom, per module, exactly once. This static, ahead-of-time
+linking is what lets bundlers tree-shake unused exports — the import graph is fully
+known before any code runs, unlike CommonJS where `require` calls can be conditional
+and dynamic, making static analysis far harder.
 ## Exercise
 
 Split a script that manages a to-do list into two ES modules: `storage.js`

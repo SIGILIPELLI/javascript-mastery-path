@@ -383,6 +383,27 @@ npm test
 #  ✓ unknown routes return 404
 ```
 
+## How It Actually Works
+
+This project's request lifecycle threads together the event loop, promises, and the
+database driver's async I/O into one concrete path: an incoming HTTP request arrives via
+libuv's poll phase, Express's middleware chain runs synchronously up to your controller,
+your controller calls an `async` function that awaits the database query, which
+suspends via the promise/microtask mechanism (not blocking the thread) while libuv waits
+on the actual database socket, and only once the socket delivers a response does the
+awaited promise resolve, a microtask resumes your controller function, and `res.json()`
+finally writes bytes back to the client socket. At every "await," other requests'
+middleware and other pending callbacks get a chance to run on the same single thread —
+this interleaving, not multithreading, is how one Node process serves many concurrent
+API requests.
+
+Supertest, used in this project's tests, doesn't make real network calls to a listening
+port unless you explicitly call `.listen()` — instead it wraps your Express `app` object
+directly and simulates an HTTP request/response cycle in-process, invoking your
+middleware chain the exact same way Express's own HTTP server would, just without the
+actual TCP socket and OS networking stack in the loop. This is why the test suite runs
+fast and deterministically even though it's exercising your real routing and validation
+logic end-to-end.
 ## Stretch goals
 
 - Add a `GET /books?author=...` query filter, and pagination via

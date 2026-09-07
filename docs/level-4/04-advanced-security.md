@@ -180,6 +180,26 @@ const loginLimiter = rateLimit({
 app.post("/auth/login", loginLimiter, loginHandler);
 ```
 
+## How It Actually Works
+
+JWTs are not encrypted — a standard signed JWT (`HS256`/`RS256`) is just a
+Base64URL-encoded header and payload plus a signature; anyone can decode the payload
+without any key at all, they simply can't *forge* a valid signature without the secret
+(HMAC) or private key (RSA). Verifying a JWT means recomputing the signature over the
+received header+payload using the known key and comparing it byte-for-byte against the
+signature the client sent — this comparison must be done in constant time (not a
+regular `===` on strings) specifically to prevent timing attacks, where an attacker
+measures how long a byte-by-byte comparison takes to leak the correct signature one
+byte at a time.
+
+Content Security Policy (CSP) headers work by having the browser itself refuse to
+execute or load resources that don't match the declared policy — this is enforced
+inside the browser's script-loading and parsing pipeline, before V8 ever compiles the
+offending script, which is why a strict CSP blocks inline `<script>` and `eval()`
+categorically: the browser can't distinguish "this inline script is legitimate app code"
+from "this inline script was injected by an attacker" at the point where it decides
+whether to parse and run it, so CSP's `script-src` policy has to be an all-or-nothing
+rule enforced structurally, not a content-based judgment call.
 ## Exercise
 
 A code review flags this route:

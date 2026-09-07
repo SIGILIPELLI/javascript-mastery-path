@@ -243,6 +243,26 @@ colliding on the same port.
 | Speed | very fast | fast, but slower than pure unit tests |
 | Example here | `signUp` with `sendEmail` mocked | `GET /books` through the real Express app |
 
+## How It Actually Works
+
+Mocking a module (`jest.mock`, or manual dependency injection) works because of how
+module resolution is just a **cache lookup keyed by resolved path** — both CommonJS's
+`require.cache` and Jest's own module registry. Swapping in a mock means intercepting
+that resolution step so that anything importing `'./db'` gets your fake object instead
+of running the real file. This is why mocking is straightforward for CommonJS
+(monkey-patch the cache) but trickier for real ES modules — live bindings are
+read-only from the importer's side by spec, so Jest has to transform ESM syntax back
+into something it can intercept, which is exactly what its Babel/SWC transform step is
+doing behind the scenes when you write `import` in a test file.
+
+Code coverage tools (Istanbul, which Jest uses via `--coverage`) work by **instrumenting**
+your source: before your code ever runs, a transform walks the AST and inserts counter
+increments at every branch, statement, and function boundary (e.g., wrapping
+`if (x) { ... }` so entering the block also does `__cov.branches[3][0]++`). Running your
+test suite then just runs this instrumented code normally — the coverage percentages
+you see afterward are literally a tally of which counters ended up above zero, which is
+why coverage numbers can be misleading: a line executing once counts identically to a
+line executing with every possible edge case exercised.
 ## Exercise
 
 Extend the `createApp()` example with a `DELETE /books/:id` route. Write
