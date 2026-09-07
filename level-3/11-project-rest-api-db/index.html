@@ -1862,6 +1862,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2401,6 +2412,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2781,6 +2803,25 @@ places — tests never touch <code>catalog.db</code> on disk.</p>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1">#  ✓ DELETE /books/:id removes the book</span>
 <a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1">#  ✓ unknown routes return 404</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>This project's request lifecycle threads together the event loop, promises, and the
+database driver's async I/O into one concrete path: an incoming HTTP request arrives via
+libuv's poll phase, Express's middleware chain runs synchronously up to your controller,
+your controller calls an <code>async</code> function that awaits the database query, which
+suspends via the promise/microtask mechanism (not blocking the thread) while libuv waits
+on the actual database socket, and only once the socket delivers a response does the
+awaited promise resolve, a microtask resumes your controller function, and <code>res.json()</code>
+finally writes bytes back to the client socket. At every "await," other requests'
+middleware and other pending callbacks get a chance to run on the same single thread —
+this interleaving, not multithreading, is how one Node process serves many concurrent
+API requests.</p>
+<p>Supertest, used in this project's tests, doesn't make real network calls to a listening
+port unless you explicitly call <code>.listen()</code> — instead it wraps your Express <code>app</code> object
+directly and simulates an HTTP request/response cycle in-process, invoking your
+middleware chain the exact same way Express's own HTTP server would, just without the
+actual TCP socket and OS networking stack in the loop. This is why the test suite runs
+fast and deterministically even though it's exercising your real routing and validation
+logic end-to-end.</p>
 <h2 id="stretch-goals">Stretch goals<a class="headerlink" href="#stretch-goals" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Add a <code>GET /books?author=...</code> query filter, and pagination via

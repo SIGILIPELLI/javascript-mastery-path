@@ -1920,6 +1920,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2269,6 +2280,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2490,6 +2512,24 @@ immediately by anything that imports it, with no publish step.</p>
 microservices once a specific, measured pain (deploy coupling, scaling one
 piece independently, team ownership boundaries) justifies the operational
 cost — covered in depth in <a href="../03-microservices-serverless/">Module 3</a>.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A "full-stack" JS architecture runs on <strong>two separate JS engines with different
+capabilities</strong>: the browser's V8 (sandboxed, DOM access, no filesystem) and Node's V8
+embedding (no DOM, full filesystem/network access). Server-side rendering exists because
+these two contexts can execute the <em>same</em> component code but produce different outputs
+— on the server, rendering means synchronously walking your component tree and
+serializing it to an HTML string (no DOM APIs available, no event listeners actually
+attached yet); on the client, "hydration" re-runs that same component tree against the
+<em>already-present</em> server-rendered DOM nodes, attaching real event listeners and internal
+state to existing elements instead of creating new ones — which is why a mismatch
+between server output and client's first render throws hydration warnings: the client
+assumed a DOM shape that doesn't match what's actually there.</p>
+<p>API boundaries between a frontend and backend are enforced entirely by the network
+layer, not the language: even though both sides might be TypeScript, there is no shared
+runtime — a type used on the server has been fully erased and has zero presence in the
+compiled client bundle unless you explicitly share type definition files (a common
+"full-stack TypeScript" pattern), and the real contract enforced at runtime is whatever
+bytes actually cross the wire as JSON, validated (or not) independently on each side.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>You're joining a team maintaining a full-stack JavaScript app that currently
 has one giant <code>server.js</code> file (2,000+ lines) mixing routes, SQL queries, and

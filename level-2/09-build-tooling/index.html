@@ -1406,6 +1406,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2357,6 +2368,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2536,6 +2558,26 @@ this so slow/large."</p>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;verbose debug logging enabled&quot;</span><span class="p">);</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">}</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A bundler's core job is building a <strong>module dependency graph</strong> by statically parsing
+every <code>import</code>/<code>require</code> statement into an AST (much like V8's own parser does) without
+executing any code — this static analysis is exactly what enables <strong>tree-shaking</strong>:
+if the bundler's graph shows a named export is never imported anywhere in the reachable
+graph, it can prove that code is dead and strip it, but only for ES modules, where
+imports/exports are static by spec. CommonJS's dynamic <code>require(computedPath)</code> defeats
+this analysis, which is a major reason ESM-authored libraries tree-shake far better
+than CommonJS ones.</p>
+<p>Source maps solve a real mismatch: the code actually executing in the browser (minified,
+transpiled, bundled into one file) bears no resemblance to the code you wrote across
+many files. A source map is a compact, VLQ-encoded table of <code>(generated position) -&gt;
+(original file, line, column)</code> mappings; when the DevTools debugger hits a breakpoint,
+it looks up the currently-executing bytecode's generated position in that table and
+displays your original source instead. Dev-mode bundlers (Vite, esbuild) skip most
+bundling entirely during development, instead serving native ES modules directly to the
+browser and relying on HTTP/2 to make many small requests cheap — bundling is deferred
+to the production build step specifically because the browser's own module loader can
+do the dependency resolution for you at dev time, faster than a bundler can rebuild a
+whole graph on every save.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Initialize a new project with <code>npm init -y</code>, add <code>"dev"</code>, <code>"build"</code>, and
 <code>"test"</code> scripts to <code>package.json</code> (they can point to placeholder commands

@@ -1689,6 +1689,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2566,6 +2588,24 @@ type actually matches the shape.</p>
 return type on each function, and parameter types — the runtime behavior is
 identical, but typos or wrong argument types are now caught by <code>tsc</code> before
 the code ever runs.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>TypeScript's types are <strong>completely erased</strong> before your code ever reaches V8 — the
+compiler (<code>tsc</code>, or esbuild/SWC's faster equivalents) parses your <code>.ts</code> file into an
+AST that includes type annotations, performs its structural type-checking entirely at
+compile time by walking that AST, and then emits plain JavaScript with every type
+annotation, interface, and generic parameter stripped out. This is why a type error
+never throws at runtime and why <code>interface</code>/<code>type</code> have zero runtime cost — they don't
+exist anymore by the time V8 sees the file. It also explains why you can't do
+<code>if (x instanceof SomeInterface)</code> — interfaces leave no runtime trace to check against,
+only classes (which compile to real constructor functions) do.</p>
+<p>TypeScript's structural typing (as opposed to nominal typing in languages like Java)
+means two differently-named types are compatible if their shapes match — <code>type Point =
+{x: number, y: number}</code> accepts any object with those two numeric fields, regardless of
+what the object's own declared type was called. This directly mirrors how V8's hidden
+classes work at the engine level (identity by shape, not by declared name), which is
+part of why TypeScript's type model maps so cleanly onto JS's actual object
+representation — structural compatibility at the type level and hidden-class shape
+matching at the engine level are solving analogous problems at different layers.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Take a plain JavaScript file that manages a simple <code>Library</code> (an array of
 <code>{ title, author, available }</code> book objects with <code>addBook</code>, <code>checkOut</code>, and

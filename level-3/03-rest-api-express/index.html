@@ -1605,6 +1605,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2593,6 +2615,23 @@ thrown or passed to <code>next(error)</code>.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Express's entire request-handling model is a <strong>middleware chain</strong>: each <code>app.use</code> or
+route handler is stored in an internal array along with the path pattern it matches,
+and dispatching a request walks that array in registration order, calling each matching
+middleware with a <code>next</code> function that, when invoked, resumes the walk to the next
+entry. This is just a manually-managed continuation-passing pattern — there's no magic
+scheduling involved, <code>next()</code> is a plain synchronous function call that recurses into
+the next middleware, which is exactly why forgetting to call <code>next()</code> (or <code>res.end()</code>)
+in a middleware hangs the request forever: the walk simply never continues.</p>
+<p>Because Node handles one request per "tick" of JS execution but the underlying HTTP
+server accepts many connections concurrently via the OS's async I/O, a single Express
+process genuinely serves many simultaneous requests — but only if your handlers yield
+control back to the event loop between blocking-ish work (via <code>await</code>, callbacks, or
+<code>setImmediate</code>). A synchronous CPU-heavy handler (e.g., hashing a huge payload
+in a tight loop) blocks the <em>entire</em> process, delaying every other in-flight request's
+processing, because there is exactly one JS thread regardless of how many TCP
+connections libuv is juggling underneath it.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Build an Express API for a <code>/tasks</code> resource with an in-memory array:
 <code>GET /tasks</code> (list all), <code>GET /tasks/:id</code>, <code>POST /tasks</code> (validate that

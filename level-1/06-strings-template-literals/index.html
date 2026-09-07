@@ -924,6 +924,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2313,6 +2324,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2422,6 +2444,23 @@ string:</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Strings in V8 are immutable, but "immutable" doesn't mean "one representation." Short
+strings are stored inline as <code>SeqOneByteString</code> or <code>SeqTwoByteString</code> (depending on
+whether every character fits in Latin-1). Concatenating two strings with <code>+</code> or
+building one with a template literal doesn't necessarily copy all the characters
+immediately — V8 can create a <strong>ConsString</strong>, a lightweight object that just points at
+the two original strings and remembers their combined length. The actual character
+data is only flattened into one contiguous buffer the first time something needs to
+read it linearly (like calling <code>.charAt()</code> in a loop or passing it to a regex). This is
+why building large strings with many small <code>+=</code> operations can look cheap per line but
+suddenly pay a large one-time flattening cost the first time you inspect the result.</p>
+<p>Template literals (<code>`${x}`</code>) are handled specially by the parser: a tagged template
+like <code>tag`a${b}c`</code> is compiled so the <em>same</em> array of string parts (<code>["a", "c"]</code>) is
+passed to <code>tag</code> on every call at that call site — V8 caches and reuses that array
+object rather than rebuilding it, which is what lets libraries rely on referential
+identity of the strings array across calls to detect "this is the same literal
+template, just with different interpolated values."</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a function <code>slugify(title)</code> that converts <code>"Hello, World!  "</code> into
 <code>"hello-world"</code> — lowercase, punctuation stripped, spaces replaced with

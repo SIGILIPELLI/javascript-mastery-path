@@ -1160,6 +1160,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2313,6 +2324,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2516,6 +2538,25 @@ which is often exactly what you want, but can also cause subtle bugs.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A closure isn't "a function that remembers stuff" in some magical sense — it's a
+function value paired with a live reference to the <strong>lexical environment record</strong> it
+was created in. When V8 compiles a function, its parser statically determines which
+outer variables the function body references; if any inner function might outlive the
+outer call (by being returned, stored, or passed as a callback), V8 allocates that
+variable's storage on the <strong>heap</strong> instead of the normal stack frame, specifically so it
+survives after the outer function returns and its stack frame is popped. Variables the
+optimizer proves are <em>never</em> captured stay on the stack and get reclaimed immediately —
+closures aren't free, but they only cost what they actually capture.</p>
+<p>This has a sharp consequence: a closure keeps its <strong>entire</strong> environment record alive,
+not just the one variable it uses. If a function captures one small variable but is
+defined in a scope that also holds a huge array, that array can stay reachable (and
+un-garbage-collected) for as long as the closure exists, unless V8's optimizer can prove
+the closure never touches it — a documented source of surprising memory retention in
+long-lived closures like event handlers or memoization caches. The classic
+<code>for (var i...)</code> loop bug exists precisely because <code>var</code> creates one shared binding for
+the whole function, so every closure captures the <em>same</em> environment slot; <code>let</code> creates
+a <strong>fresh lexical environment per iteration</strong>, so each closure captures its own <code>i</code>.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a function <code>createQueue()</code> that uses a closure to keep a private
 array. Return an object with <code>enqueue(item)</code> (adds to the end),

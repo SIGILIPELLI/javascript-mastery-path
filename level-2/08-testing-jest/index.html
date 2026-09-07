@@ -1389,6 +1389,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2379,6 +2390,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2594,6 +2616,22 @@ cleanup code around every test in a <code>describe</code> block.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Jest doesn't run your test file as plain Node — it uses <code>jest-environment-node</code> (or
+<code>jsdom</code>) to construct a fresh global scope per test file, and wraps <code>require</code>/<code>import</code>
+resolution with its own module registry so <code>jest.mock()</code> can transparently swap out a
+real module for a fake one <em>before</em> your test file's <code>require</code> calls ever resolve to
+the real implementation. This is why <code>jest.mock('./api')</code> calls are hoisted to the top
+of the file by Jest's Babel transform automatically — mocking has to happen before the
+module graph loads, and normal JS execution order (top to bottom) would otherwise run
+your imports before the mock call.</p>
+<p><code>jest.useFakeTimers()</code> illustrates the event loop mechanics directly: it replaces the
+real <code>setTimeout</code>/<code>setInterval</code> with an in-memory implementation that never actually
+waits on the OS clock — calling <code>jest.advanceTimersByTime(1000)</code> manually walks Jest's
+fake macrotask queue forward and synchronously fires any callbacks whose scheduled time
+has passed. This is what lets a test for a 30-second debounce complete in milliseconds:
+you're not making the code faster, you're replacing the entire timer subsystem the code
+depends on with a deterministic, synchronously-advanceable stand-in.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Create <code>stringUtils.js</code> exporting a function <code>truncate(str, maxLength)</code> that
 returns <code>str</code> unchanged if it's short enough, or the first <code>maxLength</code>

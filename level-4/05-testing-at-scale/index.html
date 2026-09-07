@@ -2065,6 +2065,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2328,6 +2339,17 @@
     <span class="md-ellipsis">
       
         Reducing flakiness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
       
     </span>
   </a>
@@ -2599,6 +2621,24 @@ every single commit, to keep feedback loops fast.</p>
 <li>Isolate tests from real third-party services (payment gateways, email
   providers) behind fakes/sandboxes so external outages don't fail your CI.</li>
 </ul>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Running test suites in parallel across worker processes (Jest's default) works because
+each worker is a genuinely separate Node process with its own V8 heap and event loop —
+true OS-level process isolation, not just separate scopes within one process. This is
+why global state leaking between test <em>files</em> is rare (different processes can't share
+memory) but leaking between test <em>cases within the same file</em> is common and dangerous —
+those share one V8 heap, one module cache, and one event loop, so a timer or open
+handle left behind by one test can affect the next test that happens to run in the same
+worker.</p>
+<p>Flaky tests overwhelmingly trace back to implicit ordering assumptions about the event
+loop and microtask queue: a test that doesn't fully <code>await</code> an async operation before
+asserting is racing the assertion against a pending microtask or macrotask that may or
+may not have resolved by the time the assertion runs — it "usually" passes because
+microtasks typically drain fast, but under different CPU load, worker scheduling, or CI
+machine speed, that timing assumption breaks. This is also why fake timers
+(<code>jest.useFakeTimers</code>) make timer-dependent tests deterministic: they replace real
+wall-clock-dependent scheduling with a queue you advance explicitly and synchronously,
+removing the race entirely rather than just making it less likely.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a Playwright test for a "forgot password" flow: visiting <code>/forgot-password</code>,
 submitting an email, and asserting a confirmation message appears (e.g.

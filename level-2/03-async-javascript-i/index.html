@@ -1216,6 +1216,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2313,6 +2324,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2491,6 +2513,24 @@ flatten this structure and centralize error handling.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>JavaScript has exactly one call stack, so "asynchronous" never means "runs in
+parallel inside your code" — it means "the browser/Node runtime does the waiting, and
+schedules your callback later." <code>setTimeout(fn, 0)</code> doesn't run <code>fn</code> immediately even
+with a zero delay: it hands the timer to the host environment (libuv in Node, the
+browser's timer thread), and when the delay elapses, the runtime places <code>fn</code> on the
+<strong>macrotask queue</strong> (also called the task queue). The event loop only pulls a
+macrotask off that queue when the call stack is completely empty — so a synchronous
+loop that runs for 5 seconds will delay even a <code>setTimeout(fn, 0)</code> callback by the same
+5 seconds, no matter how small the requested delay was.</p>
+<p>Callbacks passed to things like <code>fs.readFile</code> or an XHR's <code>onload</code> follow the same
+model but through different queues depending on the API — Node's I/O callbacks are
+scheduled by libuv's thread pool completing work off the main thread and then posting
+the JS callback back onto the main event loop's poll phase. The key mental model: your
+JS code is never actually running concurrently with anything else — every callback,
+however it got scheduled, runs to completion on the single main thread before the next
+one starts, which is why a single infinite <code>while(true)</code> loop anywhere freezes every
+timer, every event, and every I/O callback in the whole program.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Predict the exact console output order of the snippet below, then run it to
 check your answer:</p>

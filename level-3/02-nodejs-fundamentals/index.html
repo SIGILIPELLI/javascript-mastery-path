@@ -1588,6 +1588,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2357,6 +2368,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2634,6 +2656,26 @@ up) — almost always preferable to manual <code>.on("data")</code> handling.</p
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Node's event loop, implemented by libuv, isn't a single queue — it's a sequence of
+distinct <strong>phases</strong> that run in a fixed order every tick: timers (due <code>setTimeout</code>/
+<code>setInterval</code> callbacks), pending callbacks, idle/prepare (internal), poll (retrieve new
+I/O events, execute I/O callbacks — this phase can block here waiting for events if
+there's nothing else to do), check (<code>setImmediate</code> callbacks specifically live here),
+and close callbacks. Microtasks (promise <code>.then</code>, <code>queueMicrotask</code>) and
+<code>process.nextTick</code> callbacks are <strong>not</strong> a phase — Node drains the <code>nextTick</code> queue and
+then the microtask queue completely after <em>every single callback</em>, not just once per
+loop iteration, which is why <code>process.nextTick</code> callbacks can starve I/O entirely if
+they keep scheduling more of themselves.</p>
+<p>The reason Node can do non-blocking file I/O in a single-threaded language is that
+CPU/blocking-style operations (<code>fs.readFile</code>, DNS lookups, some crypto) are handed off
+to libuv's <strong>thread pool</strong> (default size 4, tunable via <code>UV_THREADPOOL_SIZE</code>) — actual
+OS threads do the blocking read, and when it completes, libuv queues the JS callback to
+run on the single main thread during the poll phase. Network I/O (sockets, HTTP) on
+Linux doesn't even need the thread pool — it uses the OS's native async I/O
+notification (<code>epoll</code>), so <code>fetch</code>/<code>http.get</code> calls scale to far more concurrent
+connections than thread-pool-bound file operations, because there's no fixed pool size
+limiting them.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a small Node script (ESM, <code>"type": "module"</code>) that reads a directory
 path from <code>process.argv</code>, lists all <code>.txt</code> files in it using <code>fs/promises</code>,

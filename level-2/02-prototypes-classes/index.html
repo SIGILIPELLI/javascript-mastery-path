@@ -1199,6 +1199,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2528,6 +2550,27 @@ instances — useful for factory methods or shared utilities.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>class</code> syntax is sugar over V8's actual object model: every object carries an internal
+<code>[[Prototype]]</code> slot (exposed as <code>__proto__</code> or via <code>Object.getPrototypeOf</code>), and
+property lookup that misses on the object itself walks up this <strong>prototype chain</strong> one
+link at a time until it hits a match or reaches <code>null</code>. This lookup isn't a generic
+walk on every call, though — V8's inline caches record the full prototype chain shape
+for a given access site, so repeated lookups of an inherited method resolve in
+essentially the same constant time as an own property, as long as the chain's shape
+stays stable.</p>
+<p>Methods defined inside a <code>class</code> body are non-enumerable by design (unlike properties
+you assign with <code>this.x =</code>), and they live once on <code>ClassName.prototype</code>, shared by
+every instance — this is why methods don't duplicate per-instance the way closures over
+constructor-scope variables would. <code>class</code> also enforces things prototype-based
+constructors never did: calling a class without <code>new</code> throws immediately, and a
+subclass constructor cannot reference <code>this</code> until it calls <code>super()</code> — because the
+engine hasn't allocated <code>this</code> yet; <code>super()</code> is literally the call that runs the
+parent constructor and produces the object <code>this</code> will refer to. Private fields
+(<code>#field</code>) aren't just naming convention — they're stored in a separate internal slot
+keyed by a per-class unique brand, so external code can't even detect their existence via
+<code>Object.keys</code> or bracket access, unlike <code>_field</code> which is just a public property with an
+underscore.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Create a <code>Shape</code> base class with a constructor field <code>name</code> and a method
 <code>describe()</code> returning <code>"&lt;name&gt; has an area of &lt;area&gt;"</code>. Then create

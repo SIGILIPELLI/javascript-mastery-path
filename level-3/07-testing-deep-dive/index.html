@@ -1717,6 +1717,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2597,6 +2619,24 @@ colliding on the same port.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Mocking a module (<code>jest.mock</code>, or manual dependency injection) works because of how
+module resolution is just a <strong>cache lookup keyed by resolved path</strong> — both CommonJS's
+<code>require.cache</code> and Jest's own module registry. Swapping in a mock means intercepting
+that resolution step so that anything importing <code>'./db'</code> gets your fake object instead
+of running the real file. This is why mocking is straightforward for CommonJS
+(monkey-patch the cache) but trickier for real ES modules — live bindings are
+read-only from the importer's side by spec, so Jest has to transform ESM syntax back
+into something it can intercept, which is exactly what its Babel/SWC transform step is
+doing behind the scenes when you write <code>import</code> in a test file.</p>
+<p>Code coverage tools (Istanbul, which Jest uses via <code>--coverage</code>) work by <strong>instrumenting</strong>
+your source: before your code ever runs, a transform walks the AST and inserts counter
+increments at every branch, statement, and function boundary (e.g., wrapping
+<code>if (x) { ... }</code> so entering the block also does <code>__cov.branches[3][0]++</code>). Running your
+test suite then just runs this instrumented code normally — the coverage percentages
+you see afterward are literally a tally of which counters ended up above zero, which is
+why coverage numbers can be misleading: a line executing once counts identically to a
+line executing with every possible edge case exercised.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Extend the <code>createApp()</code> example with a <code>DELETE /books/:id</code> route. Write
 three supertest tests for it: deleting an existing book returns <code>204</code> and a

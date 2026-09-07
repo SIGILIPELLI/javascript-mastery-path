@@ -2335,6 +2335,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#where-to-go-from-here" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2601,6 +2612,17 @@
     <span class="md-ellipsis">
       
         Running it with Docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
       
     </span>
   </a>
@@ -3121,6 +3143,27 @@ fresh database with zero setup — no mocking the data layer.</p>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="c1"># API available at http://localhost:3000, SQLite file persisted in the</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1"># &quot;task-data&quot; named volume across container restarts</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>This capstone's request path is the same event-loop story from every earlier lesson,
+now end to end under real constraints: an incoming request hits Express's middleware
+chain (JWT auth middleware included) running synchronously on the main thread; the JWT
+verification step is itself synchronous CPU work (an HMAC or RSA signature check) that
+briefly blocks the loop, which is why extremely high-throughput auth services sometimes
+offload verification to worker threads; then the route handler's <code>await</code> on a database
+call yields control back to the event loop via the microtask/promise machinery, letting
+other requests' middleware run while this one's query is in flight over the actual TCP
+socket to SQLite/Postgres; the response only gets written once that awaited promise's
+microtask resumes execution.</p>
+<p>Running this stack in Docker doesn't change any of that JS-level behavior — the
+container just gives the Node process (and its one event loop, one V8 heap) an isolated
+filesystem, network namespace, and resource limits, imposed by the OS kernel via
+cgroups/namespaces, entirely outside V8's awareness. A container's memory limit
+matters concretely here: V8 sizes its default heap limits partly based on available
+system memory at startup, so a container with a low memory cap can cause V8 to trigger
+garbage collection more aggressively (or crash with an out-of-memory error) well before
+the same code would under equivalent unconstrained conditions — which is why
+production Node containers often pass <code>--max-old-space-size</code> explicitly rather than
+trusting V8's auto-detected default.</p>
 <h2 id="where-to-go-from-here">Where to go from here<a class="headerlink" href="#where-to-go-from-here" title="Permanent link">&para;</a></h2>
 <p>If you want to keep extending this capstone as a portfolio piece: swap
 <code>better-sqlite3</code> for Postgres via a repository-layer change only (the routes

@@ -1745,6 +1745,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2558,6 +2580,25 @@ classic signature of a leak.</p>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nx">debouncedSearch</span><span class="p">(</span><span class="s2">&quot;ap&quot;</span><span class="p">);</span>
 <a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="nx">debouncedSearch</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// only this call actually runs expensiveSearch, ~300ms later</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>V8's garbage collector is <strong>generational</strong>: it splits the heap into a small
+"young generation" (further split into a tiny nursery and an intermediate space) and a
+much larger "old generation." Nearly all objects die young — short-lived intermediate
+values, one-off closures, temporary arrays — so V8 optimizes for that case with
+<strong>Scavenge</strong>, a fast copying collector that runs frequently on just the young
+generation and copies surviving objects out to a survivor space; objects that survive
+two scavenges get <strong>promoted</strong> to the old generation. The old generation is collected
+far less often, using a slower mark-sweep-compact algorithm (<strong>Mark-Compact</strong>), because
+scanning and compacting a large heap is expensive and old objects are statistically
+much less likely to have become garbage.</p>
+<p>Memory leaks in long-running Node processes almost always trace back to something
+holding a reference the developer thinks is temporary: an ever-growing array pushed to
+but never trimmed, event listeners attached repeatedly without ever being removed (each
+one keeps its closure's entire captured environment alive), or a <code>Map</code>/<code>Set</code> used as a
+cache with no eviction policy. <code>WeakMap</code>/<code>WeakSet</code> exist specifically to break this
+class of leak — their keys don't count as strong references for garbage collection
+purposes, so an entry disappears on its own once nothing else references the key,
+without needing manual cleanup code at all.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a <code>LRUCache</code> class (least-recently-used cache) backed by a <code>Map</code> with
 a fixed <code>maxSize</code>: <code>get(key)</code> returns the value and marks it recently used;

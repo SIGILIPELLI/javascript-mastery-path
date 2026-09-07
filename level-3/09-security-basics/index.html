@@ -1751,6 +1751,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2291,6 +2302,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2506,6 +2528,25 @@ all the time.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Cross-site scripting (XSS) is possible because the browser's HTML parser and the
+JS engine share the same execution context by design — anything the parser interprets
+as a <code>&lt;script&gt;</code> tag or an inline event handler attribute gets handed straight to V8 for
+execution, with no distinction between "trusted app code" and "data that happens to
+look like code." Setting <code>innerHTML</code> re-invokes the HTML parser on your string, so any
+<code>&lt;script&gt;</code> or <code>onerror=</code> content in unsanitized user input is parsed and executed with
+the same privileges as your own code — there's no sandboxing between "content" and
+"code" at that boundary, which is precisely why escaping/sanitizing untrusted strings
+before insertion (or using <code>textContent</code> instead of <code>innerHTML</code>) is the actual fix, not
+merely a best practice.</p>
+<p>CSRF exploits a different mechanism entirely: the browser automatically attaches
+cookies to <em>any</em> request to a domain, regardless of which page initiated the request,
+because cookies are scoped to the origin, not to the page that triggered the request.
+A <code>SameSite=Strict</code> or <code>SameSite=Lax</code> cookie attribute changes this at the browser
+level — the browser itself refuses to attach the cookie to cross-site requests,
+enforced entirely by the browser's networking stack before your server code ever runs,
+which is why it closes an entire class of CSRF attacks without any application code
+changes at all, as long as the browser honors the attribute (older browsers don't).</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Add input validation to the <code>POST /notes</code> route from
 <a href="../03-rest-api-express/">Module 3</a> using either hand-written checks or

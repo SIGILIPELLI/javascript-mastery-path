@@ -2177,6 +2177,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2328,6 +2339,17 @@
     <span class="md-ellipsis">
       
         The three pillars, compared
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
       
     </span>
   </a>
@@ -2569,6 +2591,22 @@ the basis for dashboards and alerts.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Structured logging and metrics collection in Node have a subtle event-loop interaction:
+writing to <code>stdout</code> synchronously (the default for <code>console.log</code> when stdout is a
+terminal) can itself block the event loop briefly for large log volumes, which is why
+production logging libraries (pino, winston) default to buffering and/or writing
+asynchronously, or delegate serialization to a worker thread — the goal is to keep
+observability itself from becoming the bottleneck it's meant to measure.</p>
+<p>Distributed tracing (propagating a trace ID across service calls) relies on Node's
+<code>AsyncLocalStorage</code> (from the <code>async_hooks</code> module) to solve a real problem: a single
+incoming request's <code>async</code>/<code>await</code> chain hops across many separate callback
+invocations and microtask resumptions, none of which share a call stack in the way
+synchronous code would — <code>AsyncLocalStorage</code> works by having V8/Node track each async
+resource's causal parent (the async operation that scheduled it) internally, so a
+context value set at the start of handling a request can be retrieved correctly even
+deep inside an awaited database call several async hops later, without threading a
+context object through every single function signature by hand.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Add structured logging (with <code>pino</code>, redacting <code>password</code> and <code>authorization</code>
 fields) plus a <code>/health/ready</code> endpoint to a small Express app that depends on

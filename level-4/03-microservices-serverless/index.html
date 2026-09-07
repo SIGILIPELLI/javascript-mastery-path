@@ -1987,6 +1987,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2291,6 +2302,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2518,6 +2540,27 @@ invoked more than once for the same logical request without corrupting data.</p>
 <a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">charge</span><span class="p">;</span>
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A serverless function's "cold start" is a real, measurable engine-boot cost: when no
+warm instance exists, the platform has to provision a new sandbox (often a lightweight
+VM or container), start a fresh Node process, initialize V8 from scratch, run your
+module's top-level code (all your <code>require</code>/<code>import</code> statements executing, any
+connections you open at module scope), and only then invoke your handler for the first
+time — every step here is exactly the same startup sequence as running <code>node index.js</code>
+locally, just happening on-demand under time pressure. This is why code that does
+expensive work at module scope (large JSON parsing, building lookup tables) shows up
+disproportionately in cold-start latency, and why platforms encourage keeping
+connections/clients as module-level singletons — so a <strong>warm</strong> invocation of the same
+sandboxed process reuses that already-initialized state instead of repeating the
+startup cost.</p>
+<p>Microservices communicating over HTTP or a message queue trade in-process function
+calls (a single call stack, shared memory, synchronous or same-process-async) for
+network calls with an entirely different failure model: a function call either returns
+or throws, deterministically; a network call to another service can also simply never
+respond, forcing you to reason about timeouts as a first-class concern that has no
+equivalent when everything runs in one process. This is precisely why patterns like
+circuit breakers and retries with backoff exist for service-to-service calls but have no
+analog for calling a function defined in the same file.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Design (no need to fully implement) a system for an e-commerce checkout flow
 split into <code>orders-service</code>, <code>inventory-service</code>, and <code>payments-service</code>.

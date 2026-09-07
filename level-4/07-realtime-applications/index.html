@@ -2099,6 +2099,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2284,6 +2295,17 @@
     <span class="md-ellipsis">
       
         Scaling WebSockets across multiple instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
       
     </span>
   </a>
@@ -2502,6 +2524,26 @@ instance B unless instances share state via something like Redis pub/sub.</p>
 <p>Socket.IO ships an official <code>@socket.io/redis-adapter</code> that implements this
 exact pattern for you, so rooms and broadcasts work correctly across a
 horizontally-scaled cluster of servers.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>WebSockets exist because HTTP's request-response model has no way for a server to push
+data without the client asking first — a WebSocket connection starts as a normal HTTP
+request with an <code>Upgrade: websocket</code> header, and once the server responds
+<code>101 Switching Protocols</code>, the <strong>same underlying TCP socket</strong> is repurposed for a
+full-duplex framed protocol instead of HTTP — no more request/response pairing, just
+independent frames flowing either direction whenever either side calls <code>send()</code>. On the
+Node side, this socket is registered with libuv exactly like any other socket — a
+<code>'message'</code> event handler is just a callback scheduled onto the event loop's poll phase
+whenever new bytes arrive, no different mechanically from a regular HTTP request
+handler, which is why a slow synchronous WebSocket message handler blocks the entire
+event loop just like a slow HTTP handler would.</p>
+<p>Broadcasting to many connected clients (a chat room, live updates) is just a loop over
+an in-memory collection of open socket references, calling <code>.send()</code> on each — this
+only works within a single process's memory, though, which is exactly why scaling
+WebSockets across multiple Node processes/instances requires an external pub/sub layer
+(Redis pub/sub, for example): process A can't call <code>.send()</code> on a socket object that
+physically lives in process B's memory, so a message has to be published somewhere
+both processes can observe, and each process then broadcasts to its own locally-held
+sockets.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Extend the <code>ws</code>-based live counter example above into a live "who's online"
 feature: when a client connects, broadcast an updated count of currently

@@ -1549,6 +1549,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2595,6 +2617,25 @@ pattern demystifies what <code>async</code>/<code>await</code> compiles down to 
 <a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="nx">run</span><span class="p">(</span><span class="nx">workflow</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
 <a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="c1">// { user: { id: 1, name: &#39;Ada&#39; }, orders: [ &#39;order-1&#39; ] }</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>Promise.all</code> and <code>Promise.race</code> are built entirely on the microtask machinery already
+covered: <code>Promise.all</code> creates one wrapper promise and attaches a <code>.then</code> reaction to
+every input promise; each reaction, when it fires, records its result at the matching
+index and decrements an internal counter, resolving the wrapper only when the counter
+hits zero — a single rejection reaction calls the wrapper's reject function immediately,
+but the <em>other</em> promises are <strong>not cancelled</strong>, they simply continue running to
+completion with their results discarded (JavaScript promises have no built-in
+cancellation — this is why <code>AbortController</code> exists as a separate, manually-checked
+signal, not a promise feature).</p>
+<p>Async generators (<code>async function*</code>) combine two desugaring transforms: the generator
+transform (pause/resume via <code>yield</code>, implemented as a state machine V8 builds from your
+function body, with local variables lifted into a heap-allocated context object so
+they survive across suspend points) and the async/promise transform layered on top —
+each <code>for await...of</code> iteration calls <code>.next()</code> on the generator, gets back a promise,
+awaits it, and only then evaluates whether to continue. This means a <code>for await</code> loop
+processes items strictly one at a time, in order, even if the underlying async iterable
+could theoretically produce them out of order — the ordering guarantee comes entirely
+from awaiting each <code>.next()</code> before requesting the next one.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write an async function <code>pingAll(urls, timeoutMs)</code> that takes an array of
 "URLs" (simulate each with a <code>delay()</code> helper that resolves or randomly

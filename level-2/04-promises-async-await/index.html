@@ -1266,6 +1266,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2357,6 +2368,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2541,6 +2563,24 @@ reports each outcome individually — useful when partial failure is fine.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A <code>Promise</code> is a state machine (<code>pending</code> → <code>fulfilled</code>/<code>rejected</code>, one-way, settled
+once) that maintains an internal list of reaction callbacks. Calling <code>.then</code> doesn't
+run your callback synchronously even if the promise is already resolved — the spec
+requires it to be scheduled as a <strong>microtask</strong>, via <code>queueMicrotask</code> internally.
+Microtasks run in their own queue that the event loop <strong>fully drains</strong> after every
+single callback (macrotask) finishes, and before the next macrotask (timer, I/O, render)
+is allowed to run. That's the concrete reason <code>Promise.resolve().then(fn)</code> always runs
+before <code>setTimeout(fn, 0)</code>, no matter what: the microtask queue is checked and emptied
+first, every time, even if new microtasks are added while draining it.</p>
+<p><code>async</code>/<code>await</code> is syntax sugar over generators and promises: V8 desugars an <code>async
+function</code> into something conceptually like a generator function driven by an internal
+runner that calls <code>.next()</code> each time, and every <code>await expr</code> is transformed into
+<code>yield</code>-ing control back to that runner while chaining <code>.then()</code> onto
+<code>Promise.resolve(expr)</code>. This is why <code>await</code> a non-promise value still takes at least
+one microtask tick to resume — even <code>await 5</code> schedules a microtask — and why an
+<code>async function</code> <em>always</em> returns a promise, even if you <code>return</code> a plain value: the
+runner wraps whatever comes out in <code>Promise.resolve(...)</code> before handing it back.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write an <code>async</code> function <code>fetchWithTimeout(promise, ms)</code> that returns
 whatever <code>promise</code> resolves to, but rejects with <code>new Error("timed out")</code> if

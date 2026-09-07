@@ -1981,6 +1981,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2592,6 +2614,26 @@ typed route paths, CSS-in-JS keys, or event names.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Generics in TypeScript are resolved entirely at compile time through a process called
+<strong>type inference and substitution</strong> — when you call <code>identity&lt;number&gt;(5)</code> or just
+<code>identity(5)</code> and let TypeScript infer <code>T</code>, the compiler walks the call site, unifies
+the argument's type against the generic parameter, and substitutes that concrete type
+everywhere <code>T</code> appears in the function's declared type, purely to type-check the call;
+none of this exists once compiled to JS, where <code>identity</code> is just a function with no
+knowledge it was ever generic. This is fundamentally different from generics in a
+language like Java or C#, which (for reference types) retain some runtime information
+via type erasure with bridge methods, or from C++ templates, which generate a distinct
+compiled function per instantiation — TypeScript's generics leave zero runtime
+footprint of any kind.</p>
+<p>Conditional types (<code>T extends U ? X : Y</code>) and mapped types (<code>{[K in keyof T]: ...}</code>) are
+evaluated by the compiler's type-checker as a kind of <strong>functional program that operates
+on types instead of values</strong>, resolved through repeated substitution until it reaches a
+fixed type or the compiler's recursion depth limit. This is why deeply recursive
+conditional types can hit "type instantiation is excessively deep" errors — you've
+written something equivalent to an infinite (or very long) recursive function, except
+the "function" runs during compilation over the type-space rather than during execution
+over the value-space.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Given this base type:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">interface</span><span class="w"> </span><span class="nx">Task</span><span class="w"> </span><span class="p">{</span>

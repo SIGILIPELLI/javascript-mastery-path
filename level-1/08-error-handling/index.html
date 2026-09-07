@@ -991,6 +991,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2463,6 +2485,25 @@ handling, covered fully in
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>throw</code> doesn't return a value — it unwinds the call stack by walking upward from the
+current stack frame looking for the nearest enclosing <code>try</code> block whose code region
+covers the current instruction pointer. V8 tracks this via a per-function table of
+"protected regions" generated at compile time; when an exception is thrown, the engine
+consults that table frame by frame, popping stack frames (running any <code>finally</code> blocks
+it finds along the way) until it either finds a matching <code>catch</code> or reaches the top of
+the stack, at which point the error becomes an uncaught exception reported to the host
+(Node prints it and exits; browsers fire a <code>window.onerror</code> event).</p>
+<p>The <code>Error</code> object's <code>.stack</code> string is itself lazily computed: when you write <code>new
+Error()</code>, V8 doesn't format the whole string immediately — it captures a lightweight
+array of stack frame pointers, and only serializes them into the human-readable
+<code>"at functionName (file:line:col)"</code> text the first time <code>.stack</code> is actually read. This
+is a deliberate performance optimization (<code>Error.captureStackTrace</code> exists specifically
+to control this), because constructing full formatted stack traces for errors that are
+caught and ignored would be wasted work. <code>finally</code> blocks are guaranteed to run even if
+the <code>try</code> or <code>catch</code> returns or re-throws, because the engine's unwind logic treats
+"execute finally" as a mandatory step of leaving the protected region, regardless of
+how control flow is trying to leave it.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a function <code>divideSafely(a, b)</code> that returns the division result, or a
 descriptive error message string if <code>b</code> is zero or either argument isn't a

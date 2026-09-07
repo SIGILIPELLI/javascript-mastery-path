@@ -2138,6 +2138,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2306,6 +2317,17 @@
     <span class="md-ellipsis">
       
         Secrets management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
       
     </span>
   </a>
@@ -2531,6 +2553,22 @@ variables at run time.</p>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>.env.local
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>*.pem
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A CI pipeline step like <code>npm ci</code> behaves differently from <code>npm install</code> in a way that
+matters for reproducibility: <code>npm ci</code> reads <code>package-lock.json</code> as the sole source of
+truth, deletes <code>node_modules</code> entirely first, and installs the <em>exact</em> versions and
+dependency tree recorded in the lockfile — it will error out rather than update the
+lockfile if <code>package.json</code> and the lockfile disagree. <code>npm install</code> will happily update
+the lockfile to satisfy new constraints. CI pipelines use <code>ci</code> specifically so that a
+build's dependency tree is byte-for-byte reproducible across every run, not subject to
+whatever the latest semver-compatible patch release happens to be on a given day.</p>
+<p>Build caching in CI (caching <code>node_modules</code> or the npm/yarn cache directory keyed by a
+hash of the lockfile) exploits the same content-addressable idea package managers use
+internally: if the lockfile's hash hasn't changed, the exact same dependency
+resolution would occur again, so restoring a previous run's installed output is
+behaviorally identical to reinstalling — the cache key is deliberately derived from the
+lockfile content specifically so any dependency change invalidates it automatically
+rather than requiring a human to remember to bump a cache version.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>A team's CI pipeline currently only runs <code>npm test</code> on every push, taking 12
 minutes because it reinstalls dependencies from scratch every time and runs

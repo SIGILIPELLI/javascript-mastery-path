@@ -840,6 +840,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2313,6 +2324,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2433,6 +2455,22 @@
 <p><code>switch</code> uses strict equality (<code>===</code>) to compare and falls through to the next
 <code>case</code> unless you <code>break</code> or <code>return</code> — grouping cases without a <code>break</code>
 (as with <code>"Sat"</code>/<code>"Sun"</code> above) is a common, intentional pattern.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>if</code>, <code>for</code>, and <code>while</code> compile down to conditional jump bytecodes in V8's Ignition
+interpreter — essentially the same primitive <code>JumpIfFalse</code>/<code>Jump</code> instructions a CPU
+would use, just operating on V8's internal bytecode registers instead of hardware
+registers. Every time a branch condition is evaluated, V8's inline caches record which
+<em>type</em> of value showed up (a boolean from a comparison, a truthy object, etc.). A loop
+that always compares numbers gets a monomorphic (single-shape) inline cache and runs
+fast; a loop whose condition sometimes compares numbers and sometimes strings becomes
+<strong>polymorphic</strong>, forcing V8 to fall back to slower generic comparison code.</p>
+<p>Loops are also where V8's tiering decision matters most: Ignition interpretes bytecode
+normally, but a loop back-edge counter increments on every iteration. Once that counter
+crosses a threshold, V8 triggers <strong>On-Stack Replacement (OSR)</strong> — it compiles an
+optimized version of the <em>currently running</em> loop with TurboFan and swaps execution
+into it mid-flight, without waiting for the function to be called again. This is why a
+loop that runs millions of iterations can visibly speed up partway through — you're
+watching OSR kick in.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a program that prints FizzBuzz for numbers 1–30: multiples of 3 print
 "Fizz", multiples of 5 print "Buzz", multiples of both print "FizzBuzz",

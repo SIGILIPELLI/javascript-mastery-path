@@ -963,6 +963,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2479,6 +2501,25 @@ when children are added/removed dynamically (as in the to-do app in
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">});</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>The DOM and JavaScript are two separate worlds connected by bindings: the DOM tree
+itself lives in the browser's C++ rendering engine, and every <code>element.addEventListener</code>
+call registers your callback in the engine's event-dispatch tables, not in V8's memory
+directly. When a click happens, the browser doesn't run your handler immediately as
+part of the click — it constructs an <code>Event</code> object and schedules a <strong>task</strong> on the
+main thread's task queue. The event loop picks up that task, and only then does it call
+into V8 to run your handler synchronously to completion before picking up the next
+task. This is why a slow event handler blocks all rendering and other events: there is
+only one thread, and tasks run one at a time to completion.</p>
+<p>Event dispatch itself follows three phases you can hook into: <strong>capture</strong> (root down to
+target, via the <code>{capture: true}</code> option), <strong>target</strong>, and <strong>bubble</strong> (target back up
+to root, the default). <code>event.stopPropagation()</code> halts this walk but doesn't cancel the
+browser's own default behavior (scrolling, following a link) — for that you need
+<code>event.preventDefault()</code>, which just sets a flag the browser checks after your handler
+returns. Because listeners are stored as references, closures you create inside
+<code>addEventListener</code> keep their entire enclosing scope alive for as long as the listener
+is attached — a common, hard-to-spot memory leak source when elements are removed from
+the DOM without calling <code>removeEventListener</code> first.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Build a page with a text input and a button. When the button is clicked,
 append the input's current value as a new <code>&lt;li&gt;</code> to a <code>&lt;ul&gt;</code> on the page, then

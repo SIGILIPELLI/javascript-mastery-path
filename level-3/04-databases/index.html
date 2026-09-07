@@ -1655,6 +1655,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2379,6 +2390,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2643,6 +2665,23 @@ shape varies or nests deeply.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A database driver's <code>.query()</code> call in Node never blocks the event loop waiting on the
+network round-trip to the database server — it opens a TCP socket, writes the query as
+bytes according to the database's wire protocol, and returns a promise immediately;
+libuv's epoll-based socket handling notifies Node when response bytes arrive, at which
+point the driver parses the wire-protocol response and resolves your promise from
+within the poll phase's I/O callback. This is why a Node app can hold open dozens of
+concurrent, in-flight database queries on a single thread — each is just a registered
+"wake me up when this socket is readable" entry, not a thread of its own.</p>
+<p>Connection <strong>pooling</strong> exists because opening a fresh TCP connection (plus, for many
+databases, an auth handshake and TLS negotiation) costs multiple round-trips — a pool
+pre-opens a fixed number of connections and hands them out to queries as they arrive,
+queuing extra requests until a connection frees up. This directly trades memory/open
+sockets for latency: too small a pool serializes concurrent requests behind each other
+waiting for a free connection; too large a pool can overwhelm the database server's own
+per-connection resource limits (each open connection typically costs the database
+server real memory for its own session state, independent of your Node process).</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using <code>better-sqlite3</code>, create a <code>students</code> table (<code>id</code>, <code>name</code>, <code>grade</code>)
 and write four functions — <code>addStudent</code>, <code>listStudents</code>, <code>updateGrade</code>, and

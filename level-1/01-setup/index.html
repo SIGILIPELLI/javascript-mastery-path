@@ -784,6 +784,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2313,6 +2324,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2414,6 +2436,22 @@ use Node-only or browser-only APIs).</p>
 extension ecosystem), WebStorm (free for non-commercial use), or even a plain
 text editor plus the terminal. Pick one and move on — the editor matters far
 less than practice.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>When you run <code>node app.js</code>, Node doesn't just "read your code and do it." It boots the
+V8 engine (the same JS engine inside Chrome), which first <strong>parses</strong> your source into
+an Abstract Syntax Tree (AST), then compiles it — not to machine code immediately, but
+through Ignition, V8's bytecode interpreter. Only functions that run often enough
+("hot" functions) get promoted to TurboFan, V8's optimizing JIT compiler, which emits
+real machine code specialized for the shapes of data you've actually passed in. This is
+why the <em>first</em> run of a script is always interpreted bytecode, and why a function
+can get faster the more it's called — V8 is learning about it as it goes.</p>
+<p>The <code>node</code> binary itself is a thin C++ shell around V8 plus libuv, the library that
+gives Node its event loop, thread pool, and non-blocking file/network I/O. When you
+later write <code>console.log</code>, that's not part of the JS language at all — it's a host API
+that Node injects into the global object, backed by libuv writing to a file descriptor.
+Understanding this split — V8 runs <em>pure</em> JavaScript, Node/the browser bolt on I/O and
+timers — explains almost every "why does this work differently here" question you'll
+hit later in the course.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a script <code>greet-many.js</code> that defines an array of three names and prints
 a greeting for each one using the <code>greet</code> function above.</p>

@@ -1047,6 +1047,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2525,6 +2547,23 @@ local server like <code>npx serve</code>). Try:</p>
 <li>Reloading the page — tasks persist because they're read from and written to
   <code>localStorage</code></li>
 </ul>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>This project ties together three runtime behaviors you've seen individually. First,
+<code>localStorage.setItem</code> is a <strong>synchronous, blocking</strong> call — it serializes your data to
+a string and writes it to disk-backed storage on the main thread, which is fine for a
+small todo list but would visibly freeze the UI for large payloads (this is exactly why
+IndexedDB exists as the async alternative). Second, every time you re-render the todo
+list by rebuilding DOM nodes, the browser doesn't repaint pixel-by-pixel as your code
+runs — it batches your DOM mutations and defers layout/paint to a rendering task that
+runs <em>after</em> your current synchronous script finishes, coalescing many changes into one
+visual update per frame.</p>
+<p>Third, the event listeners you attach to each todo item close over that item's data
+(often via closure or a <code>data-id</code> attribute read at click time). If you rebuild the
+entire list on every change (removing and recreating <code>&lt;li&gt;</code> elements) rather than
+mutating existing ones, every old listener and its closure becomes garbage — V8's
+generational garbage collector will reclaim them in its next young-generation ("scavenge")
+collection pass, since DOM nodes with no more references and their attached closures
+are exactly the short-lived objects that collector is optimized for.</p>
 <h2 id="stretch-goals">Stretch goals<a class="headerlink" href="#stretch-goals" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Add due dates and sort tasks by them.</li>

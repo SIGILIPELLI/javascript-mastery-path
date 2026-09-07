@@ -1328,6 +1328,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2313,6 +2324,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2535,6 +2557,26 @@ context — the <code>cause</code> option keeps the chain traceable.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Custom error classes that <code>extend Error</code> hit a real V8/transpiler interaction worth
+understanding: <code>Error</code>'s constructor uses <code>Error.captureStackTrace</code> to attach the stack
+trace to <code>this</code>, and because <code>class</code> requires <code>super()</code> to run before <code>this</code> exists,
+skipping <code>super(message)</code> in a subclass means the resulting object never gets a
+constructed stack at all. When code is transpiled down to ES5 (older Babel targets),
+<code>extends Error</code> famously breaks <code>instanceof</code> checks, because ES5 "classes" are just
+constructor functions calling <code>Error.call(this)</code>, which returns a <em>new</em> plain <code>Error</code>
+object rather than initializing <code>this</code> — the fix (<code>Object.setPrototypeOf(this,
+new.target.prototype)</code>) is a workaround for exactly this gap between real class
+semantics and their ES5 emulation.</p>
+<p>Async error propagation follows the microtask model, not the synchronous stack-unwind
+model: a <code>throw</code> inside an <code>async function</code> doesn't propagate up the JS call stack the
+way a synchronous throw does — it's captured by the generator-driven runner (see the
+async/await lesson) and turned into a <strong>rejected promise</strong>. This is why wrapping an
+<code>await someAsyncCall()</code> in a synchronous <code>try/catch</code> works (the <code>await</code> desugars to
+control flow that re-throws into that same function body when the underlying promise
+rejects), but a rejection from a promise you merely <em>created</em> and didn't <code>await</code> or
+<code>.catch()</code> becomes an "unhandled rejection" — detected only after a full microtask-queue
+drain finds no handler was ever attached.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Create a <code>TimeoutError</code> class extending <code>Error</code>. Then write an <code>async</code>
 function <code>withRetry(fn, retries)</code> that calls <code>fn()</code> (an async function that

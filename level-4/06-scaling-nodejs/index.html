@@ -2071,6 +2071,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2284,6 +2295,17 @@
     <span class="md-ellipsis">
       
         Horizontal vs. vertical scaling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
       
     </span>
   </a>
@@ -2539,6 +2561,26 @@ backends, remove unhealthy ones from rotation) is identical.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Node's <code>cluster</code> module (and process managers like PM2 in cluster mode) don't give you
+multithreading inside one process — they fork multiple <strong>independent OS processes</strong>,
+each running its own full V8 instance and event loop, and share listening sockets
+between them via the OS. On Linux, the master process's <code>SO_REUSEPORT</code>-style socket
+sharing (or, in Node's default round-robin scheduler, the master accepts connections
+and hands them to workers) means incoming connections get distributed across workers,
+letting you use multiple CPU cores despite JS itself being single-threaded per process
+— each worker still blocks and gets blocked independently, so a CPU-heavy request in
+one worker doesn't stall the others, but it also means workers share nothing by
+default: in-memory caches, WebSocket connection lists, or session stores must be
+explicitly shared via an external store (Redis, etc.) since each worker's memory is
+completely separate.</p>
+<p>Worker threads (<code>worker_threads</code> module) are the actual multithreading primitive in
+Node, distinct from cluster's multiprocessing: they share the same process (lower memory
+overhead than forking) but each worker still gets its <strong>own V8 isolate and event loop</strong>
+— JS objects are never shared by reference between them; data crosses via structured
+clone (a deep copy) or <code>SharedArrayBuffer</code> for raw binary data, because V8's heap and
+garbage collector are fundamentally not thread-safe for arbitrary JS object graphs, only
+for that one specific transferable-buffer escape hatch.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>You have a Node API currently running as a single process that's pegged at
 100% CPU on one core while 7 other cores sit idle. Using the <code>cluster</code>

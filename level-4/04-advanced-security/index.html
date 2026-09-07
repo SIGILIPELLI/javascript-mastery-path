@@ -2026,6 +2026,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2313,6 +2324,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2541,6 +2563,24 @@ without forcing re-login.</p>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
 <a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/auth/login&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">loginLimiter</span><span class="p">,</span><span class="w"> </span><span class="nx">loginHandler</span><span class="p">);</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>JWTs are not encrypted — a standard signed JWT (<code>HS256</code>/<code>RS256</code>) is just a
+Base64URL-encoded header and payload plus a signature; anyone can decode the payload
+without any key at all, they simply can't <em>forge</em> a valid signature without the secret
+(HMAC) or private key (RSA). Verifying a JWT means recomputing the signature over the
+received header+payload using the known key and comparing it byte-for-byte against the
+signature the client sent — this comparison must be done in constant time (not a
+regular <code>===</code> on strings) specifically to prevent timing attacks, where an attacker
+measures how long a byte-by-byte comparison takes to leak the correct signature one
+byte at a time.</p>
+<p>Content Security Policy (CSP) headers work by having the browser itself refuse to
+execute or load resources that don't match the declared policy — this is enforced
+inside the browser's script-loading and parsing pipeline, before V8 ever compiles the
+offending script, which is why a strict CSP blocks inline <code>&lt;script&gt;</code> and <code>eval()</code>
+categorically: the browser can't distinguish "this inline script is legitimate app code"
+from "this inline script was injected by an attacker" at the point where it decides
+whether to parse and run it, so CSP's <code>script-src</code> policy has to be an all-or-nothing
+rule enforced structurally, not a content-based judgment call.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>A code review flags this route:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/api/orders/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">authenticate</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>

@@ -907,6 +907,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2477,6 +2499,24 @@ mutating the original — prefer them over manual loops for transformations.</p>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nx">scoreboard</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;Grace&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">scoreboard</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;Ada&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// 10</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Arrays in V8 aren't a single data structure — they silently switch between several
+internal representations depending on how you use them. A "packed" array of small
+integers (<code>[1,2,3]</code>) is stored as a contiguous <code>PACKED_SMI_ELEMENTS</code> backing store,
+essentially a raw C array, giving O(1) indexed access with no boxing. The moment you do
+something like <code>arr[0] = 1.5</code> or <code>arr[10] = 'x'</code> on a 3-element array, V8 has to
+<strong>transition</strong> the array to a more general representation (<code>PACKED_DOUBLE_ELEMENTS</code>,
+then <code>PACKED_ELEMENTS</code>, and finally <code>DICTIONARY_ELEMENTS</code> if you create sparse holes
+like <code>arr[1000] = 1</code>). Each transition is one-way and makes every future element
+access slightly slower, because V8 now has to handle more cases per access.</p>
+<p>Object property access works through the hidden-class mechanism mentioned earlier:
+<code>obj.name</code> doesn't do a hash-map lookup on every call. The first time V8 sees that
+access site, it records "objects with this hidden class have <code>name</code> at offset 2" as an
+<strong>inline cache (IC)</strong>. Every subsequent access at that same call site checks "does this
+object still have that hidden class?" — if yes, it reads the offset directly with no
+lookup at all (a monomorphic hit). <code>Object.freeze</code>, deleting properties, or adding
+properties in inconsistent orders across similar objects all defeat this optimization
+by forcing hidden-class transitions or dictionary-mode storage.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Given an array of words, use <code>.reduce()</code> to build an object mapping each
 unique word to its length, then use a <code>Set</code> to find which words appear more

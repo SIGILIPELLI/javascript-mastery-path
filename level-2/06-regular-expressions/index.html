@@ -1311,6 +1311,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2540,6 +2562,24 @@ etc. — useful for reformatting text without manually rebuilding it.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>V8's regex engine (Irregexp) compiles each pattern into actual native machine code
+the first time it's used — not an interpreted state machine — because regex matching
+is common enough in real workloads to justify JIT compilation just like function
+bodies get. Simple patterns without backreferences or complex lookaround compile to a
+genuine finite automaton with linear-time matching guarantees. But JavaScript regex
+also supports backreferences (<code>\1</code>) and lookahead/lookbehind, which cannot be expressed
+as a pure finite automaton — Irregexp falls back to a <strong>backtracking</strong> engine for these,
+which is what makes certain patterns (nested quantifiers like <code>(a+)+b</code> against a
+non-matching string) exhibit catastrophic exponential-time blowup: the engine tries
+every possible way to split the input among the repeated groups before giving up.</p>
+<p>The <code>g</code> and <code>y</code> flags matter beyond "match all": a regex object with <code>g</code> set is
+<strong>stateful</strong> — it stores a <code>lastIndex</code> property and mutates it after each <code>.exec()</code>
+call, resuming the next call from where the last match ended. This is why reusing the
+same global regex object across unrelated calls (e.g., storing one at module scope and
+calling <code>.test()</code> on different strings) produces bugs where matches are silently
+skipped: <code>lastIndex</code> from a previous call is still there, has nothing to do with the new
+string, and its residual value point past where a match would have been found.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a function <code>extractHashtags(text)</code> that returns an array of all
 hashtags in a string (e.g. <code>"loving #javascript and #webdev"</code> →

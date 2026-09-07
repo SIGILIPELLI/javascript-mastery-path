@@ -823,6 +823,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2467,6 +2489,25 @@ rules are a frequent source of bugs.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>let</code> and <code>const</code> aren't just "block-scoped var" — they exist because of the <strong>Temporal
+Dead Zone (TDZ)</strong>. Every <code>let</code>/<code>const</code> binding is hoisted to the top of its block during
+compilation (V8 allocates the binding slot up front), but it stays uninitialized until
+the declaration line actually executes. Reading it before that throws
+<code>ReferenceError: Cannot access 'x' before initialization</code> — not because the variable
+doesn't exist yet, but because the engine is deliberately blocking access to a slot it
+already knows about. <code>var</code>, by contrast, is hoisted <em>and</em> initialized to <code>undefined</code>
+immediately, which is why <code>console.log(x); var x = 1;</code> silently prints <code>undefined</code>
+instead of throwing.</p>
+<p>At the representation level, V8 doesn't store every value the same way. Small integers
+get packed into a tagged <strong>Smi</strong> (small integer) representation directly in the pointer
+word — no heap allocation at all. Once a number needs a fraction or exceeds the Smi
+range, V8 boxes it as a <code>HeapNumber</code>. Objects get a <strong>hidden class</strong> (also called a
+"map") the moment they're created, which records the order and types of their
+properties; two objects created with properties added in the same order share a hidden
+class and can reuse the same optimized machine code for property access. This is a
+big part of why <code>{a:1, b:2}</code> is faster to work with than an object you build by adding
+properties in unpredictable order later.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a script that stores a rectangle's <code>width</code> and <code>height</code>, computes its
 area and perimeter, and prints both formatted to 2 decimal places using

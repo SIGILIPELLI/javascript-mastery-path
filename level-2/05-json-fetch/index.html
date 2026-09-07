@@ -1294,6 +1294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2357,6 +2368,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2558,6 +2580,25 @@ browser's, so the same code generally runs in both environments unmodified.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>fetch()</code> returns a promise that resolves as soon as the <strong>headers</strong> arrive — not when
+the full body has downloaded. That's why <code>response.ok</code>/<code>response.status</code> are available
+immediately in your first <code>.then</code>, but reading the body via <code>response.json()</code> returns
+<em>another</em> promise: it has to keep reading from the underlying stream (backed by the
+network layer outside JS entirely) until all bytes arrive, then run the JSON parser on
+the accumulated text. <code>JSON.parse</code> itself is a recursive-descent parser implemented in
+C++ inside V8 (not JS) for speed — it builds the object graph in one pass rather than
+building a intermediate token stream first, which is part of why parsing huge JSON
+payloads can briefly block the main thread despite <code>fetch</code> itself being non-blocking.</p>
+<p><code>fetch</code> deliberately does <strong>not</strong> reject on HTTP error statuses like 404 or 500 — it
+only rejects on network-level failures (DNS failure, connection refused, CORS block).
+This is a common bug source: the promise resolving successfully just means "a response
+arrived," so checking <code>response.ok</code> yourself is mandatory. Under the hood, the actual
+network request is handled entirely outside the JS engine — by the browser's networking
+stack or, in Node, by the underlying HTTP client — running on separate OS threads; your
+JS thread is never blocked waiting on the socket, it's just waiting for a promise
+resolution to be queued as a microtask once the response event arrives from that other
+thread.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write an <code>async</code> function <code>getUserPosts(userId)</code> that fetches
 <code>https://jsonplaceholder.typicode.com/posts?userId=&lt;userId&gt;</code>, throws a
