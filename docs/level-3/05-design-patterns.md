@@ -1,5 +1,9 @@
 # 05 · Design Patterns in JavaScript
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/HkNr9q9LgCk" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Design patterns are reusable solutions to recurring problems in software
 design. JavaScript's flexible object model lets you implement classic
 patterns in a few different ways — this module covers four of the most

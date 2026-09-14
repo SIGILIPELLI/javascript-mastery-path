@@ -1,5 +1,9 @@
 # 10 · Project — Browser To-Do List App
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/TvdR5Q1Q3EI" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 A small end-to-end project combining everything from Level 1: functions,
 arrays/objects, strings, DOM manipulation, events, error handling, and
 `localStorage` persistence.

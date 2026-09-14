@@ -1,5 +1,9 @@
 # 10 · Build & Bundling Deep Dive
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/6L1g5UIUwpI" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Level 2 introduced build tooling at a high level. This module goes deeper
 into two widely-used bundlers — Vite and webpack — and the two techniques
 that most affect real-world load performance: code splitting and

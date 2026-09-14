@@ -1,5 +1,9 @@
 # 07 · Testing Frameworks Deep Dive
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/rh-5Mi1dtZ8" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Level 2 introduced Jest for unit tests. This module goes deeper: mocking
 dependencies, spying on function calls, and writing integration tests that
 exercise a real Express API with `supertest`.

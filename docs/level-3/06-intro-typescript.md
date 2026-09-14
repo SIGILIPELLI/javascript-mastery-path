@@ -1,5 +1,9 @@
 # 06 · Introduction to TypeScript
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/-tHoHEuBO5o" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 TypeScript is JavaScript with an optional static type system layered on
 top. It compiles down to plain JavaScript, so anything TypeScript can
 express, the browser or Node ultimately runs as regular JS — the types only

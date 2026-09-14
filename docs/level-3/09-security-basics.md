@@ -1,5 +1,9 @@
 # 09 · Security Basics
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/LSLhDKVJgQU" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Backend code is exposed to untrusted input from the internet, which makes
 it a target. This module covers two of the most common web vulnerabilities
 — XSS and CSRF — plus input sanitization and using `npm audit` to catch

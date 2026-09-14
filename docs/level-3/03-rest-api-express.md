@@ -1,5 +1,9 @@
 # 03 · Building a REST API with Express
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/4UUPYCWH17I" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Express is the most widely used Node.js web framework — a thin layer over
 Node's built-in `http` module that adds routing, middleware, and convenient
 request/response helpers. This module builds a small REST API from scratch.

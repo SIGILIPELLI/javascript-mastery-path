@@ -1,5 +1,9 @@
 # 04 · Working with Databases
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/VPvOJLWewwc" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Arrays in memory disappear when the process restarts — real applications
 persist data in a database. This module covers SQLite (a file-based
 relational database, perfect for learning and for small/medium apps) with
