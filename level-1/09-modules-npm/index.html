@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A structured, module-wise JavaScript training program from entry level to master level.">
+        <meta name="description" content="Modules & npm Basics — Node treats .js files as CommonJS by default. To use import/export directly, either name files .mjs or add 'type': 'module' to…">
       
       
       
@@ -67,14 +67,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="JavaScript Mastery Path">
   <meta property="og:title" content="09 · Modules & npm Basics">
-  <meta property="og:description" content="A structured, module-wise JavaScript training program from entry level to master level — free, with runnable code in every module.">
+  <meta property="og:description" content="Modules & npm Basics — Node treats .js files as CommonJS by default. To use import/export directly, either name files .mjs or add 'type': 'module' to…">
   <meta property="og:url" content="https://sigilipelli.github.io/javascript-mastery-path/level-1/09-modules-npm/">
   <meta property="og:image" content="https://sigilipelli.github.io/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="09 · Modules & npm Basics">
-  <meta name="twitter:description" content="A structured, module-wise JavaScript training program from entry level to master level — free, with runnable code in every module.">
+  <meta name="twitter:description" content="Modules & npm Basics — Node treats .js files as CommonJS by default. To use import/export directly, either name files .mjs or add 'type': 'module' to…">
   <meta name="twitter:image" content="https://sigilipelli.github.io/og-image.png">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9440969811959397"
      crossorigin="anonymous"></script>
@@ -1051,6 +1051,17 @@
     <span class="md-ellipsis">
       
         How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-this-in-another-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔀 See this in another language
       
     </span>
   </a>
@@ -2407,6 +2418,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#see-this-in-another-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔀 See this in another language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2572,6 +2594,12 @@ changes to <code>count</code> inside that module. Only after the entire graph is
 linking is what lets bundlers tree-shake unused exports — the import graph is fully
 known before any code runs, unlike CommonJS where <code>require</code> calls can be conditional
 and dynamic, making static analysis far harder.</p>
+<h2 id="see-this-in-another-language">🔀 See this in another language<a class="headerlink" href="#see-this-in-another-language" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://sigilipelli.github.io/typescript-mastery-path/level-1/09-modules-tsconfig/">TypeScript — Modules &amp; tsconfig Deep Dive</a></li>
+<li><a href="https://sigilipelli.github.io/ruby-mastery-path/level-1/09-gems-bundler/">Ruby — Gems &amp; Bundler Basics</a></li>
+<li><a href="https://sigilipelli.github.io/r-mastery-path/level-1/09-packages/">R — Packages</a></li>
+</ul>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Split a script that manages a to-do list into two ES modules: <code>storage.js</code>
 (load/save the list to a JSON file using Node's <code>fs</code> module) and <code>main.js</code>
@@ -2583,6 +2611,9 @@ Module 10.</p>
 
 
 
+
+  
+  
 
 
 
