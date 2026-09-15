@@ -223,6 +223,12 @@ control flow that re-throws into that same function body when the underlying pro
 rejects), but a rejection from a promise you merely *created* and didn't `await` or
 `.catch()` becomes an "unhandled rejection" — detected only after a full microtask-queue
 drain finds no handler was ever attached.
+## 🔀 See this in another language
+
+- [C — 06 · Error Handling Conventions](https://sigilipelli.github.io/c-mastery-path/level-2/06-error-handling/)
+- [C++ — 08 · Error Handling with Exceptions](https://sigilipelli.github.io/cpp-mastery-path/level-2/08-error-handling-exceptions/)
+- [Rust — 05 · Error Handling Advanced](https://sigilipelli.github.io/rust-mastery-path/level-2/05-error-handling-advanced/)
+
 ## Exercise
 
 Create a `TimeoutError` class extending `Error`. Then write an `async`

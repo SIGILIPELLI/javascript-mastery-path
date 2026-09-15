@@ -237,6 +237,10 @@ sockets for latency: too small a pool serializes concurrent requests behind each
 waiting for a free connection; too large a pool can overwhelm the database server's own
 per-connection resource limits (each open connection typically costs the database
 server real memory for its own session state, independent of your Node process).
+## 🔀 See this in another language
+
+- [C# — 07 · Working with Databases (EF Core migrations)](https://sigilipelli.github.io/csharp-mastery-path/level-3/07-ef-core-migrations/)
+
 ## Exercise
 
 Using `better-sqlite3`, create a `students` table (`id`, `name`, `grade`)

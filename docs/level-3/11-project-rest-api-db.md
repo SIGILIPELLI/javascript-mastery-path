@@ -427,3 +427,9 @@ logic end-to-end.
   be swapped out.
 
 Completing this project means you're ready for **Level 4 · Master**.
+
+## 🔀 See this in another language
+
+- [Python — 11 · Project — REST API + Database](https://sigilipelli.github.io/python-mastery-path/level-3/11-project-rest-api-db/)
+- [Java — 11 · Project — REST API + Database CRUD Service](https://sigilipelli.github.io/java-mastery-path/level-3/11-project-rest-api-db/)
+- [Swift — 10 · Project — REST API + Database Service](https://sigilipelli.github.io/swift-mastery-path/level-3/10-project-rest-api-db/)

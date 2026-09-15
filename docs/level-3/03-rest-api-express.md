@@ -226,6 +226,12 @@ control back to the event loop between blocking-ish work (via `await`, callbacks
 in a tight loop) blocks the *entire* process, delaying every other in-flight request's
 processing, because there is exactly one JS thread regardless of how many TCP
 connections libuv is juggling underneath it.
+## 🔀 See this in another language
+
+- [TypeScript — 10 · Project — REST API with Express](https://sigilipelli.github.io/typescript-mastery-path/level-3/10-project-rest-api-express/)
+- [Python — 11 · Project — REST API + Database](https://sigilipelli.github.io/python-mastery-path/level-3/11-project-rest-api-db/)
+- [Java — 11 · Project — REST API + Database CRUD Service](https://sigilipelli.github.io/java-mastery-path/level-3/11-project-rest-api-db/)
+
 ## Exercise
 
 Build an Express API for a `/tasks` resource with an in-memory array:

@@ -221,6 +221,10 @@ fake macrotask queue forward and synchronously fires any callbacks whose schedul
 has passed. This is what lets a test for a 30-second debounce complete in milliseconds:
 you're not making the code faster, you're replacing the entire timer subsystem the code
 depends on with a deterministic, synchronously-advanceable stand-in.
+## 🔀 See this in another language
+
+- [TypeScript — 07 · Testing with Jest + ts-jest](https://sigilipelli.github.io/typescript-mastery-path/level-2/07-testing-jest/)
+
 ## Exercise
 
 Create `stringUtils.js` exporting a function `truncate(str, maxLength)` that

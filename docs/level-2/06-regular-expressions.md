@@ -150,6 +150,12 @@ same global regex object across unrelated calls (e.g., storing one at module sco
 calling `.test()` on different strings) produces bugs where matches are silently
 skipped: `lastIndex` from a previous call is still there, has nothing to do with the new
 string, and its residual value point past where a match would have been found.
+## 🔀 See this in another language
+
+- [Python — 06 · Regular Expressions](https://sigilipelli.github.io/python-mastery-path/level-2/06-regular-expressions/)
+- [Shell/Bash — 03 · Regular Expressions in Bash](https://sigilipelli.github.io/shell-mastery-path/level-2/03-regular-expressions/)
+- [PowerShell — 04 · Regular Expressions in PowerShell](https://sigilipelli.github.io/powershell-mastery-path/level-2/04-regular-expressions/)
+
 ## Exercise
 
 Write a function `extractHashtags(text)` that returns an array of all

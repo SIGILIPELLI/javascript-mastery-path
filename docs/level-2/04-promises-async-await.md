@@ -184,6 +184,11 @@ runner that calls `.next()` each time, and every `await expr` is transformed int
 one microtask tick to resume — even `await 5` schedules a microtask — and why an
 `async function` *always* returns a promise, even if you `return` a plain value: the
 runner wraps whatever comes out in `Promise.resolve(...)` before handing it back.
+## 🔀 See this in another language
+
+- [TypeScript — 06 · Async/Await with Types](https://sigilipelli.github.io/typescript-mastery-path/level-2/06-async-await-types/)
+- [C# — 04 · Async/Await Basics](https://sigilipelli.github.io/csharp-mastery-path/level-2/04-async-await-basics/)
+
 ## Exercise
 
 Write an `async` function `fetchWithTimeout(promise, ms)` that returns

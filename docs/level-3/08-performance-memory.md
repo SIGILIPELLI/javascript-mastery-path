@@ -232,6 +232,10 @@ cache with no eviction policy. `WeakMap`/`WeakSet` exist specifically to break t
 class of leak — their keys don't count as strong references for garbage collection
 purposes, so an entry disappears on its own once nothing else references the key,
 without needing manual cleanup code at all.
+## 🔀 See this in another language
+
+- [C# — 09 · Performance & Memory (Span, structs)](https://sigilipelli.github.io/csharp-mastery-path/level-3/09-performance-memory/)
+
 ## Exercise
 
 Write a `LRUCache` class (least-recently-used cache) backed by a `Map` with

@@ -377,3 +377,7 @@ logic from asynchronous, effectful glue code.
   `weather.js`, with its own Jest tests.
 
 Completing this project means you're ready for **Level 3 · Advanced**.
+
+## 🔀 See this in another language
+
+- [TypeScript — 10 · Project — Typed Weather Dashboard](https://sigilipelli.github.io/typescript-mastery-path/level-2/10-project-weather-dashboard/)
