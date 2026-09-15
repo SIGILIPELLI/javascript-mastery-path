@@ -1,3 +1,7 @@
+---
+description: "Setup & First Program — Every browser ships a JavaScript console too. Open your browser's DevTools (usually F12 or Cmd+Option+I) and switch to the…"
+---
+
 # 01 · Setup & First Program
 
 ## Install Node.js
@@ -117,6 +121,12 @@ that Node injects into the global object, backed by libuv writing to a file desc
 Understanding this split — V8 runs *pure* JavaScript, Node/the browser bolt on I/O and
 timers — explains almost every "why does this work differently here" question you'll
 hit later in the course.
+## 🔀 See this in another language
+
+- [TypeScript — Setup & First Program](https://sigilipelli.github.io/typescript-mastery-path/level-1/01-setup/)
+- [Ruby — Setup & First Program](https://sigilipelli.github.io/ruby-mastery-path/level-1/01-setup/)
+- [R — Setup & First Script](https://sigilipelli.github.io/r-mastery-path/level-1/01-setup/)
+
 ## Exercise
 
 Write a script `greet-many.js` that defines an array of three names and prints

@@ -1,3 +1,7 @@
+---
+description: "Closures & Scope Deep Dive — This module builds directly on lexical scope from Level 1 · Module 4 — if function scope and hoisting aren't solid yet…"
+---
+
 # 01 · Closures & Scope Deep Dive
 
 This module builds directly on lexical scope from

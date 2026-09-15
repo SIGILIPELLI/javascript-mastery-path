@@ -1,3 +1,7 @@
+---
+description: "Node.js Fundamentals — CommonJS (require/module.exports) is Node's original module system and still the default for plain .js files."
+---
+
 # 02 · Node.js Fundamentals
 
 ## 🎥 Video walkthrough

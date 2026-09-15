@@ -1,3 +1,7 @@
+---
+description: "Testing at Scale — Unit tests (Level 1-3) verify individual pieces in isolation. At Master level, production systems also need end-to-end (E2E) tests that…"
+---
+
 # 05 · Testing at Scale
 
 Unit tests (Level 1-3) verify individual pieces in isolation. At Master

@@ -1,3 +1,7 @@
+---
+description: "Advanced TypeScript — TypeScript's type system is Turing-complete in practice — you can express remarkably precise constraints about your data and catch…"
+---
+
 # 02 · Advanced TypeScript
 
 TypeScript's type system is Turing-complete in practice — you can express

@@ -1,3 +1,7 @@
+---
+description: "Project — Weather Dashboard — A capstone project combining everything from Level 2: closures and modules, async/await, the Fetch API, custom error…"
+---
+
 # 10 · Project — Weather Dashboard
 
 A capstone project combining everything from Level 2: closures and modules,

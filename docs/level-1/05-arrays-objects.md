@@ -1,3 +1,7 @@
+---
+description: "Arrays & Objects — map, filter, and reduce all return new arrays or values without mutating the original — prefer them over manual loops for…"
+---
+
 # 05 · Arrays & Objects
 
 ## Arrays — ordered, mutable lists
@@ -134,6 +138,12 @@ object still have that hidden class?" — if yes, it reads the offset directly w
 lookup at all (a monomorphic hit). `Object.freeze`, deleting properties, or adding
 properties in inconsistent orders across similar objects all defeat this optimization
 by forcing hidden-class transitions or dictionary-mode storage.
+## 🔀 See this in another language
+
+- [TypeScript — Interfaces & Type Aliases](https://sigilipelli.github.io/typescript-mastery-path/level-1/05-interfaces-type-aliases/)
+- [Ruby — Arrays & Hashes](https://sigilipelli.github.io/ruby-mastery-path/level-1/05-arrays-hashes/)
+- [R — Vectors & Basic Data Structures](https://sigilipelli.github.io/r-mastery-path/level-1/05-vectors-data-structures/)
+
 ## Exercise
 
 Given an array of words, use `.reduce()` to build an object mapping each

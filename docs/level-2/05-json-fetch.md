@@ -1,3 +1,7 @@
+---
+description: "Working with JSON & Fetch API — JSON is a text format for representing data — the universal language APIs use to send and receive structured data over…"
+---
+
 # 05 · Working with JSON & Fetch API
 
 ## JSON: JavaScript Object Notation

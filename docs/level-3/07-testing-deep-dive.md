@@ -1,3 +1,7 @@
+---
+description: "Testing Frameworks Deep Dive — A mock replaces a real dependency (a database call, an email service, an external API) with a fake version you control, so…"
+---
+
 # 07 · Testing Frameworks Deep Dive
 
 ## 🎥 Video walkthrough

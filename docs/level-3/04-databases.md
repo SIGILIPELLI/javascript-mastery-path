@@ -1,3 +1,7 @@
+---
+description: "Working with Databases — better-sqlite3 is synchronous (no promises needed) and very fast for typical app workloads, which makes it an easy first database…"
+---
+
 # 04 · Working with Databases
 
 ## 🎥 Video walkthrough

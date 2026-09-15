@@ -1,3 +1,7 @@
+---
+description: "Capstone Project — This is the final project of the entire Master path — and of the whole JavaScript Mastery curriculum. It pulls together everything from…"
+---
+
 # 10 · Capstone Project
 
 This is the final project of the entire Master path — and of the whole

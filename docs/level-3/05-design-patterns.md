@@ -1,3 +1,7 @@
+---
+description: "Design Patterns in JavaScript — The goal of the module pattern is encapsulation — hiding internal state and exposing only a small public interface. ES…"
+---
+
 # 05 · Design Patterns in JavaScript
 
 ## 🎥 Video walkthrough

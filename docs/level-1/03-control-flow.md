@@ -1,3 +1,7 @@
+---
+description: "Control Flow — switch uses strict equality (===) to compare and falls through to the next case unless you break or return — grouping cases without a break…"
+---
+
 # 03 · Control Flow
 
 ## if / else if / else
@@ -126,6 +130,12 @@ optimized version of the *currently running* loop with TurboFan and swaps execut
 into it mid-flight, without waiting for the function to be called again. This is why a
 loop that runs millions of iterations can visibly speed up partway through — you're
 watching OSR kick in.
+## 🔀 See this in another language
+
+- [TypeScript — Control Flow with Types](https://sigilipelli.github.io/typescript-mastery-path/level-1/03-control-flow/)
+- [Ruby — Control Flow](https://sigilipelli.github.io/ruby-mastery-path/level-1/03-control-flow/)
+- [R — Control Flow](https://sigilipelli.github.io/r-mastery-path/level-1/03-control-flow/)
+
 ## Exercise
 
 Write a program that prints FizzBuzz for numbers 1–30: multiples of 3 print

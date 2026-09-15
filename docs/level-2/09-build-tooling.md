@@ -1,3 +1,7 @@
+---
+description: "Build Tooling Intro — Modern JavaScript is usually written as many small modules, sometimes with syntax browsers don't natively support (JSX, TypeScript).…"
+---
+
 # 09 · Build Tooling Intro
 
 ## Why build tools exist

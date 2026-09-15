@@ -1,3 +1,7 @@
+---
+description: "Advanced Async Patterns — Promise.all runs promises concurrently and resolves with an array of results in the same order they were passed in. If any…"
+---
+
 # 01 · Advanced Async Patterns
 
 ## 🎥 Video walkthrough

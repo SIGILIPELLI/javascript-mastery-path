@@ -1,3 +1,7 @@
+---
+description: "Microservices & Serverless Patterns — Once a monolith genuinely outgrows a single deployable unit, two common paths open up: splitting into…"
+---
+
 # 03 · Microservices & Serverless Patterns
 
 Once a monolith genuinely outgrows a single deployable unit, two common paths

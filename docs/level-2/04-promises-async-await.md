@@ -1,3 +1,7 @@
+---
+description: "Promises & Async/Await — This module builds on the event loop and microtask queue from Module 3 — Promises are the mechanism that schedules work onto that…"
+---
+
 # 04 · Promises & Async/Await
 
 This module builds on the event loop and microtask queue from

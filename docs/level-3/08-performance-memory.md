@@ -1,3 +1,7 @@
+---
+description: "Performance & Memory — The first rule of performance work: measure, don't guess. console.time gives quick, rough timings for comparing approaches."
+---
+
 # 08 · Performance & Memory
 
 ## 🎥 Video walkthrough

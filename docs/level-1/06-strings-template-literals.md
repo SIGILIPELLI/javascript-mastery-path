@@ -1,3 +1,7 @@
+---
+description: "Strings & Template Literals — Strings in V8 are immutable, but 'immutable' doesn't mean 'one representation.' Short strings are stored inline as…"
+---
+
 # 06 · Strings & Template Literals
 
 ## 🎥 Video walkthrough
@@ -99,6 +103,12 @@ passed to `tag` on every call at that call site — V8 caches and reuses that ar
 object rather than rebuilding it, which is what lets libraries rely on referential
 identity of the strings array across calls to detect "this is the same literal
 template, just with different interpolated values."
+## 🔀 See this in another language
+
+- [TypeScript — Arrays & Objects, Typed](https://sigilipelli.github.io/typescript-mastery-path/level-1/06-arrays-objects-typed/)
+- [Ruby — Strings & String Methods](https://sigilipelli.github.io/ruby-mastery-path/level-1/06-strings/)
+- [R — Data Frames Basics](https://sigilipelli.github.io/r-mastery-path/level-1/06-data-frames-basics/)
+
 ## Exercise
 
 Write a function `slugify(title)` that converts `"Hello, World!  "` into

@@ -1,3 +1,7 @@
+---
+description: "Advanced Security Practices — Security at production scale isn't a checklist you run once — it's a set of defaults you bake into architecture. This module…"
+---
+
 # 04 · Advanced Security Practices
 
 Security at production scale isn't a checklist you run once — it's a set of

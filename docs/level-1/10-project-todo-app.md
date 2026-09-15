@@ -1,3 +1,7 @@
+---
+description: "Project — Browser To-Do List App — This project ties together three runtime behaviors you've seen individually. First, localStorage.setItem is a…"
+---
+
 # 10 · Project — Browser To-Do List App
 
 ## 🎥 Video walkthrough
@@ -211,3 +215,9 @@ are exactly the short-lived objects that collector is optimized for.
   [Module 9](09-modules-npm.md).
 
 Completing this project means you're ready for **Level 2 · Intermediate**.
+
+## 🔀 See this in another language
+
+- [TypeScript — Project — Typed CLI To-Do App](https://sigilipelli.github.io/typescript-mastery-path/level-1/10-project-todo-cli/)
+- [Ruby — Project — CLI To-Do App](https://sigilipelli.github.io/ruby-mastery-path/level-1/10-project-todo-app/)
+- [R — Project — Data Analysis Script](https://sigilipelli.github.io/r-mastery-path/level-1/10-project-data-analysis/)

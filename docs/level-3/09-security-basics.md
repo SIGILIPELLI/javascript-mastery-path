@@ -1,3 +1,7 @@
+---
+description: "Security Basics — XSS happens when untrusted input is rendered as HTML/JavaScript in a page, letting an attacker run their own script in another user's…"
+---
+
 # 09 · Security Basics
 
 ## 🎥 Video walkthrough

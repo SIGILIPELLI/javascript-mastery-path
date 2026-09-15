@@ -1,3 +1,7 @@
+---
+description: "Full-Stack Architecture Patterns — At Master level, the hard problems stop being 'how do I write this function' and become 'how do I structure a codebase…"
+---
+
 # 01 · Full-Stack Architecture Patterns
 
 At Master level, the hard problems stop being "how do I write this function"

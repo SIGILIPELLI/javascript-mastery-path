@@ -1,3 +1,7 @@
+---
+description: "Testing Basics with Jest — Manually re-checking behavior after every change doesn't scale. A test suite encodes expected behavior as runnable code, so you…"
+---
+
 # 08 · Testing Basics with Jest
 
 ## Why automated tests

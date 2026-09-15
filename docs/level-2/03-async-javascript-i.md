@@ -1,3 +1,7 @@
+---
+description: "Asynchronous JavaScript I — JavaScript runs on a single thread, yet it handles timers, network requests, and user input without blocking. This module…"
+---
+
 # 03 · Asynchronous JavaScript I
 
 JavaScript runs on a single thread, yet it handles timers, network requests,

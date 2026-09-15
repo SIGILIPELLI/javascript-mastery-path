@@ -1,3 +1,7 @@
+---
+description: "Project — REST API + Database — A complete backend project combining everything from Level 3: Express routing and middleware, SQLite persistence, input…"
+---
+
 # 11 · Project — REST API + Database
 
 A complete backend project combining everything from Level 3: Express

@@ -1,3 +1,7 @@
+---
+description: "Error Handling Basics — JavaScript doesn't have typed catch clauses like some languages — you check error inside the block. Always inspect what you're…"
+---
+
 # 08 · Error Handling Basics
 
 ## 🎥 Video walkthrough
@@ -124,6 +128,12 @@ caught and ignored would be wasted work. `finally` blocks are guaranteed to run 
 the `try` or `catch` returns or re-throws, because the engine's unwind logic treats
 "execute finally" as a mandatory step of leaving the protected region, regardless of
 how control flow is trying to leave it.
+## 🔀 See this in another language
+
+- [TypeScript — Enums](https://sigilipelli.github.io/typescript-mastery-path/level-1/08-enums/)
+- [Ruby — Blocks, Procs & Lambdas Introduction](https://sigilipelli.github.io/ruby-mastery-path/level-1/08-blocks-procs-lambdas/)
+- [R — Basic Plotting](https://sigilipelli.github.io/r-mastery-path/level-1/08-basic-plotting/)
+
 ## Exercise
 
 Write a function `divideSafely(a, b)` that returns the division result, or a

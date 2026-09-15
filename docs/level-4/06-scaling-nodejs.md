@@ -1,3 +1,7 @@
+---
+description: "Scaling Node.js Applications — Node.js runs JavaScript on a single thread. That's fine for I/O-bound work (most web APIs), but it means one Node process…"
+---
+
 # 06 · Scaling Node.js Applications
 
 Node.js runs JavaScript on a single thread. That's fine for I/O-bound work

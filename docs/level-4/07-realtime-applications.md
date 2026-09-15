@@ -1,3 +1,7 @@
+---
+description: "Real-Time Applications — HTTP request/response is a poor fit for features that need the server to push data to clients instantly — chat, live…"
+---
+
 # 07 · Real-Time Applications
 
 HTTP request/response is a poor fit for features that need the server to push

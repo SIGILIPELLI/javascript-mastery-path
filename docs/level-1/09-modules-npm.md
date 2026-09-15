@@ -1,3 +1,7 @@
+---
+description: "Modules & npm Basics — Node treats .js files as CommonJS by default. To use import/export directly, either name files .mjs or add 'type': 'module' to…"
+---
+
 # 09 · Modules & npm Basics
 
 ## 🎥 Video walkthrough
@@ -147,6 +151,12 @@ changes to `count` inside that module. Only after the entire graph is linked doe
 linking is what lets bundlers tree-shake unused exports — the import graph is fully
 known before any code runs, unlike CommonJS where `require` calls can be conditional
 and dynamic, making static analysis far harder.
+## 🔀 See this in another language
+
+- [TypeScript — Modules & tsconfig Deep Dive](https://sigilipelli.github.io/typescript-mastery-path/level-1/09-modules-tsconfig/)
+- [Ruby — Gems & Bundler Basics](https://sigilipelli.github.io/ruby-mastery-path/level-1/09-gems-bundler/)
+- [R — Packages](https://sigilipelli.github.io/r-mastery-path/level-1/09-packages/)
+
 ## Exercise
 
 Split a script that manages a to-do list into two ES modules: `storage.js`

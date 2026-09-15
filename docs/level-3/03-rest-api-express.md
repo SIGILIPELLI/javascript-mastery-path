@@ -1,3 +1,7 @@
+---
+description: "Building a REST API with Express — Routes match an HTTP method and a URL path to a handler function. Route parameters (:id) capture dynamic segments of…"
+---
+
 # 03 · Building a REST API with Express
 
 ## 🎥 Video walkthrough

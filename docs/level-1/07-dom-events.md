@@ -1,3 +1,7 @@
+---
+description: "DOM Basics & Events — Attaching one listener to a parent, then checking event.target, scales better than attaching a listener to every child individually…"
+---
+
 # 07 · DOM Basics & Events
 
 ## 🎥 Video walkthrough
@@ -136,6 +140,12 @@ returns. Because listeners are stored as references, closures you create inside
 `addEventListener` keep their entire enclosing scope alive for as long as the listener
 is attached — a common, hard-to-spot memory leak source when elements are removed from
 the DOM without calling `removeEventListener` first.
+## 🔀 See this in another language
+
+- [TypeScript — Classes Basics](https://sigilipelli.github.io/typescript-mastery-path/level-1/07-classes-basics/)
+- [Ruby — Classes & Objects Basics](https://sigilipelli.github.io/ruby-mastery-path/level-1/07-classes-objects/)
+- [R — Reading Data](https://sigilipelli.github.io/r-mastery-path/level-1/07-reading-data/)
+
 ## Exercise
 
 Build a page with a text input and a button. When the button is clicked,

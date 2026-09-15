@@ -1,3 +1,7 @@
+---
+description: "Prototypes & Classes — JavaScript objects link to another object called their prototype, and look up missing properties there. This chain is how methods…"
+---
+
 # 02 · Prototypes & Classes
 
 ## Every object has a prototype

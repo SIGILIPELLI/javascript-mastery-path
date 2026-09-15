@@ -1,3 +1,7 @@
+---
+description: "CI/CD for JavaScript Projects — Continuous Integration (CI) automatically checks every change (lint, test, build) before it merges. Continuous…"
+---
+
 # 08 · CI/CD for JavaScript Projects
 
 Continuous Integration (CI) automatically checks every change (lint, test,

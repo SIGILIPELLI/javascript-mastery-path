@@ -1,3 +1,7 @@
+---
+description: "Error Handling Advanced — This module extends Level 1 · Module 8 into custom error types and the asynchronous cases that basic try/catch doesn't cover on…"
+---
+
 # 07 · Error Handling Advanced
 
 This module extends

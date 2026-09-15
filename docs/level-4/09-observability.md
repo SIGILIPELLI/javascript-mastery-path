@@ -1,3 +1,7 @@
+---
+description: "Observability — Once an app runs in production across multiple instances, you can't attach a debugger and step through a bug. Observability — structured…"
+---
+
 # 09 · Observability
 
 Once an app runs in production across multiple instances, you can't attach a

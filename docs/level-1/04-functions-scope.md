@@ -1,3 +1,7 @@
+---
+description: "Functions & Scope — Function declarations are hoisted with their full body; var is hoisted but only the declaration (not the assignment); let/const are…"
+---
+
 # 04 · Functions & Scope
 
 ## Function declarations
@@ -151,6 +155,12 @@ its own quirk: for non-arrow functions, V8 lazily materializes an `arguments` ob
 backed by the actual argument values on the stack; arrow functions have no `arguments`
 binding of their own at all, so referencing `arguments` inside one walks the scope
 chain up to the nearest enclosing non-arrow function.
+## 🔀 See this in another language
+
+- [TypeScript — Functions & Type Annotations](https://sigilipelli.github.io/typescript-mastery-path/level-1/04-functions-type-annotations/)
+- [Ruby — Methods](https://sigilipelli.github.io/ruby-mastery-path/level-1/04-methods/)
+- [R — Functions](https://sigilipelli.github.io/r-mastery-path/level-1/04-functions/)
+
 ## Exercise
 
 Write a function `summarize(...values)` that returns an object with the `min`,

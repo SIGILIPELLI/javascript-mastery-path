@@ -1,3 +1,7 @@
+---
+description: "Variables, Data Types & Operators — Prefer const by default, and let when you know the value needs to change. Avoid var — its function-level (rather than…"
+---
+
 # 02 · Variables, Data Types & Operators
 
 ## Declaring variables: let, const, var
@@ -124,6 +128,12 @@ properties; two objects created with properties added in the same order share a 
 class and can reuse the same optimized machine code for property access. This is a
 big part of why `{a:1, b:2}` is faster to work with than an object you build by adding
 properties in unpredictable order later.
+## 🔀 See this in another language
+
+- [TypeScript — Basic Types](https://sigilipelli.github.io/typescript-mastery-path/level-1/02-basic-types/)
+- [Ruby — Variables & Types](https://sigilipelli.github.io/ruby-mastery-path/level-1/02-variables-types/)
+- [R — Variables & Types](https://sigilipelli.github.io/r-mastery-path/level-1/02-variables-types/)
+
 ## Exercise
 
 Write a script that stores a rectangle's `width` and `height`, computes its

@@ -1,3 +1,7 @@
+---
+description: "Regular Expressions in JS — A regular expression is a pattern for matching text. JavaScript has a built-in literal syntax using slashes, plus flags that…"
+---
+
 # 06 · Regular Expressions in JS
 
 ## RegExp literals
