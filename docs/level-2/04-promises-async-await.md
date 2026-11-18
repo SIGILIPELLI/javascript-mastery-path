@@ -186,8 +186,8 @@ one microtask tick to resume — even `await 5` schedules a microtask — and wh
 runner wraps whatever comes out in `Promise.resolve(...)` before handing it back.
 ## 🔀 See this in another language
 
-- [TypeScript — 06 · Async/Await with Types](https://sigilipelli.github.io/typescript-mastery-path/level-2/06-async-await-types/)
-- [C# — 04 · Async/Await Basics](https://sigilipelli.github.io/csharp-mastery-path/level-2/04-async-await-basics/)
+- [TypeScript — 06 · Async/Await with Types](https://learnmasterypath.com/typescript-mastery-path/level-2/06-async-await-types/)
+- [C# — 04 · Async/Await Basics](https://learnmasterypath.com/csharp-mastery-path/level-2/04-async-await-basics/)
 
 ## Exercise
 

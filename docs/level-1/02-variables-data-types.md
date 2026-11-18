@@ -130,9 +130,9 @@ big part of why `{a:1, b:2}` is faster to work with than an object you build by 
 properties in unpredictable order later.
 ## 🔀 See this in another language
 
-- [TypeScript — Basic Types](https://sigilipelli.github.io/typescript-mastery-path/level-1/02-basic-types/)
-- [Ruby — Variables & Types](https://sigilipelli.github.io/ruby-mastery-path/level-1/02-variables-types/)
-- [R — Variables & Types](https://sigilipelli.github.io/r-mastery-path/level-1/02-variables-types/)
+- [TypeScript — Basic Types](https://learnmasterypath.com/typescript-mastery-path/level-1/02-basic-types/)
+- [Ruby — Variables & Types](https://learnmasterypath.com/ruby-mastery-path/level-1/02-variables-types/)
+- [R — Variables & Types](https://learnmasterypath.com/r-mastery-path/level-1/02-variables-types/)
 
 ## Exercise
 

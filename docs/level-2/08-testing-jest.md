@@ -223,7 +223,7 @@ you're not making the code faster, you're replacing the entire timer subsystem t
 depends on with a deterministic, synchronously-advanceable stand-in.
 ## 🔀 See this in another language
 
-- [TypeScript — 07 · Testing with Jest + ts-jest](https://sigilipelli.github.io/typescript-mastery-path/level-2/07-testing-jest/)
+- [TypeScript — 07 · Testing with Jest + ts-jest](https://learnmasterypath.com/typescript-mastery-path/level-2/07-testing-jest/)
 
 ## Exercise
 

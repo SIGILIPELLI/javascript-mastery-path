@@ -157,9 +157,9 @@ binding of their own at all, so referencing `arguments` inside one walks the sco
 chain up to the nearest enclosing non-arrow function.
 ## 🔀 See this in another language
 
-- [TypeScript — Functions & Type Annotations](https://sigilipelli.github.io/typescript-mastery-path/level-1/04-functions-type-annotations/)
-- [Ruby — Methods](https://sigilipelli.github.io/ruby-mastery-path/level-1/04-methods/)
-- [R — Functions](https://sigilipelli.github.io/r-mastery-path/level-1/04-functions/)
+- [TypeScript — Functions & Type Annotations](https://learnmasterypath.com/typescript-mastery-path/level-1/04-functions-type-annotations/)
+- [Ruby — Methods](https://learnmasterypath.com/ruby-mastery-path/level-1/04-methods/)
+- [R — Functions](https://learnmasterypath.com/r-mastery-path/level-1/04-functions/)
 
 ## Exercise
 

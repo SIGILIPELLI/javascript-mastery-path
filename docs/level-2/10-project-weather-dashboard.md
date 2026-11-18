@@ -380,4 +380,4 @@ Completing this project means you're ready for **Level 3 · Advanced**.
 
 ## 🔀 See this in another language
 
-- [TypeScript — 10 · Project — Typed Weather Dashboard](https://sigilipelli.github.io/typescript-mastery-path/level-2/10-project-weather-dashboard/)
+- [TypeScript — 10 · Project — Typed Weather Dashboard](https://learnmasterypath.com/typescript-mastery-path/level-2/10-project-weather-dashboard/)

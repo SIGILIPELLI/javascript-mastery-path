@@ -132,9 +132,9 @@ loop that runs millions of iterations can visibly speed up partway through — y
 watching OSR kick in.
 ## 🔀 See this in another language
 
-- [TypeScript — Control Flow with Types](https://sigilipelli.github.io/typescript-mastery-path/level-1/03-control-flow/)
-- [Ruby — Control Flow](https://sigilipelli.github.io/ruby-mastery-path/level-1/03-control-flow/)
-- [R — Control Flow](https://sigilipelli.github.io/r-mastery-path/level-1/03-control-flow/)
+- [TypeScript — Control Flow with Types](https://learnmasterypath.com/typescript-mastery-path/level-1/03-control-flow/)
+- [Ruby — Control Flow](https://learnmasterypath.com/ruby-mastery-path/level-1/03-control-flow/)
+- [R — Control Flow](https://learnmasterypath.com/r-mastery-path/level-1/03-control-flow/)
 
 ## Exercise
 

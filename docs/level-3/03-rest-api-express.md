@@ -228,9 +228,9 @@ processing, because there is exactly one JS thread regardless of how many TCP
 connections libuv is juggling underneath it.
 ## 🔀 See this in another language
 
-- [TypeScript — 10 · Project — REST API with Express](https://sigilipelli.github.io/typescript-mastery-path/level-3/10-project-rest-api-express/)
-- [Python — 11 · Project — REST API + Database](https://sigilipelli.github.io/python-mastery-path/level-3/11-project-rest-api-db/)
-- [Java — 11 · Project — REST API + Database CRUD Service](https://sigilipelli.github.io/java-mastery-path/level-3/11-project-rest-api-db/)
+- [TypeScript — 10 · Project — REST API with Express](https://learnmasterypath.com/typescript-mastery-path/level-3/10-project-rest-api-express/)
+- [Python — 11 · Project — REST API + Database](https://learnmasterypath.com/python-mastery-path/level-3/11-project-rest-api-db/)
+- [Java — 11 · Project — REST API + Database CRUD Service](https://learnmasterypath.com/java-mastery-path/level-3/11-project-rest-api-db/)
 
 ## Exercise
 

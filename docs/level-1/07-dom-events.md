@@ -142,9 +142,9 @@ is attached — a common, hard-to-spot memory leak source when elements are remo
 the DOM without calling `removeEventListener` first.
 ## 🔀 See this in another language
 
-- [TypeScript — Classes Basics](https://sigilipelli.github.io/typescript-mastery-path/level-1/07-classes-basics/)
-- [Ruby — Classes & Objects Basics](https://sigilipelli.github.io/ruby-mastery-path/level-1/07-classes-objects/)
-- [R — Reading Data](https://sigilipelli.github.io/r-mastery-path/level-1/07-reading-data/)
+- [TypeScript — Classes Basics](https://learnmasterypath.com/typescript-mastery-path/level-1/07-classes-basics/)
+- [Ruby — Classes & Objects Basics](https://learnmasterypath.com/ruby-mastery-path/level-1/07-classes-objects/)
+- [R — Reading Data](https://learnmasterypath.com/r-mastery-path/level-1/07-reading-data/)
 
 ## Exercise
 

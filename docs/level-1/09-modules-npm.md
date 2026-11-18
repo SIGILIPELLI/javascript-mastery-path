@@ -153,9 +153,9 @@ known before any code runs, unlike CommonJS where `require` calls can be conditi
 and dynamic, making static analysis far harder.
 ## 🔀 See this in another language
 
-- [TypeScript — Modules & tsconfig Deep Dive](https://sigilipelli.github.io/typescript-mastery-path/level-1/09-modules-tsconfig/)
-- [Ruby — Gems & Bundler Basics](https://sigilipelli.github.io/ruby-mastery-path/level-1/09-gems-bundler/)
-- [R — Packages](https://sigilipelli.github.io/r-mastery-path/level-1/09-packages/)
+- [TypeScript — Modules & tsconfig Deep Dive](https://learnmasterypath.com/typescript-mastery-path/level-1/09-modules-tsconfig/)
+- [Ruby — Gems & Bundler Basics](https://learnmasterypath.com/ruby-mastery-path/level-1/09-gems-bundler/)
+- [R — Packages](https://learnmasterypath.com/r-mastery-path/level-1/09-packages/)
 
 ## Exercise
 

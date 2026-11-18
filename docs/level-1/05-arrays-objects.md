@@ -140,9 +140,9 @@ properties in inconsistent orders across similar objects all defeat this optimiz
 by forcing hidden-class transitions or dictionary-mode storage.
 ## 🔀 See this in another language
 
-- [TypeScript — Interfaces & Type Aliases](https://sigilipelli.github.io/typescript-mastery-path/level-1/05-interfaces-type-aliases/)
-- [Ruby — Arrays & Hashes](https://sigilipelli.github.io/ruby-mastery-path/level-1/05-arrays-hashes/)
-- [R — Vectors & Basic Data Structures](https://sigilipelli.github.io/r-mastery-path/level-1/05-vectors-data-structures/)
+- [TypeScript — Interfaces & Type Aliases](https://learnmasterypath.com/typescript-mastery-path/level-1/05-interfaces-type-aliases/)
+- [Ruby — Arrays & Hashes](https://learnmasterypath.com/ruby-mastery-path/level-1/05-arrays-hashes/)
+- [R — Vectors & Basic Data Structures](https://learnmasterypath.com/r-mastery-path/level-1/05-vectors-data-structures/)
 
 ## Exercise
 

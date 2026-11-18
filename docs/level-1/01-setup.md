@@ -123,9 +123,9 @@ timers — explains almost every "why does this work differently here" question 
 hit later in the course.
 ## 🔀 See this in another language
 
-- [TypeScript — Setup & First Program](https://sigilipelli.github.io/typescript-mastery-path/level-1/01-setup/)
-- [Ruby — Setup & First Program](https://sigilipelli.github.io/ruby-mastery-path/level-1/01-setup/)
-- [R — Setup & First Script](https://sigilipelli.github.io/r-mastery-path/level-1/01-setup/)
+- [TypeScript — Setup & First Program](https://learnmasterypath.com/typescript-mastery-path/level-1/01-setup/)
+- [Ruby — Setup & First Program](https://learnmasterypath.com/ruby-mastery-path/level-1/01-setup/)
+- [R — Setup & First Script](https://learnmasterypath.com/r-mastery-path/level-1/01-setup/)
 
 ## Exercise
 

@@ -130,9 +130,9 @@ the `try` or `catch` returns or re-throws, because the engine's unwind logic tre
 how control flow is trying to leave it.
 ## 🔀 See this in another language
 
-- [TypeScript — Enums](https://sigilipelli.github.io/typescript-mastery-path/level-1/08-enums/)
-- [Ruby — Blocks, Procs & Lambdas Introduction](https://sigilipelli.github.io/ruby-mastery-path/level-1/08-blocks-procs-lambdas/)
-- [R — Basic Plotting](https://sigilipelli.github.io/r-mastery-path/level-1/08-basic-plotting/)
+- [TypeScript — Enums](https://learnmasterypath.com/typescript-mastery-path/level-1/08-enums/)
+- [Ruby — Blocks, Procs & Lambdas Introduction](https://learnmasterypath.com/ruby-mastery-path/level-1/08-blocks-procs-lambdas/)
+- [R — Basic Plotting](https://learnmasterypath.com/r-mastery-path/level-1/08-basic-plotting/)
 
 ## Exercise
 

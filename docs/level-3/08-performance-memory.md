@@ -234,7 +234,7 @@ purposes, so an entry disappears on its own once nothing else references the key
 without needing manual cleanup code at all.
 ## 🔀 See this in another language
 
-- [C# — 09 · Performance & Memory (Span, structs)](https://sigilipelli.github.io/csharp-mastery-path/level-3/09-performance-memory/)
+- [C# — 09 · Performance & Memory (Span, structs)](https://learnmasterypath.com/csharp-mastery-path/level-3/09-performance-memory/)
 
 ## Exercise
 

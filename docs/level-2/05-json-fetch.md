@@ -185,9 +185,9 @@ resolution to be queued as a microtask once the response event arrives from that
 thread.
 ## 🔀 See this in another language
 
-- [TypeScript — 08 · Working with JSON/APIs](https://sigilipelli.github.io/typescript-mastery-path/level-2/08-working-with-json-apis/)
-- [C# — 07 · Working with JSON (System.Text.Json)](https://sigilipelli.github.io/csharp-mastery-path/level-2/07-json-system-text-json/)
-- [Ruby — 06 · Working with JSON/APIs](https://sigilipelli.github.io/ruby-mastery-path/level-2/06-json-apis/)
+- [TypeScript — 08 · Working with JSON/APIs](https://learnmasterypath.com/typescript-mastery-path/level-2/08-working-with-json-apis/)
+- [C# — 07 · Working with JSON (System.Text.Json)](https://learnmasterypath.com/csharp-mastery-path/level-2/07-json-system-text-json/)
+- [Ruby — 06 · Working with JSON/APIs](https://learnmasterypath.com/ruby-mastery-path/level-2/06-json-apis/)
 
 ## Exercise
 

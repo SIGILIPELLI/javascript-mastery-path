@@ -239,7 +239,7 @@ per-connection resource limits (each open connection typically costs the databas
 server real memory for its own session state, independent of your Node process).
 ## 🔀 See this in another language
 
-- [C# — 07 · Working with Databases (EF Core migrations)](https://sigilipelli.github.io/csharp-mastery-path/level-3/07-ef-core-migrations/)
+- [C# — 07 · Working with Databases (EF Core migrations)](https://learnmasterypath.com/csharp-mastery-path/level-3/07-ef-core-migrations/)
 
 ## Exercise
 

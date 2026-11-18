@@ -105,9 +105,9 @@ identity of the strings array across calls to detect "this is the same literal
 template, just with different interpolated values."
 ## 🔀 See this in another language
 
-- [TypeScript — Arrays & Objects, Typed](https://sigilipelli.github.io/typescript-mastery-path/level-1/06-arrays-objects-typed/)
-- [Ruby — Strings & String Methods](https://sigilipelli.github.io/ruby-mastery-path/level-1/06-strings/)
-- [R — Data Frames Basics](https://sigilipelli.github.io/r-mastery-path/level-1/06-data-frames-basics/)
+- [TypeScript — Arrays & Objects, Typed](https://learnmasterypath.com/typescript-mastery-path/level-1/06-arrays-objects-typed/)
+- [Ruby — Strings & String Methods](https://learnmasterypath.com/ruby-mastery-path/level-1/06-strings/)
+- [R — Data Frames Basics](https://learnmasterypath.com/r-mastery-path/level-1/06-data-frames-basics/)
 
 ## Exercise
 

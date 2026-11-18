@@ -152,9 +152,9 @@ skipped: `lastIndex` from a previous call is still there, has nothing to do with
 string, and its residual value point past where a match would have been found.
 ## 🔀 See this in another language
 
-- [Python — 06 · Regular Expressions](https://sigilipelli.github.io/python-mastery-path/level-2/06-regular-expressions/)
-- [Shell/Bash — 03 · Regular Expressions in Bash](https://sigilipelli.github.io/shell-mastery-path/level-2/03-regular-expressions/)
-- [PowerShell — 04 · Regular Expressions in PowerShell](https://sigilipelli.github.io/powershell-mastery-path/level-2/04-regular-expressions/)
+- [Python — 06 · Regular Expressions](https://learnmasterypath.com/python-mastery-path/level-2/06-regular-expressions/)
+- [Shell/Bash — 03 · Regular Expressions in Bash](https://learnmasterypath.com/shell-mastery-path/level-2/03-regular-expressions/)
+- [PowerShell — 04 · Regular Expressions in PowerShell](https://learnmasterypath.com/powershell-mastery-path/level-2/04-regular-expressions/)
 
 ## Exercise
 
