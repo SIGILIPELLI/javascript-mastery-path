@@ -1,3 +1,7 @@
+---
+description: "Level 4 (Master) of the free JavaScript Mastery Path: Full-Stack Architecture Patterns, Advanced TypeScript, Microservices & Serverless Patterns, Advanced…"
+---
+
 # Level 4 · Master
 
 ## Modules

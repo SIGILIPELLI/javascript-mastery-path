@@ -1,3 +1,7 @@
+---
+description: "Level 2 (Intermediate) of the free JavaScript Mastery Path: Closures & Scope Deep Dive, Prototypes & Classes, Asynchronous JavaScript I, Promises &…"
+---
+
 # Level 2 · Intermediate
 
 ## Modules

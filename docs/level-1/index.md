@@ -1,3 +1,7 @@
+---
+description: "Level 1 (Entry) of the free JavaScript Mastery Path. Get comfortable reading and writing JavaScript, understand its core building blocks in both Node.js and…"
+---
+
 # Level 1 · Entry <span class="level-badge">Foundations</span>
 
 Goal: get comfortable reading and writing JavaScript, understand its core building

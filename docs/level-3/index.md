@@ -1,3 +1,7 @@
+---
+description: "Level 3 (Advanced) of the free JavaScript Mastery Path: Advanced Async Patterns, Node.js Fundamentals, Building a REST API with Express, Working with…"
+---
+
 # Level 3 · Advanced
 
 ## Modules
