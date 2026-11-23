@@ -109,7 +109,9 @@ Quick-reference tables from **15 lessons** of the free JavaScript Mastery Path, 
 | `Promise.race` | the first one settles (either way) | first settled one is a rejection |
 | `Promise.any` | the first one fulfills | all reject (`AggregateError`) |
 
-### [03 · Building a REST API with Express](level-3/03-rest-api-express.md)
+### [02 · Node.js Fundamentals &amp; REST APIs with Express](level-3/02-nodejs-express-rest-api.md)
+
+*Part 2 · Building a REST API with Express*
 
 | Code | Meaning | Typical use |
 |------|---------|--------------|
@@ -121,7 +123,7 @@ Quick-reference tables from **15 lessons** of the free JavaScript Mastery Path, 
 | 404 | Not Found | resource doesn't exist |
 | 500 | Internal Server Error | unhandled exception |
 
-### [05 · Design Patterns in JavaScript](level-3/05-design-patterns.md)
+### [04 · Design Patterns in JavaScript](level-3/04-design-patterns.md)
 
 | Pattern | Problem it solves | JS building block |
 |---------|--------------------|--------------------|
@@ -130,7 +132,7 @@ Quick-reference tables from **15 lessons** of the free JavaScript Mastery Path, 
 | Factory | centralize object creation logic | a function returning different objects/classes |
 | Observer | decouple "something happened" from "what to do about it" | listener arrays / `EventEmitter` |
 
-### [09 · Security Basics](level-3/09-security-basics.md)
+### [08 · Security Basics](level-3/08-security-basics.md)
 
 | Threat | Defense |
 |--------|---------|
@@ -140,7 +142,7 @@ Quick-reference tables from **15 lessons** of the free JavaScript Mastery Path, 
 | Malformed/malicious input | validate shape and type at the boundary (schema libraries like `zod`) |
 | Vulnerable dependencies | `npm audit`, keep packages updated, minimize dependency count |
 
-### [10 · Build &amp; Bundling Deep Dive](level-3/10-build-bundling.md)
+### [09 · Build &amp; Bundling Deep Dive](level-3/09-build-bundling.md)
 
 | Technique | What it does | Enabled by |
 |-----------|----------------|------------|

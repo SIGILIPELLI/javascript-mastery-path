@@ -562,7 +562,7 @@ Concurrent execution takes as long as the slowest request.
 
 The array of results matches input order regardless of which finishes first.
 
-### [02 · Node.js Fundamentals](level-3/02-nodejs-fundamentals.md)
+### [02 · Node.js Fundamentals &amp; REST APIs with Express](level-3/02-nodejs-express-rest-api.md)
 
 **Q85.** Which is true about require() and ES modules?
 
@@ -588,8 +588,6 @@ In CommonJS the extension is optional; in ES modules it is required.
 
 require calls can happen conditionally anywhere in a file.
 
-### [03 · Building a REST API with Express](level-3/03-rest-api-express.md)
-
 **Q89.** What does app.use(express.json()) do?
 
 **Answer:** Parses JSON request bodies into req.body
@@ -614,7 +612,7 @@ Route params use req.params; query strings use req.query; JSON bodies use req.bo
 
 The handler validates input and returns res.status(400).json({ error: "text is required" }).
 
-### [04 · Working with Databases](level-3/04-databases.md)
+### [03 · Working with Databases](level-3/03-databases.md)
 
 **Q93.** Why use prepared statements with ? placeholders?
 
@@ -640,7 +638,7 @@ SQLite stores data in a file on disk, so it persists.
 
 MongoDB suits rapidly changing or nested data and uses a JSON-like query language.
 
-### [05 · Design Patterns in JavaScript](level-3/05-design-patterns.md)
+### [04 · Design Patterns in JavaScript](level-3/04-design-patterns.md)
 
 **Q97.** What is the goal of the module pattern?
 
@@ -666,7 +664,7 @@ These are described as four of the most common patterns.
 
 Only exported functions can access or change it.
 
-### [06 · Introduction to TypeScript](level-3/06-intro-typescript.md)
+### [05 · Introduction to TypeScript](level-3/05-intro-typescript.md)
 
 **Q101.** What does TypeScript compile to?
 
@@ -692,7 +690,7 @@ Optional properties may be omitted without a compile error.
 
 TypeScript checks that values used as that type match the shape.
 
-### [07 · Testing Frameworks Deep Dive](level-3/07-testing-deep-dive.md)
+### [06 · Testing Frameworks Deep Dive](level-3/06-testing-deep-dive.md)
 
 **Q105.** Why mock a dependency such as an email service in a test?
 
@@ -718,7 +716,7 @@ toHaveBeenCalledTimes(1) checks how many times it was called.
 
 The module goes beyond unit tests to integration tests against an Express app.
 
-### [08 · Performance &amp; Memory](level-3/08-performance-memory.md)
+### [07 · Performance &amp; Memory](level-3/07-performance-memory.md)
 
 **Q109.** What is the first rule of performance work?
 
@@ -744,7 +742,7 @@ Then open chrome://inspect and click inspect under Remote Target.
 
 It points to a memory-usage problem rather than a raw CPU one.
 
-### [09 · Security Basics](level-3/09-security-basics.md)
+### [08 · Security Basics](level-3/08-security-basics.md)
 
 **Q113.** What is the safe way to insert untrusted text into the page?
 
@@ -770,7 +768,7 @@ For example, a hidden auto-submitting form on an attacker's page pointed at POST
 
 It is one of the practices covered alongside input sanitization.
 
-### [10 · Build &amp; Bundling Deep Dive](level-3/10-build-bundling.md)
+### [09 · Build &amp; Bundling Deep Dive](level-3/09-build-bundling.md)
 
 **Q117.** What does Vite use during development vs. production?
 
@@ -796,7 +794,7 @@ In the example it forwards to http://localhost:3000.
 
 It is one of the techniques that most affects real-world load performance.
 
-### [11 · Project — REST API + Database](level-3/11-project-rest-api-db.md)
+### [10 · Project — REST API + Database](level-3/10-project-rest-api-db.md)
 
 **Q121.** Why does the project use an in-memory database (:memory:) for tests?
 

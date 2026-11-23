@@ -2,7 +2,7 @@
 description: "Introduction to TypeScript — greet('Ada'); // Hello, Ada! greet('Ada', 'Welcome'); // Welcome, Ada!"
 ---
 
-# 06 · Introduction to TypeScript
+# 05 · Introduction to TypeScript
 
 ## 🎥 Video walkthrough
 
