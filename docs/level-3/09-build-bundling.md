@@ -2,7 +2,7 @@
 description: "Build & Bundling Deep Dive — Bundlers combine many source modules into a small number of optimized output files, resolve import/require graphs, transpile…"
 ---
 
-# 10 · Build & Bundling Deep Dive
+# 09 · Build & Bundling Deep Dive
 
 ## 🎥 Video walkthrough
 

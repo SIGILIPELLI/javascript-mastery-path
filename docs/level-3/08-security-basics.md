@@ -2,7 +2,7 @@
 description: "Security Basics — XSS happens when untrusted input is rendered as HTML/JavaScript in a page, letting an attacker run their own script in another user's…"
 ---
 
-# 09 · Security Basics
+# 08 · Security Basics
 
 ## 🎥 Video walkthrough
 
@@ -136,7 +136,7 @@ console.log(validateSignup({ email: "not-an-email", password: "short", username:
 // Never build SQL from string concatenation — this is a SQL injection hole:
 // db.exec(`SELECT * FROM users WHERE email = '${email}'`); // NEVER do this
 
-// Instead, always use parameterized queries (covered in Module 4):
+// Instead, always use parameterized queries (covered in Module 3):
 const stmt = db.prepare("SELECT * FROM users WHERE email = ?");
 const user = stmt.get(email); // the driver handles escaping safely
 ```
@@ -232,7 +232,7 @@ changes at all, as long as the browser honors the attribute (older browsers don'
 ## Exercise
 
 Add input validation to the `POST /notes` route from
-[Module 3](03-rest-api-express.md) using either hand-written checks or
+[Module 2](02-nodejs-express-rest-api.md) using either hand-written checks or
 `zod`: `text` must be a non-empty string under 280 characters. Then write an
 `escapeHtml` sanitizer and use it before storing/echoing back the note text
 in a hypothetical HTML view, and run `npm audit` on a scratch project to see

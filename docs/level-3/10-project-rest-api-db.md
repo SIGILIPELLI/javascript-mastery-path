@@ -2,7 +2,7 @@
 description: "Project — REST API + Database — A complete backend project combining everything from Level 3: Express routing and middleware, SQLite persistence, input…"
 ---
 
-# 11 · Project — REST API + Database
+# 10 · Project — REST API + Database
 
 A complete backend project combining everything from Level 3: Express
 routing and middleware, SQLite persistence, input validation, centralized
@@ -414,14 +414,14 @@ logic end-to-end.
   `?page=1&limit=10`.
 - Add a second resource, `authors`, with a foreign key from `books` to
   `authors` (see the schema-modeling section of
-  [Module 4](04-databases.md)), and a `GET /authors/:id/books` route.
+  [Module 3](03-databases.md)), and a `GET /authors/:id/books` route.
 - Add basic API-key middleware (as in
-  [Module 3](03-rest-api-express.md)) protecting the `POST`/`PUT`/`DELETE`
+  [Module 2](02-nodejs-express-rest-api.md)) protecting the `POST`/`PUT`/`DELETE`
   routes, plus a supertest case asserting `401` without a key.
 - Add request validation with `zod` (see
-  [Module 9](09-security-basics.md)) instead of the hand-written
+  [Module 8](08-security-basics.md)) instead of the hand-written
   `validateBook` checks.
-- Swap SQLite for MongoDB (see [Module 4](04-databases.md)) and adjust the
+- Swap SQLite for MongoDB (see [Module 3](03-databases.md)) and adjust the
   controller to use the `mongodb` driver instead of prepared statements,
   keeping the routes/tests unchanged to see how cleanly the data layer can
   be swapped out.
@@ -430,6 +430,6 @@ Completing this project means you're ready for **Level 4 · Master**.
 
 ## 🔀 See this in another language
 
-- [Python — 11 · Project — REST API + Database](https://learnmasterypath.com/python-mastery-path/level-3/11-project-rest-api-db/)
-- [Java — 11 · Project — REST API + Database CRUD Service](https://learnmasterypath.com/java-mastery-path/level-3/11-project-rest-api-db/)
+- [Python — 11 · Project — REST API + Database](https://learnmasterypath.com/python-mastery-path/level-3/10-project-rest-api-db/)
+- [Java — 11 · Project — REST API + Database CRUD Service](https://learnmasterypath.com/java-mastery-path/level-3/10-project-rest-api-db/)
 - [Swift — 10 · Project — REST API + Database Service](https://learnmasterypath.com/swift-mastery-path/level-3/10-project-rest-api-db/)
