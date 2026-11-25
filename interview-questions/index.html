@@ -1,0 +1,4163 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="184 JavaScript interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the JavaScript Mastery Path.">
+      
+      
+      
+        <link rel="canonical" href="https://learnmasterypath.com/javascript-mastery-path/interview-questions/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../cheat-sheet/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+  
+  <title>JavaScript Interview Questions and Answers (184 Questions)</title>
+
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/progress-tracker.css">
+    
+      <link rel="stylesheet" href="../stylesheets/final-quiz.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05VBGCXN12"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-05VBGCXN12');
+  </script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mastery Path">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="JavaScript Interview Questions and Answers (184 Questions)">
+  <meta property="og:description" content="184 JavaScript interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the JavaScript Mastery Path.">
+  <meta property="og:url" content="https://learnmasterypath.com/javascript-mastery-path/interview-questions/">
+  <meta property="og:image" content="https://learnmasterypath.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mastery Path: free structured courses, beginner to master">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JavaScript Interview Questions and Answers (184 Questions)">
+  <meta name="twitter:description" content="184 JavaScript interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the JavaScript Mastery Path.">
+  <meta name="twitter:image" content="https://learnmasterypath.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9440969811959397"
+     crossorigin="anonymous"></script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Mastery Path", "item": "https://learnmasterypath.com/"},
+      {"@type": "ListItem", "position": 2, "name": "JavaScript Mastery Path", "item": "https://learnmasterypath.com/javascript-mastery-path/"},
+      {"@type": "ListItem", "position": 3, "name": "Interview Questions", "item": "https://learnmasterypath.com/javascript-mastery-path/interview-questions/"}
+    ]
+  }
+  </script>
+  <style>
+    .md-banner a:hover { text-decoration: underline !important; }
+    .mp-related { margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest); font-size: .78rem; }
+    .mp-related h2 { font-size: .9rem; margin: 0 0 .5rem; }
+    .mp-related ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+    .mp-related li { margin: 0 !important; }
+  </style>
+  <script type="application/json" id="mp-course-meta">{"home": false, "id": "javascript-mastery-path", "name": "JavaScript Mastery Path", "repo": "https://github.com/SIGILIPELLI/javascript-mastery-path", "src": "interview-questions.md", "url": "https://learnmasterypath.com/javascript-mastery-path/"}</script>
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/learn.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/course.css?v=1">
+  <script src="https://learnmasterypath.com/assets/learn.js" defer></script>
+  <script src="https://learnmasterypath.com/assets/signup.js" defer></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript-interview-questions-and-answers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <a href="https://learnmasterypath.com/" style="color: inherit; text-decoration: none;">
+    &larr; Mastery Path &middot; all 100+ free courses
+  </a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/search/" style="color: inherit; text-decoration: none;">Search all courses</a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/resume/" style="color: inherit; font-weight: 700; text-decoration: none;">
+    Got the skills? Free resume ATS check &rarr;
+  </a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="JavaScript Mastery Path" class="md-header__button md-logo" aria-label="JavaScript Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Mastery Path
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JavaScript Interview Questions and Answers (184 Questions)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SIGILIPELLI/javascript-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    javascript-mastery-path
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Questions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cheat-sheet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Cheat Sheet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 1 · Entry
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-2/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 2 · Intermediate
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-3/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 3 · Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-4/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 4 · Master
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quiz/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Final Quiz
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="JavaScript Mastery Path" class="md-nav__button md-logo" aria-label="JavaScript Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    JavaScript Mastery Path
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SIGILIPELLI/javascript-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    javascript-mastery-path
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · Entry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · Entry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-setup-first-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Setup &amp; First Program
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-variables-data-types-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Variables, Data Types &amp; Operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-control-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Control Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-functions-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Functions &amp; Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-arrays-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Arrays &amp; Objects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-strings-template-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Strings &amp; Template Literals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-dom-basics-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · DOM Basics &amp; Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-error-handling-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Error Handling Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-modules-npm-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Modules &amp; npm Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-browser-to-do-list-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Browser To-Do List App
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Intermediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Intermediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-closures-scope-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Closures &amp; Scope Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-prototypes-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Prototypes &amp; Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-asynchronous-javascript-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Asynchronous JavaScript I
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-promises-asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Promises &amp; Async/Await
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-working-with-json-fetch-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Working with JSON &amp; Fetch API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-regular-expressions-in-js" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Regular Expressions in JS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-error-handling-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Error Handling Advanced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-testing-basics-with-jest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Testing Basics with Jest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-build-tooling-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Build Tooling Intro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-weather-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Weather Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-advanced-async-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Advanced Async Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-nodejs-fundamentals-rest-apis-with-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Node.js Fundamentals &amp; REST APIs with Express
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-working-with-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Working with Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-design-patterns-in-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Design Patterns in JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-introduction-to-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Introduction to TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-testing-frameworks-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Testing Frameworks Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-performance-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Performance &amp; Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-security-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Security Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-build-bundling-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Build &amp; Bundling Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-rest-api-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — REST API + Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Master
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Master">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-full-stack-architecture-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Full-Stack Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-advanced-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Advanced TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-microservices-serverless-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Microservices &amp; Serverless Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-advanced-security-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Advanced Security Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-testing-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Testing at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-scaling-nodejs-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Scaling Node.js Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-real-time-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Real-Time Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-cicd-for-javascript-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · CI/CD for JavaScript Projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixed-questions-across-all-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixed questions across all levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-coding-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical coding questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical coding questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-words-by-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Group words by length
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-promises-in-parallel-and-handle-an-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run promises in parallel and handle an error
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1 · Entry
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 1 · Entry
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/01-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Setup & First Program
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/02-variables-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Variables, Data Types & Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/03-control-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/04-functions-scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Functions & Scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/05-arrays-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Arrays & Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/06-strings-template-literals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Strings & Template Literals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/07-dom-events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · DOM Basics & Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/08-error-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Error Handling Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/09-modules-npm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Modules & npm Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/10-project-todo-app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Browser To-Do List App
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2 · Intermediate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 2 · Intermediate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/01-closures-scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Closures & Scope Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/02-prototypes-classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Prototypes & Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/03-async-javascript-i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Asynchronous JavaScript I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/04-promises-async-await/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Promises & Async/Await
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/05-json-fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Working with JSON & Fetch API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/06-regular-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Regular Expressions in JS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/07-error-handling-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Error Handling Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/08-testing-jest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Testing Basics with Jest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/09-build-tooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Build Tooling Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/10-project-weather-dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Weather Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-3/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3 · Advanced
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 3 · Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/01-advanced-async-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Advanced Async Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/02-nodejs-express-rest-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Node.js Fundamentals & REST APIs with Express
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/03-databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Working with Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/04-design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Design Patterns in JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/05-intro-typescript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Introduction to TypeScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/06-testing-deep-dive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Testing Frameworks Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/07-performance-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Performance & Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/08-security-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Security Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/09-build-bundling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Build & Bundling Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/10-project-rest-api-db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — REST API + Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-4/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4 · Master
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 4 · Master
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/01-fullstack-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Full-Stack Architecture Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/02-advanced-typescript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Advanced TypeScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/03-microservices-serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Microservices & Serverless Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/04-advanced-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Advanced Security Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/05-testing-at-scale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Testing at Scale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/06-scaling-nodejs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Scaling Node.js Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/07-realtime-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Real-Time Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/08-cicd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · CI/CD for JavaScript Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/09-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/10-capstone-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Capstone Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · Entry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · Entry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-setup-first-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Setup &amp; First Program
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-variables-data-types-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Variables, Data Types &amp; Operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-control-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Control Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-functions-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Functions &amp; Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-arrays-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Arrays &amp; Objects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-strings-template-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Strings &amp; Template Literals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-dom-basics-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · DOM Basics &amp; Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-error-handling-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Error Handling Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-modules-npm-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Modules &amp; npm Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-browser-to-do-list-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Browser To-Do List App
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Intermediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Intermediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-closures-scope-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Closures &amp; Scope Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-prototypes-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Prototypes &amp; Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-asynchronous-javascript-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Asynchronous JavaScript I
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-promises-asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Promises &amp; Async/Await
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-working-with-json-fetch-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Working with JSON &amp; Fetch API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-regular-expressions-in-js" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Regular Expressions in JS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-error-handling-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Error Handling Advanced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-testing-basics-with-jest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Testing Basics with Jest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-build-tooling-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Build Tooling Intro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-weather-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Weather Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-advanced-async-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Advanced Async Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-nodejs-fundamentals-rest-apis-with-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Node.js Fundamentals &amp; REST APIs with Express
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-working-with-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Working with Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-design-patterns-in-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Design Patterns in JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-introduction-to-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Introduction to TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-testing-frameworks-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Testing Frameworks Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-performance-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Performance &amp; Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-security-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Security Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-build-bundling-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Build &amp; Bundling Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-rest-api-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — REST API + Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Master
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Master">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-full-stack-architecture-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Full-Stack Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-advanced-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Advanced TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-microservices-serverless-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Microservices &amp; Serverless Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-advanced-security-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Advanced Security Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-testing-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Testing at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-scaling-nodejs-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Scaling Node.js Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-real-time-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Real-Time Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-cicd-for-javascript-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · CI/CD for JavaScript Projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixed-questions-across-all-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixed questions across all levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-coding-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical coding questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical coding questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-words-by-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Group words by length
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-promises-in-parallel-and-handle-an-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run promises in parallel and handle an error
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<h1 id="javascript-interview-questions-and-answers">JavaScript Interview Questions and Answers<a class="headerlink" href="#javascript-interview-questions-and-answers" title="Permanent link">&para;</a></h1>
+<p><strong>184 questions</strong> with the correct answer and a short explanation, organised from beginner (Level 1) to advanced (Level 4). Every question comes from a lesson in the free JavaScript Mastery Path, so you can open the lesson to go deeper.</p>
+<div class="admonition tip">
+<p class="admonition-title">Practise, don't just read</p>
+<p>Each lesson also ends with an interactive quiz, and the <a href="../quiz/">final quiz</a> tests all four levels. Try to answer each question below before reading the answer.</p>
+</div>
+<h2 id="level-1-entry">Level 1 · Entry<a class="headerlink" href="#level-1-entry" title="Permanent link">&para;</a></h2>
+<h3 id="01-setup-first-program"><a href="../level-1/01-setup/">01 · Setup &amp; First Program</a><a class="headerlink" href="#01-setup-first-program" title="Permanent link">&para;</a></h3>
+<p><strong>Q1.</strong> What does REPL stand for, and what is it for in Node?</p>
+<p><strong>Answer:</strong> Read-Eval-Print Loop, an interactive shell for quick experiments</p>
+<p>Typing node with no file opens the REPL, where each expression is evaluated and its result printed.</p>
+<p><strong>Q2.</strong> Which command runs a file named hello.js with Node?</p>
+<p><strong>Answer:</strong> node hello.js</p>
+<p>Pass the file path to the node binary.</p>
+<p><strong>Q3.</strong> In the lesson's explanation, which engine does Node use to run JavaScript, and what is libuv for?</p>
+<p><strong>Answer:</strong> V8 runs the JavaScript; libuv provides the event loop, thread pool and non-blocking I/O</p>
+<p>Node is a C++ shell around V8 plus libuv; V8 runs pure JavaScript while Node adds I/O and timers.</p>
+<p><strong>Q4.</strong> Why can the same hello.js run in Node and in a browser page?</p>
+<p><strong>Answer:</strong> It is the same JavaScript, as long as it avoids Node-only or browser-only APIs</p>
+<p>The language is shared; APIs such as the DOM or file system are provided by the host environment.</p>
+<h3 id="02-variables-data-types-operators"><a href="../level-1/02-variables-data-types/">02 · Variables, Data Types &amp; Operators</a><a class="headerlink" href="#02-variables-data-types-operators" title="Permanent link">&para;</a></h3>
+<p><strong>Q5.</strong> Which declaration should you prefer by default?</p>
+<p><strong>Answer:</strong> const</p>
+<p>Use const by default, let when the value must change, and avoid var.</p>
+<p><strong>Q6.</strong> What does typeof null return?</p>
+<p><strong>Answer:</strong> "object"</p>
+<p>This is a famous long-standing JavaScript quirk.</p>
+<p><strong>Q7.</strong> What is the result of 5 === "5"?</p>
+<p><strong>Answer:</strong> false</p>
+<p>Strict equality checks type as well as value; loose == would coerce and return true.</p>
+<p><strong>Q8.</strong> Which value is truthy?</p>
+<p><strong>Answer:</strong> "x" (a non-empty string)</p>
+<p>The falsy values are false, 0, "", null, undefined and NaN; everything else is truthy.</p>
+<h3 id="03-control-flow"><a href="../level-1/03-control-flow/">03 · Control Flow</a><a class="headerlink" href="#03-control-flow" title="Permanent link">&para;</a></h3>
+<p><strong>Q9.</strong> What does a do...while loop guarantee that a while loop does not?</p>
+<p><strong>Answer:</strong> The body runs at least once</p>
+<p>do...while checks its condition after the body, so the body runs once even when the condition is false.</p>
+<p><strong>Q10.</strong> Which loop is preferred for iterating over the values of an array?</p>
+<p><strong>Answer:</strong> for...of</p>
+<p>for...of gives values; for...in gives keys or indexes and is mainly for objects.</p>
+<p><strong>Q11.</strong> In a switch, what happens if a case has no break or return?</p>
+<p><strong>Answer:</strong> Execution falls through to the next case</p>
+<p>Falling through is intentional when grouping cases such as "Sat" and "Sun".</p>
+<p><strong>Q12.</strong> What does <code>continue</code> do inside a loop?</p>
+<p><strong>Answer:</strong> Skips the rest of the current iteration and moves to the next</p>
+<p>In the lesson it skips odd numbers; break is what exits the loop.</p>
+<h3 id="04-functions-scope"><a href="../level-1/04-functions-scope/">04 · Functions &amp; Scope</a><a class="headerlink" href="#04-functions-scope" title="Permanent link">&para;</a></h3>
+<p><strong>Q13.</strong> What does a rest parameter such as ...numbers provide?</p>
+<p><strong>Answer:</strong> A real array containing the extra arguments</p>
+<p>Rest parameters gather the remaining arguments into an actual array.</p>
+<p><strong>Q14.</strong> What happens if you reference a let variable before its declaration?</p>
+<p><strong>Answer:</strong> ReferenceError (temporal dead zone)</p>
+<p>let and const are hoisted but not initialized, so access before declaration throws.</p>
+<p><strong>Q15.</strong> What does typeof a var variable return when read before its assignment line?</p>
+<p><strong>Answer:</strong> "undefined"</p>
+<p>var is hoisted as a declaration only, so its value is undefined until the assignment runs.</p>
+<p><strong>Q16.</strong> Which statement about arrow functions is true, according to the lesson?</p>
+<p><strong>Answer:</strong> They do not have their own this</p>
+<p>Arrow functions offer shorter syntax and do not bind their own this.</p>
+<h3 id="05-arrays-objects"><a href="../level-1/05-arrays-objects/">05 · Arrays &amp; Objects</a><a class="headerlink" href="#05-arrays-objects" title="Permanent link">&para;</a></h3>
+<p><strong>Q17.</strong> Which statement about map, filter and reduce is correct?</p>
+<p><strong>Answer:</strong> They return new arrays or values without mutating the original</p>
+<p>Prefer them over manual loops for transformations.</p>
+<p><strong>Q18.</strong> Why does the lesson write [...numbers].sort(...) instead of numbers.sort(...)?</p>
+<p><strong>Answer:</strong> sort mutates the array, so sorting a copy protects the original</p>
+<p>Array.sort sorts in place; copying first leaves the original unchanged.</p>
+<p><strong>Q19.</strong> What does nested.profile?.social?.twitter return when social is null?</p>
+<p><strong>Answer:</strong> undefined, with no error</p>
+<p>Optional chaining short-circuits to undefined; adding ?? "none" supplies a fallback.</p>
+<p><strong>Q20.</strong> How do you read the last element of an array with modern syntax?</p>
+<p><strong>Answer:</strong> fruits.at(-1)</p>
+<p>at(-1) is cleaner than fruits[fruits.length - 1].</p>
+<h3 id="06-strings-template-literals"><a href="../level-1/06-strings-template-literals/">06 · Strings &amp; Template Literals</a><a class="headerlink" href="#06-strings-template-literals" title="Permanent link">&para;</a></h3>
+<p><strong>Q21.</strong> What does <code>str.toUpperCase();</code> on its own line do to str?</p>
+<p><strong>Answer:</strong> Nothing to str; it returns a new string you must assign</p>
+<p>Strings are immutable, so every modification returns a new string.</p>
+<p><strong>Q22.</strong> Which syntax inserts a variable into a template literal?</p>
+<p><strong>Answer:</strong> <code>${value}</code></p>
+<p>Template literals use backticks and ${} for embedded expressions.</p>
+<p><strong>Q23.</strong> What does "hello".startsWith("he") return?</p>
+<p><strong>Answer:</strong> true</p>
+<p>startsWith tests whether the string begins with the given text.</p>
+<p><strong>Q24.</strong> Which method pads a string on the left to a given width?</p>
+<p><strong>Answer:</strong> padStart</p>
+<p>padStart(n) pads at the start; padEnd(n) pads at the end.</p>
+<h3 id="07-dom-basics-events"><a href="../level-1/07-dom-events/">07 · DOM Basics &amp; Events</a><a class="headerlink" href="#07-dom-basics-events" title="Permanent link">&para;</a></h3>
+<p><strong>Q25.</strong> Which method returns all elements matching a CSS selector?</p>
+<p><strong>Answer:</strong> document.querySelectorAll()</p>
+<p>querySelectorAll returns a NodeList of every match; querySelector returns only the first.</p>
+<p><strong>Q26.</strong> What is event delegation?</p>
+<p><strong>Answer:</strong> Attaching one listener to a parent and checking event.target for the child that was clicked</p>
+<p>It scales better, especially when children are added or removed dynamically.</p>
+<p><strong>Q27.</strong> Which event fires as a user types in a form field?</p>
+<p><strong>Answer:</strong> input</p>
+<p>input fires whenever the field's value changes; submit fires when the form is submitted.</p>
+<p><strong>Q28.</strong> Why can't the DOM snippets run in Node.js?</p>
+<p><strong>Answer:</strong> Node.js has no DOM; they only apply in the browser</p>
+<p>The DOM is provided by the browser, not by the JavaScript language or Node.</p>
+<h3 id="08-error-handling-basics"><a href="../level-1/08-error-handling/">08 · Error Handling Basics</a><a class="headerlink" href="#08-error-handling-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q29.</strong> What does a finally block do?</p>
+<p><strong>Answer:</strong> Runs whether or not an error was thrown, for cleanup</p>
+<p>The lesson notes it always runs, no matter what.</p>
+<p><strong>Q30.</strong> How do you raise your own error?</p>
+<p><strong>Answer:</strong> throw new Error("message")</p>
+<p>throw with an Error object, as in the withdraw example for insufficient funds.</p>
+<p><strong>Q31.</strong> What does JSON.parse("not valid json") do?</p>
+<p><strong>Answer:</strong> Throws an error that a try/catch can handle</p>
+<p>The catch block receives the error and can read error.message.</p>
+<p><strong>Q32.</strong> Why is a bare catch that silently swallows everything a problem?</p>
+<p><strong>Answer:</strong> It hides bugs; you should inspect what you catch</p>
+<p>JavaScript has no typed catch clauses, so check the error inside the block.</p>
+<h3 id="09-modules-npm-basics"><a href="../level-1/09-modules-npm/">09 · Modules &amp; npm Basics</a><a class="headerlink" href="#09-modules-npm-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q33.</strong> How do you make Node treat .js files as ES modules?</p>
+<p><strong>Answer:</strong> Add "type": "module" to package.json (or name files .mjs)</p>
+<p>Node treats .js files as CommonJS by default.</p>
+<p><strong>Q34.</strong> How many default exports can an ES module file have?</p>
+<p><strong>Answer:</strong> One</p>
+<p>A file may have many named exports but only one default export.</p>
+<p><strong>Q35.</strong> What is package-lock.json for?</p>
+<p><strong>Answer:</strong> Pinning exact versions so installs are reproducible across machines</p>
+<p>npm install records dependencies in package.json and exact versions in the lock file.</p>
+<p><strong>Q36.</strong> What does npm run start do?</p>
+<p><strong>Answer:</strong> Runs the "start" script defined in package.json</p>
+<p>npm scripts are named commands defined in package.json.</p>
+<h3 id="10-project-browser-to-do-list-app"><a href="../level-1/10-project-todo-app/">10 · Project — Browser To-Do List App</a><a class="headerlink" href="#10-project-browser-to-do-list-app" title="Permanent link">&para;</a></h3>
+<p><strong>Q37.</strong> Which browser feature does the to-do project use to keep tasks between visits?</p>
+<p><strong>Answer:</strong> localStorage</p>
+<p>The project combines DOM, events, error handling and localStorage persistence.</p>
+<p><strong>Q38.</strong> Why does the project use event delegation on the task list?</p>
+<p><strong>Answer:</strong> Tasks are added and removed dynamically, so one parent listener handles clicks</p>
+<p>One listener on the parent checking event.target works for children added later.</p>
+<p><strong>Q39.</strong> Which of these is a feature of the to-do app?</p>
+<p><strong>Answer:</strong> Add, mark done, and delete tasks</p>
+<p>The app adds tasks from an input, lists them with status, marks them done and deletes them.</p>
+<p><strong>Q40.</strong> Which Level 1 topics does the project combine?</p>
+<p><strong>Answer:</strong> Functions, arrays and objects, strings, DOM, events, error handling and localStorage</p>
+<p>It is an end-to-end project tying together everything from Level 1.</p>
+<h2 id="level-2-intermediate">Level 2 · Intermediate<a class="headerlink" href="#level-2-intermediate" title="Permanent link">&para;</a></h2>
+<h3 id="01-closures-scope-deep-dive"><a href="../level-2/01-closures-scope/">01 · Closures &amp; Scope Deep Dive</a><a class="headerlink" href="#01-closures-scope-deep-dive" title="Permanent link">&para;</a></h3>
+<p><strong>Q41.</strong> What is a closure?</p>
+<p><strong>Answer:</strong> A function combined with the lexical environment it was declared in</p>
+<p>The inner function keeps a live reference to the outer variables, not a snapshot.</p>
+<p><strong>Q42.</strong> In makeCounter, why can't you read counter.count directly?</p>
+<p><strong>Answer:</strong> count is private state held in the closure, not a property of the returned object</p>
+<p>Only the returned methods can reach count; counter.count is undefined.</p>
+<p><strong>Q43.</strong> counterA and counterB come from two calls to makeCounter(). Are their counts shared?</p>
+<p><strong>Answer:</strong> No, each call creates a brand-new independent count</p>
+<p>Each call creates a separate closure, so counterA and counterB advance independently.</p>
+<p><strong>Q44.</strong> What determines a function's scope chain?</p>
+<p><strong>Answer:</strong> Where it is written in the source, not where it is called from</p>
+<p>JavaScript uses lexical scope.</p>
+<h3 id="02-prototypes-classes"><a href="../level-2/02-prototypes-classes/">02 · Prototypes &amp; Classes</a><a class="headerlink" href="#02-prototypes-classes" title="Permanent link">&para;</a></h3>
+<p><strong>Q45.</strong> What does Object.create(animal) do?</p>
+<p><strong>Answer:</strong> Makes a new object whose prototype is animal</p>
+<p>The new object looks up missing properties on animal through its prototype.</p>
+<p><strong>Q46.</strong> Why put methods on Person.prototype rather than inside the constructor?</p>
+<p><strong>Answer:</strong> Every instance shares one copy of the function in memory</p>
+<p>ada.greet === grace.greet is true because both use the same prototype function.</p>
+<p><strong>Q47.</strong> What does typeof Animal return for a class Animal?</p>
+<p><strong>Answer:</strong> "function"</p>
+<p>class is syntactic sugar; classes are functions under the hood.</p>
+<p><strong>Q48.</strong> In a subclass constructor, what must happen before using this?</p>
+<p><strong>Answer:</strong> super(...) must be called</p>
+<p>super calls the parent constructor and must run before this is used.</p>
+<h3 id="03-asynchronous-javascript-i"><a href="../level-2/03-async-javascript-i/">03 · Asynchronous JavaScript I</a><a class="headerlink" href="#03-asynchronous-javascript-i" title="Permanent link">&para;</a></h3>
+<p><strong>Q49.</strong> In the lesson's setTimeout(..., 0) example, when does the callback run?</p>
+<p><strong>Answer:</strong> After all synchronous code finishes, once the call stack is empty</p>
+<p>Even with a delay of 0, the callback waits for the call stack to empty.</p>
+<p><strong>Q50.</strong> What is a callback?</p>
+<p><strong>Answer:</strong> A function passed as an argument to be called later</p>
+<p>Callbacks are often called after an operation such as a timer or request finishes.</p>
+<p><strong>Q51.</strong> Which queue does the event loop fully drain before the task queue?</p>
+<p><strong>Answer:</strong> The microtask queue (Promise callbacks)</p>
+<p>Promise callbacks and async/await continuations go into the microtask queue.</p>
+<p><strong>Q52.</strong> What does the call stack do with function calls?</p>
+<p><strong>Answer:</strong> Pushes each call on and pops it off when it returns</p>
+<p>JavaScript runs one thing at a time; each call waits for the ones it invokes to finish.</p>
+<h3 id="04-promises-asyncawait"><a href="../level-2/04-promises-async-await/">04 · Promises &amp; Async/Await</a><a class="headerlink" href="#04-promises-asyncawait" title="Permanent link">&para;</a></h3>
+<p><strong>Q53.</strong> Which are the three states of a Promise?</p>
+<p><strong>Answer:</strong> pending, fulfilled, rejected</p>
+<p>Once it settles (fulfilled or rejected) it never changes again.</p>
+<p><strong>Q54.</strong> What does each .then return?</p>
+<p><strong>Answer:</strong> A new Promise, enabling chaining</p>
+<p>Chaining replaces the nested callback pyramid.</p>
+<p><strong>Q55.</strong> What does an async function always return?</p>
+<p><strong>Answer:</strong> A Promise</p>
+<p>async/await is syntax sugar over Promises.</p>
+<p><strong>Q56.</strong> What does await do inside an async function?</p>
+<p><strong>Answer:</strong> Pauses that function until the Promise settles, without blocking the rest of the program</p>
+<p>Execution inside the function resumes once the awaited Promise settles.</p>
+<h3 id="05-working-with-json-fetch-api"><a href="../level-2/05-json-fetch/">05 · Working with JSON &amp; Fetch API</a><a class="headerlink" href="#05-working-with-json-fetch-api" title="Permanent link">&para;</a></h3>
+<p><strong>Q57.</strong> What does JSON.stringify do with a function-valued or undefined property?</p>
+<p><strong>Answer:</strong> Omits it from the output</p>
+<p>Functions and undefined keys are silently dropped; null is preserved and Dates become ISO strings.</p>
+<p><strong>Q58.</strong> Why wrap JSON.parse in try/catch for outside data?</p>
+<p><strong>Answer:</strong> It throws a SyntaxError on invalid input</p>
+<p>Data from a network response, user or file may be malformed.</p>
+<p><strong>Q59.</strong> What does fetch return, and when does it resolve?</p>
+<p><strong>Answer:</strong> A Promise that resolves to a Response once the headers arrive; the body is read separately</p>
+<p>You then call methods such as response.json(), which also returns a Promise.</p>
+<p><strong>Q60.</strong> What does JSON.stringify(user, null, 2) produce?</p>
+<p><strong>Answer:</strong> A pretty-printed JSON string with 2-space indentation</p>
+<p>The extra arguments handle filtering and pretty-printing.</p>
+<h3 id="06-regular-expressions-in-js"><a href="../level-2/06-regular-expressions/">06 · Regular Expressions in JS</a><a class="headerlink" href="#06-regular-expressions-in-js" title="Permanent link">&para;</a></h3>
+<p><strong>Q61.</strong> What does the g flag do?</p>
+<p><strong>Answer:</strong> Finds all matches, not just the first</p>
+<p>The i flag ignores case; g finds every match.</p>
+<p><strong>Q62.</strong> Which pattern matches exactly 5 digits across the whole string?</p>
+<p><strong>Answer:</strong> /^\d{5}$/</p>
+<p>^ and $ anchor to the start and end, and {5} requires exactly five repetitions.</p>
+<p><strong>Q63.</strong> What does \w match?</p>
+<p><strong>Answer:</strong> A word character: letters, digits or underscore</p>
+<p>\d is a digit, \s whitespace and . any character except a newline.</p>
+<p><strong>Q64.</strong> How does exec() differ from test()?</p>
+<p><strong>Answer:</strong> exec returns match details (or null); test returns a boolean</p>
+<p>With the g flag, exec can be called repeatedly to step through all matches.</p>
+<h3 id="07-error-handling-advanced"><a href="../level-2/07-error-handling-advanced/">07 · Error Handling Advanced</a><a class="headerlink" href="#07-error-handling-advanced" title="Permanent link">&para;</a></h3>
+<p><strong>Q65.</strong> Why create custom Error subclasses?</p>
+<p><strong>Answer:</strong> So calling code can distinguish failure kinds by type instead of parsing messages</p>
+<p>Subclasses like ValidationError can carry extra context such as a field.</p>
+<p><strong>Q66.</strong> What does error instanceof ValidationError let a catch block do?</p>
+<p><strong>Answer:</strong> Handle different failures differently</p>
+<p>Branch on type, and re-throw errors you don't know how to handle.</p>
+<p><strong>Q67.</strong> In the signup example, why does the catch block re-throw unknown errors?</p>
+<p><strong>Answer:</strong> It doesn't know how to handle them</p>
+<p>Swallowing unknown errors would hide bugs.</p>
+<p><strong>Q68.</strong> What does try/catch around await catch?</p>
+<p><strong>Answer:</strong> Both synchronous throws and rejected Promises</p>
+<p>That is a main reason async/await is easier to reason about than raw .then() chains.</p>
+<h3 id="08-testing-basics-with-jest"><a href="../level-2/08-testing-jest/">08 · Testing Basics with Jest</a><a class="headerlink" href="#08-testing-basics-with-jest" title="Permanent link">&para;</a></h3>
+<p><strong>Q69.</strong> Which file names does Jest look for by default?</p>
+<p><strong>Answer:</strong> *.test.js or files inside a <strong>tests</strong> folder</p>
+<p>Each test is a test() or it() call with a description and assertions.</p>
+<p><strong>Q70.</strong> Which matcher checks deep equality of objects?</p>
+<p><strong>Answer:</strong> toEqual</p>
+<p>toBe is strict equality (===); toEqual compares objects and arrays deeply.</p>
+<p><strong>Q71.</strong> What does describe do?</p>
+<p><strong>Answer:</strong> Groups related tests for readable output and shared setup</p>
+<p>It organizes tests into named groups.</p>
+<p><strong>Q72.</strong> How should you test async code in Jest?</p>
+<p><strong>Answer:</strong> Return or await the promise inside the test</p>
+<p>Jest waits for the promise before deciding pass/fail, so async bugs aren't silently ignored.</p>
+<h3 id="09-build-tooling-intro"><a href="../level-2/09-build-tooling/">09 · Build Tooling Intro</a><a class="headerlink" href="#09-build-tooling-intro" title="Permanent link">&para;</a></h3>
+<p><strong>Q73.</strong> What does a bundler do?</p>
+<p><strong>Answer:</strong> Follows imports from an entry file and combines everything into a few output files</p>
+<p>It resolves the dependency graph so the browser needn't make dozens of separate requests.</p>
+<p><strong>Q74.</strong> What is tree-shaking?</p>
+<p><strong>Answer:</strong> Removing exported code that is never imported anywhere</p>
+<p>Minifying strips whitespace and shortens names; tree-shaking drops unused exports.</p>
+<p><strong>Q75.</strong> In "verify": "npm run lint &amp;&amp; npm run test &amp;&amp; npm run build", what happens if lint fails?</p>
+<p><strong>Answer:</strong> It stops at the first failure and does not run the rest</p>
+<p>&amp;&amp; only continues when the previous command succeeds.</p>
+<p><strong>Q76.</strong> Which npm script names can run without the word run?</p>
+<p><strong>Answer:</strong> test and start</p>
+<p>npm test and npm start are special shortcuts; others need npm run &lt;name&gt;.</p>
+<h3 id="10-project-weather-dashboard"><a href="../level-2/10-project-weather-dashboard/">10 · Project — Weather Dashboard</a><a class="headerlink" href="#10-project-weather-dashboard" title="Permanent link">&para;</a></h3>
+<p><strong>Q77.</strong> Which API does the weather dashboard project use, and does it need a key?</p>
+<p><strong>Answer:</strong> Open-Meteo, with no API key required</p>
+<p>The project uses the free Open-Meteo API.</p>
+<p><strong>Q78.</strong> Why does weather.js contain no DOM code or fetch calls?</p>
+<p><strong>Answer:</strong> So its data transformation can be unit tested with Jest without real network calls</p>
+<p>A pure data-transformation module is easy to test.</p>
+<p><strong>Q79.</strong> How should the app behave when the API fails?</p>
+<p><strong>Answer:</strong> Show a readable error instead of a blank page</p>
+<p>Graceful failure handling is a stated requirement.</p>
+<p><strong>Q80.</strong> Why do latitude and longitude default to London?</p>
+<p><strong>Answer:</strong> So the form works immediately without a geocoding step</p>
+<p>The defaults remove the need for a geocoding lookup.</p>
+<h2 id="level-3-advanced">Level 3 · Advanced<a class="headerlink" href="#level-3-advanced" title="Permanent link">&para;</a></h2>
+<h3 id="01-advanced-async-patterns"><a href="../level-3/01-advanced-async-patterns/">01 · Advanced Async Patterns</a><a class="headerlink" href="#01-advanced-async-patterns" title="Permanent link">&para;</a></h3>
+<p><strong>Q81.</strong> What does Promise.all do if one promise rejects?</p>
+<p><strong>Answer:</strong> Rejects immediately with that error</p>
+<p>The other promises keep running, but their results are discarded.</p>
+<p><strong>Q82.</strong> What does Promise.allSettled return?</p>
+<p><strong>Answer:</strong> The outcome of every promise, fulfilled or rejected, never short-circuiting</p>
+<p>Use it when partial results are useful, such as checking which services are up.</p>
+<p><strong>Q83.</strong> In loadDashboard, why is the total wait about 50ms rather than 80ms?</p>
+<p><strong>Answer:</strong> Both requests run concurrently via Promise.all</p>
+<p>Concurrent execution takes as long as the slowest request.</p>
+<p><strong>Q84.</strong> In what order does Promise.all return results?</p>
+<p><strong>Answer:</strong> The same order the promises were passed in</p>
+<p>The array of results matches input order regardless of which finishes first.</p>
+<h3 id="02-nodejs-fundamentals-rest-apis-with-express"><a href="../level-3/02-nodejs-express-rest-api/">02 · Node.js Fundamentals &amp; REST APIs with Express</a><a class="headerlink" href="#02-nodejs-fundamentals-rest-apis-with-express" title="Permanent link">&para;</a></h3>
+<p><strong>Q85.</strong> Which is true about require() and ES modules?</p>
+<p><strong>Answer:</strong> You can't require() an ES module, but ESM can import most CommonJS packages</p>
+<p>The lesson's "mixing systems" section covers this.</p>
+<p><strong>Q86.</strong> How do you get __dirname in an ES module?</p>
+<p><strong>Answer:</strong> Derive it from import.meta.url using fileURLToPath and dirname</p>
+<p>__dirname and __filename exist only in CommonJS.</p>
+<p><strong>Q87.</strong> Is the file extension required in ESM imports in Node?</p>
+<p><strong>Answer:</strong> Yes, e.g. ./math.js</p>
+<p>In CommonJS the extension is optional; in ES modules it is required.</p>
+<p><strong>Q88.</strong> Why was ESM introduced, per the lesson?</p>
+<p><strong>Answer:</strong> CommonJS require is synchronous and can be called anywhere, whereas ESM has stricter static import rules</p>
+<p>require calls can happen conditionally anywhere in a file.</p>
+<p><strong>Q89.</strong> What does app.use(express.json()) do?</p>
+<p><strong>Answer:</strong> Parses JSON request bodies into req.body</p>
+<p>Without it, req.body would not hold the parsed JSON body.</p>
+<p><strong>Q90.</strong> Which HTTP status code does the lesson return when a new note is created?</p>
+<p><strong>Answer:</strong> 201 Created</p>
+<p>The POST route responds with res.status(201).json(note).</p>
+<p><strong>Q91.</strong> For the route /notes/:id, how do you read the id?</p>
+<p><strong>Answer:</strong> req.params.id</p>
+<p>Route params use req.params; query strings use req.query; JSON bodies use req.body.</p>
+<p><strong>Q92.</strong> A client POSTs to /notes without a text field. What does the lesson's route return?</p>
+<p><strong>Answer:</strong> 400 with an error that text is required</p>
+<p>The handler validates input and returns res.status(400).json({ error: "text is required" }).</p>
+<h3 id="03-working-with-databases"><a href="../level-3/03-databases/">03 · Working with Databases</a><a class="headerlink" href="#03-working-with-databases" title="Permanent link">&para;</a></h3>
+<p><strong>Q93.</strong> Why use prepared statements with ? placeholders?</p>
+<p><strong>Answer:</strong> They are the standard defense against SQL injection</p>
+<p>Never build SQL strings from user input with template literals.</p>
+<p><strong>Q94.</strong> What is true of better-sqlite3 according to the lesson?</p>
+<p><strong>Answer:</strong> It is synchronous, so no promises are needed</p>
+<p>It is also very fast for typical app workloads.</p>
+<p><strong>Q95.</strong> What does an in-memory array lack compared with SQLite?</p>
+<p><strong>Answer:</strong> It does not survive a restart</p>
+<p>SQLite stores data in a file on disk, so it persists.</p>
+<p><strong>Q96.</strong> How does MongoDB differ from SQLite in structure?</p>
+<p><strong>Answer:</strong> Flexible documents (schema-optional) rather than fixed columns per table</p>
+<p>MongoDB suits rapidly changing or nested data and uses a JSON-like query language.</p>
+<h3 id="04-design-patterns-in-javascript"><a href="../level-3/04-design-patterns/">04 · Design Patterns in JavaScript</a><a class="headerlink" href="#04-design-patterns-in-javascript" title="Permanent link">&para;</a></h3>
+<p><strong>Q97.</strong> What is the goal of the module pattern?</p>
+<p><strong>Answer:</strong> Encapsulation: hide internal state and expose a small public interface</p>
+<p>ES modules give file-level encapsulation, and closures give it within a file.</p>
+<p><strong>Q98.</strong> What does a singleton guarantee?</p>
+<p><strong>Answer:</strong> Exactly one shared instance with a global access point</p>
+<p>In the lesson, connectionA === connectionB is true for the database connection.</p>
+<p><strong>Q99.</strong> Which four patterns does the module cover?</p>
+<p><strong>Answer:</strong> Module, singleton, factory and observer</p>
+<p>These are described as four of the most common patterns.</p>
+<p><strong>Q100.</strong> In a module, why is a non-exported variable like count private?</p>
+<p><strong>Answer:</strong> It is unreachable from outside that file</p>
+<p>Only exported functions can access or change it.</p>
+<h3 id="05-introduction-to-typescript"><a href="../level-3/05-intro-typescript/">05 · Introduction to TypeScript</a><a class="headerlink" href="#05-introduction-to-typescript" title="Permanent link">&para;</a></h3>
+<p><strong>Q101.</strong> What does TypeScript compile to?</p>
+<p><strong>Answer:</strong> Plain JavaScript</p>
+<p>Types only help catch mistakes before running the code.</p>
+<p><strong>Q102.</strong> Why is unknown safer than any?</p>
+<p><strong>Answer:</strong> It must be narrowed (e.g. with typeof) before use</p>
+<p>any disables type checking and should be a last resort.</p>
+<p><strong>Q103.</strong> What does ? mean in isAdmin?: boolean?</p>
+<p><strong>Answer:</strong> The property is optional</p>
+<p>Optional properties may be omitted without a compile error.</p>
+<p><strong>Q104.</strong> What does an interface describe?</p>
+<p><strong>Answer:</strong> The shape of an object: required properties and their types</p>
+<p>TypeScript checks that values used as that type match the shape.</p>
+<h3 id="06-testing-frameworks-deep-dive"><a href="../level-3/06-testing-deep-dive/">06 · Testing Frameworks Deep Dive</a><a class="headerlink" href="#06-testing-frameworks-deep-dive" title="Permanent link">&para;</a></h3>
+<p><strong>Q105.</strong> Why mock a dependency such as an email service in a test?</p>
+<p><strong>Answer:</strong> Tests stay fast and don't depend on network or external state</p>
+<p>A mock replaces the real dependency with a fake version you control.</p>
+<p><strong>Q106.</strong> What does jest.spyOn(logger, "info") do?</p>
+<p><strong>Answer:</strong> Wraps the method so you can assert on calls, optionally keeping the real behavior</p>
+<p>Call mockRestore() afterward to restore the original implementation.</p>
+<p><strong>Q107.</strong> Which assertion checks a mock was called with specific arguments?</p>
+<p><strong>Answer:</strong> toHaveBeenCalledWith</p>
+<p>toHaveBeenCalledTimes(1) checks how many times it was called.</p>
+<p><strong>Q108.</strong> What is supertest used for in this module?</p>
+<p><strong>Answer:</strong> Integration tests that exercise a real Express API</p>
+<p>The module goes beyond unit tests to integration tests against an Express app.</p>
+<h3 id="07-performance-memory"><a href="../level-3/07-performance-memory/">07 · Performance &amp; Memory</a><a class="headerlink" href="#07-performance-memory" title="Permanent link">&para;</a></h3>
+<p><strong>Q109.</strong> What is the first rule of performance work?</p>
+<p><strong>Answer:</strong> Measure, don't guess</p>
+<p>console.time gives quick rough timings; profilers show real bottlenecks.</p>
+<p><strong>Q110.</strong> What does a memory leak mean in a Node process?</p>
+<p><strong>Answer:</strong> References to objects are kept alive unintentionally, so the garbage collector can't reclaim them</p>
+<p>Memory grows over the process's life until it crashes.</p>
+<p><strong>Q111.</strong> Which command lets Chrome DevTools attach for flame charts and heap snapshots?</p>
+<p><strong>Answer:</strong> node --inspect server.js</p>
+<p>Then open chrome://inspect and click inspect under Remote Target.</p>
+<p><strong>Q112.</strong> What can high GC time in a profile signal?</p>
+<p><strong>Answer:</strong> Too many short-lived objects being allocated</p>
+<p>It points to a memory-usage problem rather than a raw CPU one.</p>
+<h3 id="08-security-basics"><a href="../level-3/08-security-basics/">08 · Security Basics</a><a class="headerlink" href="#08-security-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q113.</strong> What is the safe way to insert untrusted text into the page?</p>
+<p><strong>Answer:</strong> Set textContent, which is treated as plain text</p>
+<p>textContent is never parsed as HTML, avoiding XSS.</p>
+<p><strong>Q114.</strong> What does CSRF do?</p>
+<p><strong>Answer:</strong> Tricks a logged-in user's browser into submitting a request they didn't intend, using their session cookie</p>
+<p>For example, a hidden auto-submitting form on an attacker's page pointed at POST /transfer.</p>
+<p><strong>Q115.</strong> In EJS, which tag is the dangerous unescaped one?</p>
+<p><strong>Answer:</strong> &lt;%- value %&gt;</p>
+<p>&lt;%= escapes by default; the raw &lt;%- helper on untrusted input is the danger.</p>
+<p><strong>Q116.</strong> What does npm audit help with?</p>
+<p><strong>Answer:</strong> Catching known-vulnerable dependencies</p>
+<p>It is one of the practices covered alongside input sanitization.</p>
+<h3 id="09-build-bundling-deep-dive"><a href="../level-3/09-build-bundling/">09 · Build &amp; Bundling Deep Dive</a><a class="headerlink" href="#09-build-bundling-deep-dive" title="Permanent link">&para;</a></h3>
+<p><strong>Q117.</strong> What does Vite use during development vs. production?</p>
+<p><strong>Answer:</strong> Native ES modules in development and Rollup for the production bundle</p>
+<p>This gives instant startup in dev and an optimized bundle for production.</p>
+<p><strong>Q118.</strong> Why use [contenthash] in webpack's output filename?</p>
+<p><strong>Answer:</strong> The hash changes when content changes, busting the browser cache</p>
+<p>New content gets a new filename, so browsers fetch the update.</p>
+<p><strong>Q119.</strong> What does the Vite server.proxy option for "/api" do?</p>
+<p><strong>Answer:</strong> Forwards API calls to a backend during dev</p>
+<p>In the example it forwards to http://localhost:3000.</p>
+<p><strong>Q120.</strong> What is code splitting for?</p>
+<p><strong>Answer:</strong> So users only download what a given page needs</p>
+<p>It is one of the techniques that most affects real-world load performance.</p>
+<h3 id="10-project-rest-api-database"><a href="../level-3/10-project-rest-api-db/">10 · Project — REST API + Database</a><a class="headerlink" href="#10-project-rest-api-database" title="Permanent link">&para;</a></h3>
+<p><strong>Q121.</strong> Why does the project use an in-memory database (:memory:) for tests?</p>
+<p><strong>Answer:</strong> Tests never touch catalog.db on disk while the same schema and logic are exercised</p>
+<p>A real file is used by the running app, :memory: by the tests.</p>
+<p><strong>Q122.</strong> Which route updates an existing book?</p>
+<p><strong>Answer:</strong> PUT /books/:id</p>
+<p>The API offers full CRUD: list, get one, create, update and delete.</p>
+<p><strong>Q123.</strong> What does the centralized error-handling middleware achieve?</p>
+<p><strong>Answer:</strong> Errors are handled in one place so nothing crashes the server</p>
+<p>The project lists it as a requirement alongside validation.</p>
+<p><strong>Q124.</strong> Which test libraries cover every route in the project?</p>
+<p><strong>Answer:</strong> Jest and supertest</p>
+<p>The suite uses Jest with supertest against the Express app.</p>
+<h2 id="level-4-master">Level 4 · Master<a class="headerlink" href="#level-4-master" title="Permanent link">&para;</a></h2>
+<h3 id="01-full-stack-architecture-patterns"><a href="../level-4/01-fullstack-architecture/">01 · Full-Stack Architecture Patterns</a><a class="headerlink" href="#01-full-stack-architecture-patterns" title="Permanent link">&para;</a></h3>
+<p><strong>Q125.</strong> In the layered architecture, which layer is the only one that knows about SQL or an ORM?</p>
+<p><strong>Answer:</strong> repositories</p>
+<p>Routes handle HTTP, services hold business logic, and repositories handle data access.</p>
+<p><strong>Q126.</strong> Why is the users service easy to unit test?</p>
+<p><strong>Answer:</strong> It depends on an abstract repository, so a fake can replace Postgres (dependency injection)</p>
+<p>Business logic stays independent of HTTP and SQL.</p>
+<p><strong>Q127.</strong> What is a monorepo?</p>
+<p><strong>Answer:</strong> Multiple related packages in one repository with one history</p>
+<p>A polyrepo splits each package into its own repository; neither is universally right.</p>
+<p><strong>Q128.</strong> What should controllers do in this structure?</p>
+<p><strong>Answer:</strong> Act as thin glue translating HTTP to service calls</p>
+<p>The controller calls the service and maps results or errors to HTTP responses.</p>
+<h3 id="02-advanced-typescript"><a href="../level-4/02-advanced-typescript/">02 · Advanced TypeScript</a><a class="headerlink" href="#02-advanced-typescript" title="Permanent link">&para;</a></h3>
+<p><strong>Q129.</strong> What is the benefit of function first&lt;T&gt;(arr: T[]): T | undefined over using any?</p>
+<p><strong>Answer:</strong> The return type is tied to the input type</p>
+<p>first([1,2,3]) is number | undefined, while an any version loses type information.</p>
+<p><strong>Q130.</strong> What does Partial&lt;Product&gt; produce?</p>
+<p><strong>Answer:</strong> A type where every field is optional</p>
+<p>It is useful for PATCH-style update payloads.</p>
+<p><strong>Q131.</strong> What does Omit&lt;Product, "price"&gt; produce?</p>
+<p><strong>Answer:</strong> Product without the price field</p>
+<p>Pick selects named fields; Omit removes them.</p>
+<p><strong>Q132.</strong> What does &lt;T extends HasId&gt; do?</p>
+<p><strong>Answer:</strong> Restricts T to types that have an id</p>
+<p>It is a generic constraint that guarantees a known shape.</p>
+<h3 id="03-microservices-serverless-patterns"><a href="../level-4/03-microservices-serverless/">03 · Microservices &amp; Serverless Patterns</a><a class="headerlink" href="#03-microservices-serverless-patterns" title="Permanent link">&para;</a></h3>
+<p><strong>Q133.</strong> What is the most common microservices mistake?</p>
+<p><strong>Answer:</strong> Splitting by technical layer instead of business capability</p>
+<p>Good boundaries are business capabilities, such as orders, inventory and notifications.</p>
+<p><strong>Q134.</strong> What is a distributed monolith?</p>
+<p><strong>Answer:</strong> Services that can't deploy independently, combining microservices' operational cost with a monolith's coupling</p>
+<p>If another team's release can block you, it isn't really an independent service.</p>
+<p><strong>Q135.</strong> What is the trade-off of asynchronous messaging between services?</p>
+<p><strong>Answer:</strong> It decouples availability but adds eventual consistency</p>
+<p>Synchronous HTTP/gRPC is simpler but couples availability.</p>
+<p><strong>Q136.</strong> What does serverless mean in this lesson?</p>
+<p><strong>Answer:</strong> A cloud platform runs individual functions on demand</p>
+<p>It is one of two paths when a monolith outgrows a single deployable unit.</p>
+<h3 id="04-advanced-security-practices"><a href="../level-4/04-advanced-security/">04 · Advanced Security Practices</a><a class="headerlink" href="#04-advanced-security-practices" title="Permanent link">&para;</a></h3>
+<p><strong>Q137.</strong> What is the difference between authentication and authorization?</p>
+<p><strong>Answer:</strong> Authentication verifies who you are; authorization decides what you may do</p>
+<p>A valid token doesn't automatically mean the request should be allowed.</p>
+<p><strong>Q138.</strong> Which status code does the lesson's requireRole return when the role doesn't match?</p>
+<p><strong>Answer:</strong> 403 forbidden</p>
+<p>401 is used for a missing or invalid token; 403 for lacking permission.</p>
+<p><strong>Q139.</strong> Why are access tokens short-lived (15m)?</p>
+<p><strong>Answer:</strong> JWTs are hard to revoke early, so a short life limits exposure</p>
+<p>A JWT can be verified without a database lookup, but can't easily be revoked before expiry.</p>
+<p><strong>Q140.</strong> Where should the JWT signing secret come from?</p>
+<p><strong>Answer:</strong> An environment variable, never hardcoded</p>
+<p>The code reads process.env.JWT_ACCESS_SECRET.</p>
+<h3 id="05-testing-at-scale"><a href="../level-4/05-testing-at-scale/">05 · Testing at Scale</a><a class="headerlink" href="#05-testing-at-scale" title="Permanent link">&para;</a></h3>
+<p><strong>Q141.</strong> What shape does the testing pyramid recommend?</p>
+<p><strong>Answer:</strong> Many unit tests, fewer integration tests and a small number of high-value E2E tests</p>
+<p>Covering every click path would be slow and brittle.</p>
+<p><strong>Q142.</strong> What can E2E tests catch that unit tests structurally cannot?</p>
+<p><strong>Answer:</strong> CSS hiding a button or a bug only in Safari</p>
+<p>Playwright drives a real browser, so it sees rendered output.</p>
+<p><strong>Q143.</strong> Which tool drives Chromium, Firefox and WebKit in this lesson?</p>
+<p><strong>Answer:</strong> Playwright</p>
+<p>Cypress is mentioned as another E2E option.</p>
+<p><strong>Q144.</strong> Why does the config set retries only when process.env.CI is set?</p>
+<p><strong>Answer:</strong> Flaky E2E tests get automatic retries in CI</p>
+<p>retries: process.env.CI ? 2 : 0.</p>
+<h3 id="06-scaling-nodejs-applications"><a href="../level-4/06-scaling-nodejs/">06 · Scaling Node.js Applications</a><a class="headerlink" href="#06-scaling-nodejs-applications" title="Permanent link">&para;</a></h3>
+<p><strong>Q145.</strong> What does CPU-heavy synchronous work do in Node?</p>
+<p><strong>Answer:</strong> Blocks the entire event loop and stalls every other request</p>
+<p>Offload it to a worker thread to keep the event loop free.</p>
+<p><strong>Q146.</strong> What does the cluster module do?</p>
+<p><strong>Answer:</strong> Forks multiple copies of the process, one per CPU core, sharing a port</p>
+<p>A crashed worker doesn't take down the whole app.</p>
+<p><strong>Q147.</strong> In the cluster example, what happens when a worker dies?</p>
+<p><strong>Answer:</strong> The primary logs it and forks a replacement</p>
+<p>cluster.fork() keeps the pool at full strength.</p>
+<p><strong>Q148.</strong> Why does Node handle many concurrent I/O requests well on one thread?</p>
+<p><strong>Answer:</strong> I/O such as database and HTTP calls is non-blocking</p>
+<p>Scaling beyond one core needs clustering, caching and load balancing.</p>
+<h3 id="07-real-time-applications"><a href="../level-4/07-realtime-applications/">07 · Real-Time Applications</a><a class="headerlink" href="#07-real-time-applications" title="Permanent link">&para;</a></h3>
+<p><strong>Q149.</strong> Why are WebSockets better than polling for live features?</p>
+<p><strong>Answer:</strong> One long-lived two-way connection pushes data the instant it's available</p>
+<p>Polling wastes requests and adds latency equal to the interval.</p>
+<p><strong>Q150.</strong> In the counter example, why does the server call broadcast?</p>
+<p><strong>Answer:</strong> To push the new value to every connected client, not just the sender</p>
+<p>The server loops over all clients whose readyState is OPEN.</p>
+<p><strong>Q151.</strong> What does Socket.IO add on top of WebSockets?</p>
+<p><strong>Answer:</strong> Fallback to HTTP long-polling and extras such as rooms</p>
+<p>It falls back to long-polling when needed.</p>
+<p><strong>Q152.</strong> Why does the server check client.readyState === client.OPEN before sending?</p>
+<p><strong>Answer:</strong> To avoid sending to connections that aren't open</p>
+<p>Sending on closed sockets would fail.</p>
+<h3 id="08-cicd-for-javascript-projects"><a href="../level-4/08-cicd/">08 · CI/CD for JavaScript Projects</a><a class="headerlink" href="#08-cicd-for-javascript-projects" title="Permanent link">&para;</a></h3>
+<p><strong>Q153.</strong> What is the main difference between Continuous Delivery and Continuous Deployment?</p>
+<p><strong>Answer:</strong> Delivery needs a human to approve the deploy; Deployment ships automatically on merge</p>
+<p>Most teams use continuous delivery for production and full deployment for staging or preview.</p>
+<p><strong>Q154.</strong> What does the matrix strategy in the test job do?</p>
+<p><strong>Answer:</strong> Runs tests against multiple Node versions (18, 20, 22)</p>
+<p>It verifies the code on each supported Node version.</p>
+<p><strong>Q155.</strong> What does needs: lint do on the test job?</p>
+<p><strong>Answer:</strong> The test job waits for the lint job to succeed first</p>
+<p>Jobs form a lint → test → build → deploy chain.</p>
+<p><strong>Q156.</strong> Why does the deploy job have if: github.ref == 'refs/heads/main'?</p>
+<p><strong>Answer:</strong> Only deploy from main, never from PR branches</p>
+<p>The production environment can also require manual approval.</p>
+<h3 id="09-observability"><a href="../level-4/09-observability/">09 · Observability</a><a class="headerlink" href="#09-observability" title="Permanent link">&para;</a></h3>
+<p><strong>Q157.</strong> Why use structured (JSON) logs instead of free-form text?</p>
+<p><strong>Answer:</strong> Log aggregators can filter and query them reliably</p>
+<p>Examples of aggregators are Datadog, CloudWatch and Elastic.</p>
+<p><strong>Q158.</strong> How does winston differ from pino in the lesson?</p>
+<p><strong>Answer:</strong> More configurable, with multiple transports, at the cost of more overhead</p>
+<p>pino is very low-overhead; winston can write to Console and File and other transports at once.</p>
+<p><strong>Q159.</strong> What does req.log.info({ orderId }, "fetching order") demonstrate?</p>
+<p><strong>Answer:</strong> Logging structured fields instead of string concatenation</p>
+<p>pino-http attaches request-scoped logging.</p>
+<p><strong>Q160.</strong> Why can't you rely on a debugger in production across multiple instances?</p>
+<p><strong>Answer:</strong> You can't attach and step through a running system, so you use logs, metrics and health checks</p>
+<p>Observability explains what a running system is doing without interrupting it.</p>
+<h3 id="10-capstone-project"><a href="../level-4/10-capstone-project/">10 · Capstone Project</a><a class="headerlink" href="#10-capstone-project" title="Permanent link">&para;</a></h3>
+<p><strong>Q161.</strong> What is the capstone project?</p>
+<p><strong>Answer:</strong> A Task Tracker API with JWT-protected REST routes backed by SQLite</p>
+<p>Users register, log in and manage their own tasks.</p>
+<p><strong>Q162.</strong> Why can the database be swapped for Postgres or MySQL without changing business logic?</p>
+<p><strong>Answer:</strong> The repository layer is the only place that knows about SQL</p>
+<p>The layering keeps business logic independent of the data store.</p>
+<p><strong>Q163.</strong> How does config.js choose the database path under test?</p>
+<p><strong>Answer:</strong> Uses :memory: when NODE_ENV is test</p>
+<p>Otherwise it uses ./data/tasks.db unless DB_PATH is set.</p>
+<p><strong>Q164.</strong> Which pieces does the capstone bring together?</p>
+<p><strong>Answer:</strong> REST API, data layer, JWT auth, tests, container image and CI pipeline</p>
+<p>It is the final production-shaped project of the whole JavaScript course.</p>
+<h2 id="mixed-questions-across-all-levels">Mixed questions across all levels<a class="headerlink" href="#mixed-questions-across-all-levels" title="Permanent link">&para;</a></h2>
+<p><strong>Q165.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>console.log(typeof null, typeof undefined, 5 === "5");
+</code></pre></div>
+<p><strong>Answer:</strong> object undefined false</p>
+<p>typeof null is the long-standing quirk "object"; === checks type, so 5 === "5" is false.</p>
+<p><strong>Q166.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>const o = { a: 1 };
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>const { a, b = 5 } = o;
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>console.log(a, b);
+</code></pre></div>
+<p><strong>Answer:</strong> 1 5</p>
+<p>Destructuring takes a from the object and falls back to the default 5 for the missing b.</p>
+<p><strong>Q167.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>function mk() { let c = 0; return () =&gt; ++c; }
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>const f = mk(); f();
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>console.log(f());
+</code></pre></div>
+<p><strong>Answer:</strong> 2</p>
+<p>The returned function closes over c, so the second call returns 2.</p>
+<p><strong>Q168.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>console.log([1,2,3,4,5].filter(n =&gt; n % 2).reduce((s, n) =&gt; s + n, 0));
+</code></pre></div>
+<p><strong>Answer:</strong> 9</p>
+<p>filter keeps 1, 3, 5, and reduce sums them to 9.</p>
+<p><strong>Q169.</strong> What do Number("42px") and parseInt("42px") return?</p>
+<p><strong>Answer:</strong> NaN and 42</p>
+<p>Number must parse the whole string; parseInt reads the leading digits and ignores the rest.</p>
+<p><strong>Q170.</strong> What is the order of the output?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>setTimeout(() =&gt; console.log("t"), 0);
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Promise.resolve().then(() =&gt; console.log("p"));
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>console.log("s");
+</code></pre></div>
+<p><strong>Answer:</strong> s, p, t</p>
+<p>Synchronous code first, then the microtask queue (promise callbacks), then the task queue (timers).</p>
+<p><strong>Q171.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>console.log(null ?? "d", 0 ?? "d", 0 || "d");
+</code></pre></div>
+<p><strong>Answer:</strong> d 0 d</p>
+<p>?? only falls back for null or undefined, so 0 is kept; || falls back for any falsy value, including 0.</p>
+<p><strong>Q172.</strong> What does [10, 9, 1].sort() return?</p>
+<p><strong>Answer:</strong> [1, 10, 9]</p>
+<p>With no comparison function, sort compares elements as strings, so "1" &lt; "10" &lt; "9".</p>
+<p><strong>Q173.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>class A { speak() { return "a"; } }
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>class B extends A { speak() { return super.speak() + "b"; } }
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>console.log(new B().speak());
+</code></pre></div>
+<p><strong>Answer:</strong> ab</p>
+<p>super.speak() calls the parent's method, then the subclass adds "b".</p>
+<p><strong>Q174.</strong> What does JSON.stringify({ x: undefined, y: () =&gt; 1, z: null, d: 1 }) return?</p>
+<p><strong>Answer:</strong> {"z":null,"d":1}</p>
+<p>Functions and undefined values are omitted; null is kept.</p>
+<p><strong>Q175.</strong> What do these two loops print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>for (var i = 0; i &lt; 3; i++) setTimeout(() =&gt; console.log(i), 0);
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>for (let j = 0; j &lt; 3; j++) setTimeout(() =&gt; console.log(j), 0);
+</code></pre></div>
+<p><strong>Answer:</strong> 3 3 3 then 0 1 2</p>
+<p>var is function-scoped, so all callbacks see the final i (3); let creates a new j for each iteration.</p>
+<p><strong>Q176.</strong> You need to run three independent API calls and use all results. Which is best?</p>
+<p><strong>Answer:</strong> await Promise.all([a(), b(), c()])</p>
+<p>Promise.all runs them concurrently, so the total wait is the slowest call, not the sum.</p>
+<p><strong>Q177.</strong> A service has to report which of five health checks failed without stopping at the first failure. Which should you use?</p>
+<p><strong>Answer:</strong> Promise.allSettled</p>
+<p>allSettled waits for everything and reports each outcome; all rejects on the first failure.</p>
+<p><strong>Q178.</strong> A user types in a comment box and you insert their text into the page. Which is the safe way?</p>
+<p><strong>Answer:</strong> element.textContent = comment</p>
+<p>textContent treats the text as plain text, which prevents XSS; innerHTML would parse injected markup.</p>
+<p><strong>Q179.</strong> An Express route receives POST /notes with no <code>text</code> field in the body. What should a well-designed handler return?</p>
+<p><strong>Answer:</strong> 400 with an error message</p>
+<p>Validate input and return a 400 Bad Request; 201 is for successful creation.</p>
+<p><strong>Q180.</strong> Why do the lessons use prepared statements with ? placeholders for database queries?</p>
+<p><strong>Answer:</strong> To prevent SQL injection</p>
+<p>Values are passed as data, never concatenated into the SQL string.</p>
+<p><strong>Q181.</strong> Your Node server freezes every other request while one endpoint runs a 10-second CPU-heavy loop. What is the cause and the fix?</p>
+<p><strong>Answer:</strong> It blocks the single-threaded event loop; offload it to a worker thread</p>
+<p>CPU-bound work blocks the event loop; worker_threads (or clustering) keeps it free.</p>
+<p><strong>Q182.</strong> A JWT access token is short-lived (15 minutes) on purpose. Why?</p>
+<p><strong>Answer:</strong> JWTs are hard to revoke, so a short life limits the damage if one leaks</p>
+<p>A JWT is verified without a database lookup, so you can't easily revoke it before it expires.</p>
+<p><strong>Q183.</strong> In a Jest test, how do you verify that a function was called with specific arguments?</p>
+<p><strong>Answer:</strong> expect(mockFn).toHaveBeenCalledWith(...)</p>
+<p>toHaveBeenCalledWith checks a mock's call arguments; toHaveBeenCalledTimes checks the count.</p>
+<p><strong>Q184.</strong> Which package.json setting lets plain .js files use import/export in Node?</p>
+<p><strong>Answer:</strong> "type": "module"</p>
+<p>Otherwise .js files are CommonJS by default unless you rename to .mjs.</p>
+<h2 id="practical-coding-questions">Practical coding questions<a class="headerlink" href="#practical-coding-questions" title="Permanent link">&para;</a></h2>
+<h3 id="group-words-by-length">Group words by length<a class="headerlink" href="#group-words-by-length" title="Permanent link">&para;</a></h3>
+<p>Write <code>groupByLength(words)</code> that returns an object whose keys are word lengths and whose values are arrays of the words with that length, in input order. Print the result with <code>JSON.stringify</code>.</p>
+<p>Starter code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>function groupByLength(words) {
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  // your code here
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>}
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>console.log(JSON.stringify(groupByLength(["to", "be", "or", "not", "bee"])));
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>{"2":["to","be","or"],"3":["not","bee"]}
+</code></pre></div>
+<p>??? success "Show a solution"</p>
+<div class="highlight"><pre><span></span><code>```
+function groupByLength(words) {
+  const out = {};
+  for (const w of words) (out[w.length] ??= []).push(w);
+  return out;
+}
+console.log(JSON.stringify(groupByLength(["to", "be", "or", "not", "bee"])));
+```
+
+`??=` creates the array the first time a length is seen, then push adds the word. Object keys are strings, so the lengths print as "2" and "3".
+</code></pre></div>
+<h3 id="run-promises-in-parallel-and-handle-an-error">Run promises in parallel and handle an error<a class="headerlink" href="#run-promises-in-parallel-and-handle-an-error" title="Permanent link">&para;</a></h3>
+<p>Use <code>Promise.all</code> to wait for three delayed values (<code>a</code>, <code>b</code>, <code>c</code>) and print them joined by commas in the original order, then show that <code>await</code> on a rejected promise can be caught with try/catch.</p>
+<p>Starter code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>const delay = (ms, v) =&gt; new Promise((r) =&gt; setTimeout(() =&gt; r(v), ms));
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>async function main() {
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  // 1. await Promise.all([...]) with delays 30, 10, 20ms for "a", "b", "c"; print the results joined with ","
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  // 2. try { await Promise.reject(new Error("boom")); } catch ... print "caught boom"
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>}
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>main();
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>a,b,c
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>caught boom
+</code></pre></div>
+<p>??? success "Show a solution"</p>
+<div class="highlight"><pre><span></span><code>```
+const delay = (ms, v) =&gt; new Promise((r) =&gt; setTimeout(() =&gt; r(v), ms));
+async function main() {
+  const results = await Promise.all([delay(30, "a"), delay(10, "b"), delay(20, "c")]);
+  console.log(results.join(","));
+  try { await Promise.reject(new Error("boom")); } catch (e) { console.log("caught", e.message); }
+}
+main();
+```
+
+Promise.all keeps results in the order the promises were passed, even though b finishes first. try/catch around await catches rejected promises.
+</code></pre></div>
+<hr />
+<p>More free practice: the <a href="../">JavaScript Mastery Path</a> curriculum, the <a href="https://learnmasterypath.com/interview-pack/">Interview Prep Pack</a> and the <a href="https://learnmasterypath.com/resume/">free resume ATS check</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+  <nav class="mp-related" aria-label="Related free courses">
+    <h2>Related free courses</h2>
+    <ul>
+      <li><a href="https://learnmasterypath.com/python-mastery-path/">Python</a></li><li><a href="https://learnmasterypath.com/java-mastery-path/">Java</a></li><li><a href="https://learnmasterypath.com/typescript-mastery-path/">TypeScript</a></li><li><a href="https://learnmasterypath.com/csharp-mastery-path/">C#</a></li><li><a href="https://learnmasterypath.com/shell-mastery-path/">Shell/Bash</a></li>
+      <li><a href="https://learnmasterypath.com/">All 100+ courses &rarr;</a></li>
+    </ul>
+  </nav>
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cheat-sheet/" class="md-footer__link md-footer__link--next" aria-label="Next: Cheat Sheet">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Cheat Sheet
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  <div class="mp-foot">
+    <div class="mp-foot-inner">
+      <a class="mp-foot-brand" href="https://learnmasterypath.com/"><svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg><span>Mastery Path</span></a>
+      <nav class="mp-sitelinks" aria-label="Site and legal links">
+        <a href="https://learnmasterypath.com/">All courses</a>
+        <a href="https://learnmasterypath.com/about.html">About</a>
+        <a href="https://learnmasterypath.com/contact.html">Contact</a>
+        <a href="https://learnmasterypath.com/javascript-mastery-path/privacy/">Privacy Policy</a>
+        <a href="https://learnmasterypath.com/terms.html">Terms</a>
+        <a href="https://learnmasterypath.com/javascript-mastery-path/license/">License</a>
+        <a href="https://learnmasterypath.com/verify/">Verify a certificate</a>
+      </nav>
+    </div>
+    <p class="mp-license-note">
+      © 2026 Vinod Kumar Sigilipelli · Except where otherwise noted, lesson content is licensed under
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> and code examples under the
+      <a href="https://opensource.org/license/mit">MIT License</a>.
+    </p>
+  </div>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.path", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/progress-tracker.js"></script>
+      
+        <script src="../javascripts/final-quiz.js"></script>
+      
+    
+  </body>
+</html>
